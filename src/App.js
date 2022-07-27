@@ -1,7 +1,10 @@
+// import Logo from './components/Logo';
+import { ReactComponent as Logo } from './assets/svg/CatwikiLogo.svg';
+
 function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      <Logo />
     </div>
   );
 }
