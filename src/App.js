@@ -7,7 +7,9 @@ import Input from './components/Input';
 import Card from './components/Card';
 import Container from './components/Container';
 import Footer from './components/Footer';
-import { StyledInput } from './styles/Input.styled';
+import { StyledHero } from './styles/Hero.styled';
+import { Cover } from './styles/Cover';
+import { Wrapper } from './styles/Wrapper';
 
 const theme = {
   colors: {
@@ -25,11 +27,15 @@ function App() {
         <GlobalStyles />
         <Header />
         <div className="Container">
-          <StyledInput>
-            <Logo />
-            <p>Get to know more about your cat breed</p>
+          <StyledHero>
+            <Wrapper>
+              <Logo theme='dark'/>
+              <Cover />
+            </Wrapper>
+
+            <p style={{color: '#fff'}}>Get to know more about your cat breed</p>
             <Input />
-          </StyledInput>
+          </StyledHero>
           <section>
             <header>
               <h3>Most Searched Breeds</h3>

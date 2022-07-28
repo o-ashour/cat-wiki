@@ -1,4 +1,4 @@
-import { StyledInput } from "../styles/Input.styled";
+
 
 function Input() {
   return (
