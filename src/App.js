@@ -3,13 +3,14 @@ import GlobalStyles from './styles/Global';
 import Logo from './components/Logo';
 import Header from './components/Header';
 import Desc from './components/Desc';
-import Input from './components/Input';
 import Card from './components/Card';
 import Container from './components/Container';
 import Footer from './components/Footer';
 import { StyledHero } from './styles/Hero.styled';
 import { Cover } from './styles/Cover';
 import { Wrapper } from './styles/Wrapper';
+import { StyledInput } from './styles/Input.styled';
+import { FaSearch } from 'react-icons/fa';
 
 const theme = {
   colors: {
@@ -29,12 +30,12 @@ function App() {
         <div className="Container">
           <StyledHero>
             <Wrapper>
-              <Logo theme='dark'/>
+              <Logo theme='dark' size='small'/>
               <Cover />
             </Wrapper>
-
-            <p style={{color: '#fff'}}>Get to know more about your cat breed</p>
-            <Input />
+            <Desc />  
+            <StyledInput placeholder='Search'/>
+            <FaSearch />
           </StyledHero>
           <section>
             <header>

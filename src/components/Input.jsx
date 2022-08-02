@@ -1,5 +1,3 @@
-
-
 function Input() {
   return (
     <input placeholder="Search">
