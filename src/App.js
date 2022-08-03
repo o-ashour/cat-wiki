@@ -3,21 +3,23 @@ import GlobalStyles from './styles/Global';
 import Logo from './components/Logo';
 import Header from './components/Header';
 import Desc from './components/Desc';
+import Input from './components/Input';
 import Card from './components/Card';
 import Container from './components/Container';
 import Footer from './components/Footer';
 import { StyledHero } from './styles/Hero.styled';
 import { Cover } from './styles/Cover';
 import { Wrapper } from './styles/Wrapper';
-import { StyledInput } from './styles/Input.styled';
-import { FaSearch } from 'react-icons/fa';
+import Discover from './components/Discover';
+import { StyledContainer } from './styles/StyledContainer';
 
 const theme = {
   colors: {
     primary: '#fff',
     secondary: '#E3E1DC',
     tertiary: '#000',
-    accent: '#291507',
+    accent_1: '#291507',
+    accent_2: '#4D270C'
   }
 }
 
@@ -27,30 +29,17 @@ function App() {
       <div className="App">
         <GlobalStyles />
         <Header />
-        <div className="Container">
+        <StyledContainer>
           <StyledHero>
             <Wrapper>
               <Logo theme='dark' size='small'/>
               <Cover />
             </Wrapper>
             <Desc />  
-            <StyledInput placeholder='Search'/>
-            <FaSearch />
+            <Input />
           </StyledHero>
-          <section>
-            <header>
-              <h3>Most Searched Breeds</h3>
-              <hr></hr>
-              <h2>66+ Breeds For you to Discover</h2>
-            </header>
-            <article>
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-            </article>
-          </section>
-        </div>
+          <Discover />
+        </StyledContainer>
         <hr></hr>
         <article>
           <section>

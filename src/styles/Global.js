@@ -23,6 +23,14 @@ const GlobalStyles = createGlobalStyle`
   img {
     max-width: 100%;
   }
+
+  hr {
+    margin: 0;
+  }
+
+  figure {
+    margin: 0;
+  }
 `
 // @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap');
 
