@@ -4,6 +4,7 @@ export const StyledDiscover = styled.section`
   background-color: ${(props) => props.theme.colors.secondary};
   color: ${(props) => props.theme.colors.accent};
   padding: 1.2em 1.8em;
+  border-radius: 0 0 3em 3em;
 
   header {
     h3 {

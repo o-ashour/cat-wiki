@@ -12,6 +12,8 @@ import { Cover } from './styles/Cover';
 import { Wrapper } from './styles/Wrapper';
 import Discover from './components/Discover';
 import { StyledContainer } from './styles/StyledContainer';
+import { StyledC2a } from './styles/C2a.styled';
+import { FaLongArrowAltRight } from 'react-icons/fa';
 
 const theme = {
   colors: {
@@ -40,22 +42,22 @@ function App() {
           </StyledHero>
           <Discover />
         </StyledContainer>
-        <hr></hr>
-        <article>
+        <StyledC2a>
+          <hr></hr>
           <section>
             <h1>Why should you have a cat?</h1>
             <p>Having a cat around can actually trigger the release of calming chemicals in your body which lower your stress and anxiety levels</p>
             <button>
               <a href="#">
                 READ MORE 
-                <i></i>
+                <FaLongArrowAltRight style={{fontSize: '0.9rem', marginLeft: '0.75em'}}/>
               </a>
             </button>
           </section>
           <section>
             <Container className="article-images" />
           </section>
-        </article>
+        </StyledC2a>
         <Footer />
       </div>
     </ThemeProvider>

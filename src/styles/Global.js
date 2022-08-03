@@ -20,6 +20,13 @@ const GlobalStyles = createGlobalStyle`
     line-height: 1.5;
   }
 
+  button {
+    background: none;
+    border: none;
+    font-family: 'Montserrat', sans-serif; 
+    padding: 0;   
+  }
+
   img {
     max-width: 100%;
   }

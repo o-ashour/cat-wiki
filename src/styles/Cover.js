@@ -5,5 +5,5 @@ export const Cover = styled.div`
   width: 4em;
   background: #000;
   position: absolute;
-  left: 5em;
+  left: 6.25em;
 `
