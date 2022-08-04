@@ -5,7 +5,8 @@ export const StyledImgContainer = styled.div`
   grid-template-columns: 0.25fr 1.15fr 1.3fr;
   gap: 1em;
   grid-gap: 1em;
-
+  margin-top: 4em;
+  padding-bottom: 7em;
 
   img:nth-child(1){
     grid-row: 1 / 2;

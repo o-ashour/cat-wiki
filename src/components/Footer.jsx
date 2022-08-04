@@ -1,11 +1,12 @@
 import Logo from "./Logo";
+import { StyledFooter } from "../styles/Footer.styled";
 
 function Footer() {
   return (
-    <footer>
-      <Logo />
-      <p> &#169; created by <a href="#">username</a> - devChallenge.io 2021</p>
-    </footer>
+    <StyledFooter>
+      <Logo theme="dark" size="small"/>
+      <p> <span>&#169; </span><span>created by <a href="#">Omar Ashour</a> - devChallenge.io 2022</span></p>
+    </StyledFooter>
   )
 }
 

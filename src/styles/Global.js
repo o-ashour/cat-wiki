@@ -7,9 +7,14 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box; 
   }
 
+  html {
+    min-height: 100%;
+  }
+
   body {
+    min-height: 100%;
+    position: relative;
     background: ${({ theme }) => theme.colors.primary};
-    height: 100%;
     margin: 0;
     font-family: 'Montserrat', sans-serif;    
     font-size: 16px; 
@@ -18,6 +23,12 @@ const GlobalStyles = createGlobalStyle`
 
   p {
     line-height: 1.5;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
   }
 
   button {
@@ -39,9 +50,5 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
   }
 `
-// @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap');
-
-
-// @import url('https://fonts.googleapis.com/css2?family=Cormorant+SC&display=swap');
 export default GlobalStyles;
 

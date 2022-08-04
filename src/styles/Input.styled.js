@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { FaSearch } from 'react-icons/fa';
 
 export const StyledInput = styled.input`
   font-family: 'Montserrat', sans-serif;    

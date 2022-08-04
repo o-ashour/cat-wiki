@@ -15,7 +15,7 @@ export const StyledC2a = styled.article`
   }
 
   p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 500;
   }
 
