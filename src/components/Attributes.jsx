@@ -1,5 +1,5 @@
 import Attribute from "./Attribute";
-import { StyledAttributes } from "../styles/Attributes.styled";
+import { StyledAttributes } from "./styles/Attributes.styled";
 
 function Attributes(){
   return(

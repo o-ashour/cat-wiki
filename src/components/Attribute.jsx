@@ -1,4 +1,4 @@
-import { StyledAttribute } from "../styles/Attribute.styled";
+import { StyledAttribute } from "./styles/Attribute.styled";
 import HorizRules from "./HorizRules";
 
 function Attribute({ scale }) {

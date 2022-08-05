@@ -1,4 +1,4 @@
-import { StyledDiscover } from "../styles/Discover.styled";
+import { StyledDiscover } from "./styles/Discover.styled";
 import Card from "./Card";
 
 function Discover() {

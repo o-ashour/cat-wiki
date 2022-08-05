@@ -1,4 +1,4 @@
-import { StyledMatchbox } from "../styles/Matchbox.styled";
+import { StyledMatchbox } from "./styles/Matchbox.styled";
 
 function InputMatchbox() {
   return(

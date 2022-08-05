@@ -1,13 +1,13 @@
-import Logo from './components/Logo';
-import Desc from './components/Desc';
-import Input from './components/Input';
-import Container from './components/Container';
-import { StyledHero } from './styles/Hero.styled';
-import { Cover } from './styles/Cover';
-import { Wrapper } from './styles/Wrapper';
-import Discover from './components/Discover';
-import { StyledContainer } from './styles/StyledContainer';
-import { StyledC2a } from './styles/C2a.styled';
+import Logo from '../components/Logo';
+import Desc from '../components/Desc';
+import Input from '../components/Input';
+import Container from '../components/Container';
+import { StyledHero } from '../components/styles/Hero.styled';
+import { Cover } from '../components/styles/Cover';
+import { Wrapper } from '../components/styles/Wrapper';
+import Discover from '../components/Discover';
+import { StyledContainer } from '../components/styles/StyledContainer';
+import { StyledC2a } from '../components/styles/C2a.styled';
 import { FaLongArrowAltRight } from 'react-icons/fa';
 
 function App() {

@@ -1,6 +1,6 @@
 import { FaSearch } from 'react-icons/fa';
-import { StyledInput } from '../styles/Input.styled';
-import { StyledMatchbox } from '../styles/Matchbox.styled';
+import { StyledInput } from './styles/Input.styled';
+import { StyledMatchbox } from './styles/Matchbox.styled';
 
 function Input() {
   return (

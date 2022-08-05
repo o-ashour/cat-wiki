@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import bgImgSm from '../assets/images/HeroImagesm.png';
-import bgImgLg from '../assets/images/HeroImagelg.png';
+import bgImgSm from '../../assets/images/HeroImagesm.png';
+import bgImgLg from '../../assets/images/HeroImagelg.png';
 
 export const StyledHero = styled.section`
   background-image: url(${bgImgSm});

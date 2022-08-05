@@ -1,5 +1,5 @@
 import logo from '../assets/svg/CatwikiLogo.svg';
-import { StyledLogo } from '../styles/Logo.styled';
+import { StyledLogo } from './styles/Logo.styled';
 
 function Logo({ theme, section }){
   return(

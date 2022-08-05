@@ -1,7 +1,6 @@
 import Card from "./Card"
-import { Flex } from "../styles/Flex.styled";
-import { FaAngleRight } from "react-icons/fa";
-import { FaAngleLeft } from "react-icons/fa";
+import { Flex } from "./styles/Flex.styled";
+import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 
 function Gallery() {
   return (

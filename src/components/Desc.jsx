@@ -1,4 +1,4 @@
-import { StyledDesc } from "../styles/Desc.styled";
+import { StyledDesc } from "./styles/Desc.styled";
 
 function Desc() {
   return (

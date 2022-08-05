@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Routes, Route, Link, BrowserRouter} from 'react-router-dom';
-import App from './App';
-import Details from './Details';
-import TopSearch from './TopSearch';
-import Layout from './Layout';
+import App from './pages/App';
+import Details from './pages/Details';
+import TopSearch from './pages/TopSearch';
+import Layout from './pages/Layout';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

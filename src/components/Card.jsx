@@ -1,5 +1,5 @@
 import persianImg from '../assets/images/image 2.png'; 
-import { StyledCard } from '../styles/Card.styled';
+import { StyledCard } from './styles/Card.styled';
 
 function Card({ caption, imgWidth }) {
   return (

@@ -1,5 +1,5 @@
-import { StyledC2a } from "./styles/C2a.styled";
-import Card from "./components/Card";
+import { StyledC2a } from "../components/styles/C2a.styled";
+import Card from "../components/Card";
 
 function TopSearch(){
   return (
