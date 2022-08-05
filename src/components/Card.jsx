@@ -1,10 +1,12 @@
 import persianImg from '../assets/images/image 2.png'; 
 
-function Card() {
+function Card({ caption }) {
   return (
     <figure>
       <img src={persianImg} alt='persian' />  
-      <figcaption>Persian</figcaption>
+      <figcaption>
+        {caption === 'none' ? null : 'persian'}
+      </figcaption>
     </figure>
   )
 }

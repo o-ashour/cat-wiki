@@ -7,14 +7,14 @@ function Attributes(){
       <Attribute />
       <Attribute />
       <Attribute />
-      <Attribute />
-      <Attribute />
-      <Attribute />
-      <Attribute />
-      <Attribute />
-      <Attribute />
-      <Attribute />
-      <Attribute />
+      <Attribute scale="bars" />
+      <Attribute scale="bars" />
+      <Attribute scale="bars" />
+      <Attribute scale="bars" />
+      <Attribute scale="bars" />
+      <Attribute scale="bars" />
+      <Attribute scale="bars" />
+      <Attribute scale="bars" />
     </StyledAttributes>
   )
 };

@@ -1,10 +1,11 @@
 import { StyledAttribute } from "../styles/Attribute.styled";
+import HorizRules from "./HorizRules";
 
-function Attribute() {
+function Attribute({ scale }) {
   return (
     <StyledAttribute>
-      <span>Temperament: </span>
-      <span>Alert, Agile, Energetic, Demanding, Intelligent</span>
+      <p>Temperament: </p>
+      {scale === 'bars' ? <HorizRules /> : 'Alert, Agile, Energetic, Demanding, Intelligent'}
     </StyledAttribute>
   )
 }

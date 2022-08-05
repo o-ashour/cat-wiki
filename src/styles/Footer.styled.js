@@ -6,7 +6,7 @@ export const StyledFooter = styled.footer`
   margin: 0 1.15em;
   padding-bottom: 1em;
   border-radius: 3em 3em 0 0;
-  position: absolute;
+  position: relative;
   bottom: 0;
   
   img {

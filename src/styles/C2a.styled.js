@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledC2a = styled.article`
-  margin: 4em 1.25em 0;
+  margin: 2em 1.25em 0;
 
   hr {
     width: 3.2em;

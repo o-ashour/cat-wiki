@@ -11,7 +11,14 @@ const theme = {
     tertiary: '#000',
     accent_1: '#291507',
     accent_2: '#4D270C',
-    accent_3: '#DEC68B'
+    accent_3: '#DEC68B',
+    accent_4: '#544439',
+    accent_5: '#E0E0E0'
+  },
+  screens: {
+    small: '375px',
+    medium: '800px',
+    large: '1440px'
   }
 }
 

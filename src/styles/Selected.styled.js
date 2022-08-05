@@ -4,7 +4,7 @@ export const StyledSelected = styled.div`
 
   position: relative;
   width: 20em;
-  margin: 0 auto;
+  margin: 3em auto 0;
   display: flex;
   align-items: center;
 
