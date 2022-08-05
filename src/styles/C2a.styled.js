@@ -14,6 +14,11 @@ export const StyledC2a = styled.article`
     margin: 0.35em 0 1.4em;
   }
 
+  h2 {
+    font-weight: 600;
+    margin-top: 1.25em;
+  }
+
   p {
     font-size: 1rem;
     font-weight: 500;

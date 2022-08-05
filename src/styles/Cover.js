@@ -6,4 +6,8 @@ export const Cover = styled.div`
   background: #000;
   position: absolute;
   left: 6.25em;
+
+  @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
+    display: none;
+  }
 `

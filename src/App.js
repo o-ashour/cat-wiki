@@ -16,7 +16,7 @@ function App() {
       <StyledContainer>
         <StyledHero>
           <Wrapper>
-            <Logo theme='dark' size='small'/>
+            <Logo theme='dark' section='hero'/>
             <Cover />
           </Wrapper>
           <Desc />  

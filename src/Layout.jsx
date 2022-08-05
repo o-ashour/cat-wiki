@@ -15,10 +15,11 @@ const theme = {
     accent_4: '#544439',
     accent_5: '#E0E0E0'
   },
-  screens: {
-    small: '375px',
-    medium: '800px',
-    large: '1440px'
+  breakpoints: {
+    small: '600px',
+    medium: '768px',
+    large: '992px',
+    extra_large: '1200px',
   }
 }
 
