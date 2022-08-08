@@ -6,7 +6,7 @@ function Input() {
   return (
     <label>
       <StyledInput placeholder='Search' />
-      <FaSearch style={{fontSize:"0.75em", color: '#291507', position: 'relative', top: '0.06em', right: '2.05em'}}/>
+      <FaSearch />
       <StyledMatchbox>
         <ul>
           <li>American Bobtail</li>

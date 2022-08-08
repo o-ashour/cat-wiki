@@ -8,5 +8,6 @@ export const StyledDesc = styled.p`
   @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
     font-size: 1.5rem;
     width: 35%;
+    margin-top: 0.35em;
   }
 `

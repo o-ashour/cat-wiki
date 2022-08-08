@@ -19,7 +19,8 @@ export const StyledInput = styled.input`
 
   @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
     width: 28em;
-    padding: 1.75em 1.75em;
+    margin: 1.9em 0 4em;
+    padding: 1.9em 2em;
     border-radius: 3em;
     
     ::placeholder {
