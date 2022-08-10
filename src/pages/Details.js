@@ -1,8 +1,8 @@
 import { StyledC2a } from "../components/styles/C2a.styled";
 import persianImg from '../assets/images/image 2.png';
 import { StyledSelected } from "../components/styles/Selected.styled";
-import Attributes from "../components/Attributes";
-import Gallery from "../components/Gallery";
+import { Attributes } from "../components/Attributes";
+import { Gallery } from "../components/Gallery";
 import { StyledDetails } from "../components/styles/Details.styled";
 
 

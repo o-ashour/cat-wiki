@@ -1,5 +1,5 @@
 import { FaLongArrowAltRight } from 'react-icons/fa';
-import { StyledC2aReal } from './styles/C2aReal.styled';
+import { StyledC2aReal } from './style';
 
 function C2a({ value }){
   return (
@@ -12,4 +12,4 @@ function C2a({ value }){
   )
 }
 
-export default C2a;
+export { C2a };

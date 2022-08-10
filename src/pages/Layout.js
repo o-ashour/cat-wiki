@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
 import GlobalStyles from '../components/styles/Global';
 import { ThemeProvider } from 'styled-components';
 

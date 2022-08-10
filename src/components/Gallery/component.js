@@ -1,7 +1,8 @@
-import Card from "./Card"
-import { Flex } from "./styles/Flex.styled";
+import { Flex } from "../styles/Flex.styled";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
-import { StyledGallery } from "./styles/Gallery.styled";
+import { StyledGallery } from "./style";
+import { Card } from "../Cardi";
+
 
 function Gallery() {
   return (
@@ -25,4 +26,4 @@ function Gallery() {
   )
 }
 
-export default Gallery;
+export { Gallery };

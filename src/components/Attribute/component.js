@@ -1,5 +1,5 @@
-import { StyledAttribute } from "./styles/Attribute.styled";
-import HorizRules from "./HorizRules";
+import { StyledAttribute } from "./style";
+import HorizRules from "../HorizRules";
 
 function Attribute({ scale }) {
   return (
@@ -10,4 +10,4 @@ function Attribute({ scale }) {
   )
 }
 
-export default Attribute;
+export { Attribute };

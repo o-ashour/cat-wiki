@@ -1,4 +1,4 @@
-import { StyledDesc } from "./styles/Desc.styled";
+import { StyledDesc } from "./style";
 
 function Desc() {
   return (
@@ -6,4 +6,4 @@ function Desc() {
   )
 }
 
-export default Desc;
+export { Desc };

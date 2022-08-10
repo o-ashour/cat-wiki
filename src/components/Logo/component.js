@@ -1,5 +1,5 @@
-import logo from '../assets/svg/CatwikiLogo.svg';
-import { StyledLogo } from './styles/Logo.styled';
+import logo from '../../assets/svg/CatwikiLogo.svg';
+import { StyledLogo } from './style';
 
 function Logo({ theme, section }){
   return(
@@ -7,4 +7,4 @@ function Logo({ theme, section }){
   )
 };
 
-export default Logo;
+export { Logo };

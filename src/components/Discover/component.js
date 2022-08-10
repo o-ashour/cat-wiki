@@ -1,7 +1,7 @@
-import { StyledDiscover } from "./styles/Discover.styled";
-import Card from "./Card";
-import C2a from "./C2a";
-import { StyledSelected } from "./styles/Selected.styled";
+import { StyledDiscover } from "./style";
+import { Card } from "../Cardi";
+import { C2a } from "../C2a";
+import { StyledSelected } from "../styles/Selected.styled";
 
 function Discover() {
   return (
@@ -25,4 +25,4 @@ function Discover() {
   )
 }
 
-export default Discover;
+export { Discover };

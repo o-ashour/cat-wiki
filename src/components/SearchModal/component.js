@@ -1,4 +1,4 @@
-import { StyledMatchbox } from "./styles/Matchbox.styled";
+import { StyledMatchbox } from "./style";
 
 function InputMatchbox() {
   return(
@@ -13,4 +13,4 @@ function InputMatchbox() {
   )
 }
 
-export default InputMatchbox;
+export { InputMatchbox };

@@ -1,15 +1,14 @@
-import Logo from '../components/Logo';
-import Desc from '../components/Desc';
-import Input from '../components/Input';
-import Container from '../components/Container';
+import { Logo } from '../components/Logo';
+import { Desc } from '../components/Desc/component';
+import { Input } from '../components/InputField';
+import { Container } from '../components/Container';
 import { StyledHero } from '../components/styles/Hero.styled';
 import { Cover } from '../components/styles/Cover';
 import { Wrapper } from '../components/styles/Wrapper';
-import Discover from '../components/Discover';
+import { Discover } from '../components/Discover/component';
 import { StyledContainer } from '../components/styles/StyledContainer';
 import { StyledC2a } from '../components/styles/C2a.styled';
-import { FaLongArrowAltRight } from 'react-icons/fa';
-import C2a from '../components/C2a';
+import { C2a } from '../components/C2a';
 
 function App() {
   return (

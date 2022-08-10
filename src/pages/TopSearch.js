@@ -1,8 +1,6 @@
 import { StyledC2a } from "../components/styles/C2a.styled";
-import Card from "../components/Card";
 import { StyledTopSearch } from "../components/styles/TopSearch.styled";
-import Description from "../components/Description";
-import Profile from "../components/Profile";
+import { Profile } from "../components/ProfileBlock";
 import persianImg from '../assets/images/image 2.png'; 
 
 function TopSearch(){

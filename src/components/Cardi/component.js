@@ -1,6 +1,6 @@
-import persianImg from '../assets/images/image 2.png'; 
-import { StyledCard } from './styles/Card.styled';
-import { StyledSelected } from './styles/Selected.styled';
+import persianImg from '../../assets/images/image 2.png'; 
+import { StyledCard } from './style';
+import { StyledSelected } from '../styles/Selected.styled';
 
 function Card({ caption, imgWidth, selected }) {
   return (
@@ -18,4 +18,4 @@ function Card({ caption, imgWidth, selected }) {
   )
 }
 
-export default Card;
+export {Card};

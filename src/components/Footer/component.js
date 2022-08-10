@@ -1,5 +1,5 @@
-import Logo from "./Logo";
-import { StyledFooter } from "./styles/Footer.styled";
+import { Logo } from "../Logo";
+import { StyledFooter } from "./style";
 
 function Footer() {
   return (
@@ -10,4 +10,4 @@ function Footer() {
   )
 }
 
-export default Footer;
+export { Footer };

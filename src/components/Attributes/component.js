@@ -1,5 +1,5 @@
-import Attribute from "./Attribute";
-import { StyledAttributes } from "./styles/Attributes.styled";
+import { Attribute } from "../Attribute";
+import { StyledAttributes } from "./style";
 
 function Attributes(){
   return(
@@ -19,4 +19,4 @@ function Attributes(){
   )
 };
 
-export default Attributes;
+export { Attributes };

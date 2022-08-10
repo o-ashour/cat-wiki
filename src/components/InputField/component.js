@@ -1,6 +1,6 @@
 import { FaSearch } from 'react-icons/fa';
-import { StyledInput } from './styles/Input.styled';
-import { StyledMatchbox } from './styles/Matchbox.styled';
+import { StyledInput } from './style';
+import { StyledMatchbox } from '../SearchModal/style';
 
 function Input() {
   return (
@@ -23,4 +23,4 @@ function Input() {
   )
 }
 
-export default Input;
+export { Input };
