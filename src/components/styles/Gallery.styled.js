@@ -1,11 +1,16 @@
 import styled from "styled-components";
 
 export const StyledGallery = styled.section`
+  padding: 0;
   header {
     h2 {
       font-weight: 600; 
       padding: 0 0.75em;
     }
+  }
+
+  .details-gallery figure:nth-child(n+7) {
+      display: none;
   }
 
   @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
@@ -32,6 +37,10 @@ export const StyledGallery = styled.section`
       justify-content: start;
       gap: 2.5em;
       margin-top: 2.4em;
+
+      figure:nth-child(n+7) {
+        display: block;
+      }
     }
   }
 `
