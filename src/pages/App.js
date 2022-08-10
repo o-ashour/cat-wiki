@@ -9,6 +9,7 @@ import Discover from '../components/Discover';
 import { StyledContainer } from '../components/styles/StyledContainer';
 import { StyledC2a } from '../components/styles/C2a.styled';
 import { FaLongArrowAltRight } from 'react-icons/fa';
+import C2a from '../components/C2a';
 
 function App() {
   return (
@@ -25,16 +26,11 @@ function App() {
         <Discover />
       </StyledContainer>
       <StyledC2a>
-        <hr></hr>
-        <section>
+        <section className='article-summary'>
+          <hr></hr>
           <h1>Why should you have a cat?</h1>
           <p>Having a cat around can actually trigger the release of calming chemicals in your body which lower your stress and anxiety levels</p>
-          <button>
-            <a href="#">
-              READ MORE 
-              <FaLongArrowAltRight style={{fontSize: '0.9rem', marginLeft: '0.75em'}}/>
-            </a>
-          </button>
+          <C2a value='READ MORE' />
         </section>
         <section>
           <Container className="article-images" />

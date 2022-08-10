@@ -5,7 +5,7 @@ export const StyledAttribute = styled.div`
   display: flex;
   flex-flow: column;
   
-  p:nth-child(1){
+  span:first-child {
     font-size: 1rem;
     font-weight: 600;
     margin: 1.5em 0 0.25em;
@@ -29,5 +29,35 @@ export const StyledAttribute = styled.div`
 
   hr:nth-child(2n){
     background: ${(props) => props.theme.colors.accent_5};  
+  }
+
+  @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
+    flex-flow: row;
+    margin-top: 2em;
+    color: ${(props) => props.theme.colors.tertiary};
+    
+    span:first-child {
+      font-weight: 700;
+      margin: 0;
+    }
+
+    span:nth-child(2) {
+      font-weight: 500;
+      margin-left: 0.3em;
+    }
+
+    div {
+      font-size: 1rem;
+      align-self: start;
+      margin: 0;
+      margin-left: 4em;
+    }
+
+    hr {
+      width: 4em;
+      height: 0.8em;
+      margin-right: 0.55em;
+      border-radius: 10px;
+    }
   }
 `

@@ -30,4 +30,19 @@ export const StyledFooter = styled.footer`
     color: ${(props) => props.theme.colors.primary};
     font-weight: 600;
   }
+
+  @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
+    margin: 0 5.25em;
+    padding: 2em 2em 2.5em 6.5em;
+    display: flex;
+    justify-content: space-between;
+
+    img {
+      margin: 0;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+  }
 `

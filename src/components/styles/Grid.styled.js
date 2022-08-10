@@ -22,4 +22,11 @@ export const StyledImgContainer = styled.div`
     grid-row: 2 / 4;
     grid-column: 2 / 3;
   }
+
+  @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
+    grid-template-columns: 4em 12em 14.5em;
+    gap: 1.5em;
+    grid-gap: 1.5em;
+    margin-top: 0;
+  }
 `

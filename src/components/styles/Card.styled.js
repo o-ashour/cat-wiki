@@ -7,4 +7,10 @@ export const StyledCard = styled.figure`
     object-fit: cover;
     border-radius: 2em;
   }
+
+  @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
+    img {
+      height: 14em;
+    }
+  }
 `

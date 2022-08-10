@@ -24,13 +24,29 @@ export const StyledC2a = styled.article`
     font-weight: 500;
   }
 
-  a {
+  @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
     display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: ${(props) => props.theme.colors.accent_1};
-    opacity: 0.6;
-    font-weight: 600;
-    font-size: 0.8rem;
+    padding: 1em 10em 3.25em 11em;
+
+    hr {
+      width: 4em;
+      border-width: 0.15em;  
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1em;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 3em;
+      padding-right: 4em;
+    }
+
+    .article-summary {
+      margin-top: 5.25em;
+    }
   }
 `

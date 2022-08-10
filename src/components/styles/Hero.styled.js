@@ -20,7 +20,7 @@ export const StyledHero = styled.section`
   @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
     background-image: url(${bgImgLg});
     background-position: bottom;
-    padding: 5em 6em;
+    padding: 5em 6em 8em;
 
     svg {
       font-size: 1.25em;

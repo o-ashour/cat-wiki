@@ -10,12 +10,21 @@ export const StyledSelected = styled.div`
 
   ::after {
     content: '';
-    width: 3em;
-    height: 80%;
+    width: 16px;
+    height: 73%;
     background: ${(props) => props.theme.colors.accent_3};
     position: absolute;
-    left: -8px;
-    z-index: -1;
-    border-radius: 10px;
+    left: -5px;
+    z-index: 0;
+    border-radius: 1em;
+  }
+
+  @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
+    ::after {
+      width: 3em;
+      height: 80%;
+      left: -13px;
+      z-index: -1;
+      border-radius: 15px;
   }
 `

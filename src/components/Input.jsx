@@ -4,7 +4,7 @@ import { StyledMatchbox } from './styles/Matchbox.styled';
 
 function Input() {
   return (
-    <label>
+    <label style={{width: '23.75em'}}>
       <StyledInput placeholder='Search' />
       <FaSearch />
       <StyledMatchbox>

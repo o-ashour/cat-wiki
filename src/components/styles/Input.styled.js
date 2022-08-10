@@ -18,13 +18,14 @@ export const StyledInput = styled.input`
   }
 
   @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
-    width: 28em;
-    margin: 1.9em 0 4em;
+    width: inherit;
+    margin: 1.9em 0 0.75em;
     padding: 1.9em 2em;
     border-radius: 3em;
     
     ::placeholder {
       font-size: 1.1rem;
+      font-weight: 500;
     }
   }
 `
