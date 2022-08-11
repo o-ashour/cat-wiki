@@ -1,6 +1,6 @@
-import { StyledTopSearch } from "../components/styles/TopSearch.styled";
-import { Profile } from "../components/ProfileBlock";
-import persianImg from '../assets/images/image 2.png'; 
+import { StyledTopSearch } from "./style";
+import { Profile } from "../../components/ProfileBlock";
+import persianImg from '../../assets/images/image 2.png'; 
 
 function TopSearch(){
   return (
@@ -17,4 +17,4 @@ function TopSearch(){
   )
 }
 
-export default TopSearch;
+export { TopSearch };

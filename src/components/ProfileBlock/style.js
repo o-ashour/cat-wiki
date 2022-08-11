@@ -7,8 +7,8 @@ export const StyledProfile = styled.section`
     margin-bottom: 3em;
 
     img {
-      width: 14em;
-      height: 14em;
+      width: 12em;
+      height: 12em;
       object-fit: cover;
       border-radius: 27px;
     }

@@ -1,9 +1,9 @@
-import { StyledArticle } from "../components/Article/style";
-import persianImg from '../assets/images/image 2.png';
-import { StyledSelected } from "../components/styles/Selected.styled";
-import { Attributes } from "../components/Attributes";
-import { Gallery } from "../components/Gallery";
-import { StyledDetails } from "../components/styles/Details.styled";
+import { StyledArticle } from "../../components/Article/style";
+import persianImg from '../../assets/images/image 2.png';
+import { StyledSelected } from "../../components/styles/Selected.styled";
+import { Attributes } from "../../components/Attributes";
+import { Gallery } from "../../components/Gallery";
+import { StyledDetails } from "./style";
 
 
 function Details(){
@@ -26,4 +26,4 @@ function Details(){
   )
 }
 
-export default Details;
+export { Details };

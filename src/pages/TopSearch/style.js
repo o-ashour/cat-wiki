@@ -15,19 +15,20 @@ export const StyledTopSearch = styled.article`
   }
 
   @media(min-width: ${(props) => props.theme.breakpoints.medium}){
-    margin-bottom: 4em;
-    padding: 0 5em;
+    margin-bottom: 7em;
+    padding: 0 2em;
 
     header {
       h1 {
         font-size: 2.1rem;
+        margin-top: 1em;
         padding: 0;
       }
     }
 
     main {
       margin: 0;
-      margin-top: 3.25em;
+      margin-top: 2.75em;
       padding: 0;
     }
   }
