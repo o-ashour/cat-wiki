@@ -7,7 +7,7 @@ export const Cover = styled.div`
   position: absolute;
   left: 6.25em;
 
-  @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
+  @media(min-width: ${(props) => props.theme.breakpoints.medium}){
     display: none;
   }
 `

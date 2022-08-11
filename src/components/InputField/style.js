@@ -17,8 +17,17 @@ export const StyledInput = styled.input`
     opacity: 1;
   }
 
-  @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
+  @media(min-width: ${(props) => props.theme.breakpoints.medium}){
+    padding: 1.25em 2em;
     width: inherit;
+    margin-top: 2em;
+
+    ::placeholder {
+      font-size: 1rem;
+    }
+  }
+
+  @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
     margin: 1.9em 0 0.75em;
     padding: 1.9em 2em;
     border-radius: 3em;

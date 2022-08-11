@@ -24,6 +24,35 @@ export const StyledArticle = styled.article`
     font-weight: 500;
   }
 
+  @media(min-width: ${(props) => props.theme.breakpoints.medium}){
+    display: flex;
+    margin: 2em 1.25em 2em;
+    padding-bottom: 0.75em;
+
+    hr {
+      width: 4em;
+      border-width: 0.15em;  
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 0.55em;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 1.25em;
+      padding-right: 4em;
+    }
+
+    .article-summary {
+      margin-top: 1.25em;
+      margin-right: 1em;
+      padding-left: 4em;
+    }
+  }
+
   @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
     display: flex;
     padding: 1em 10em 3.25em 11em;
@@ -41,8 +70,6 @@ export const StyledArticle = styled.article`
 
     p {
       font-size: 1.1rem;
-      margin-bottom: 3em;
-      padding-right: 4em;
     }
 
     .article-summary {

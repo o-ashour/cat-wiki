@@ -31,6 +31,27 @@ export const StyledAttribute = styled.div`
     background: ${(props) => props.theme.colors.accent_5};  
   }
 
+  @media(min-width: ${(props) => props.theme.breakpoints.medium}){
+    flex-flow: row;
+    margin-bottom: 1.5em;
+
+    span:first-child {
+      font-weight: 500;
+      margin: 0;
+      margin-right: 0.8em;
+    }
+
+    div {
+      margin: 0;
+    }
+
+    hr {
+      width: 4em;
+      height: 0.7em;
+      margin-right: 0.8em;
+    }
+  }
+
   @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
     flex-flow: row;
     margin-top: 2em;

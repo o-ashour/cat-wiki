@@ -61,13 +61,61 @@ export const StyledDiscover = styled.section`
     }
   }
 
+  @media(min-width: ${(props) => props.theme.breakpoints.medium}){
+
+    padding: 1.2em 5em 2.5em;
+
+    header {
+      h3 {
+        font-weight: 500;
+        font-size: 1rem;
+        margin-bottom: 0.35em;
+      }
+
+      hr {
+        margin-top: 0.35em;
+        border-width: 0.18em;
+      }
+    }
+
+    .discover-heading {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.7em;
+      
+      h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 0;
+      }
+
+      button {
+        align-self: end;
+      }
+    }
+
+    article {
+      margin-top: 2.25em;
+
+      figcaption {
+        font-size: 0.9rem;
+        margin: 0.35em 0 1.5em;
+      }
+
+      img {
+        height: 10.5em;
+        border-radius: 2.25em;
+      }
+    }
+  }
+
+
   @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
     padding: 1.5em 7em 5em;
 
     header {
       h3 {
         font-size: 1.1rem;
-        font-weight: 500;
         margin-bottom: 0.4em;
       }
 
@@ -77,18 +125,12 @@ export const StyledDiscover = styled.section`
     }
 
     .discover-heading {
-      display: flex;
-      justify-content: space-between;
       margin: 2.5em 0 1em;
 
       h2 {
         font-size: 3rem;
         font-weight: 700;
         margin: 0;
-      }
-
-      button {
-        align-self: end;
       }
     }
 
@@ -114,5 +156,3 @@ export const StyledDiscover = styled.section`
     }
   }  
 `
-
-// margin-right: 0.75em;

@@ -11,6 +11,12 @@ export const StyledC2a = styled.button`
     font-size: 0.8rem;
   }
 
+  @media(min-width: ${(props) => props.theme.breakpoints.medium}) {
+    a {
+      font-size: 0.9rem;
+    }
+  }
+
   @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
     a {
       font-weight: 700;

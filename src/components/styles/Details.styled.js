@@ -10,6 +10,43 @@ export const StyledDetails = styled.div`
       font-weight: 400;
     }
   }
+  
+  @media(min-width: ${(props) => props.theme.breakpoints.medium}){
+    padding: 2em;
+    padding-top: 0.5em;
+
+    .profile-image {
+      width: auto;
+      margin-top: 1em;
+      margin-left: 3em;
+
+      ::after {
+        left: -8px;
+      }
+    }
+
+    .profile-description {
+      margin-left: 3em;
+      padding-top: 1em;
+
+      article {
+        display: flex;
+        flex-flow: column;
+        margin: 0;
+        padding: 0;
+
+        h1 {
+          font-size: 2.1rem;
+          margin-top: 0.55em;
+          margin-bottom: 0.25em;
+        }
+
+        p {
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
 
   @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
     display: flex;

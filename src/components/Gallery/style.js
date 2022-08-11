@@ -28,6 +28,33 @@ export const StyledGallery = styled.section`
     }
   }
 
+  @media(min-width: ${(props) => props.theme.breakpoints.medium}){  
+    margin-bottom: 3em;
+      
+    header {
+      margin-left: 2em;
+
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    .details-gallery {
+      svg {
+        display: none;
+      }
+
+      img {
+        width: 11em;
+        height: 10em;
+      }
+
+      figure:nth-child(n+7) {
+        display: block;
+      }
+    }
+  }
+
   @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
     padding: 3em 5.25em 8em;
 

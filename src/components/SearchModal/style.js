@@ -17,8 +17,19 @@ export const StyledMatchbox = styled.div`
     margin-bottom: 0.75em;
   }
 
-  @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
+  @media(min-width: ${(props) => props.theme.breakpoints.medium}){
+    height: 14em;
     width: inherit;
+    font-size: 0.9rem;
+    margin-top: 0.75em;
+    padding: 1.2em 1.4em 0.1em;
+
+    li {
+      margin-bottom: 1.5em;
+    }
+  }
+
+  @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
     font-size: 1.1rem;
     font-weight: 500;
     padding: 1.4em 1.25em 0.75em;

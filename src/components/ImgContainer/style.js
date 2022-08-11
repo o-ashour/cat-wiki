@@ -23,6 +23,14 @@ export const StyledImgContainer = styled.section`
     grid-column: 2 / 3;
   }
 
+  @media(min-width: ${(props) => props.theme.breakpoints.medium}){
+    grid-template-columns: 1em 8em 10em;
+    gap: 0.75em;
+    grid-gap: 0.75em;
+    margin-top: 2em;
+    margin-right: 4em;
+  }
+
   @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
     grid-template-columns: 4em 12em 14.5em;
     gap: 1.5em;
