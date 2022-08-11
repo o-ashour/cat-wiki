@@ -53,7 +53,6 @@ export const StyledAttribute = styled.div`
   }
 
   @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
-    flex-flow: row;
     margin-top: 2em;
     color: ${(props) => props.theme.colors.tertiary};
     
@@ -70,12 +69,10 @@ export const StyledAttribute = styled.div`
     div {
       font-size: 1rem;
       align-self: start;
-      margin: 0;
       margin-left: 4em;
     }
 
     hr {
-      width: 4em;
       height: 0.8em;
       margin-right: 0.55em;
       border-radius: 10px;

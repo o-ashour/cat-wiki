@@ -75,13 +75,8 @@ export const StyledDetails = styled.div`
     .profile-description {
       flex: 1.2;
       margin-left: 6em;
-      padding-top: 1em;
 
       article {
-        display: flex;
-        flex-flow: column;
-        margin: 0;
-        padding: 0;
 
         h1 {
           font-size: 2.4rem;

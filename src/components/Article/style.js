@@ -54,12 +54,10 @@ export const StyledArticle = styled.article`
   }
 
   @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
-    display: flex;
     padding: 1em 10em 3.25em 11em;
 
     hr {
       width: 4em;
-      border-width: 0.15em;  
     }
 
     h1 {

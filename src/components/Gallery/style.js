@@ -65,10 +65,6 @@ export const StyledGallery = styled.section`
       }
     }
 
-    svg {
-      display: none;
-    }
-
     img {
       width: 17.5em;
       height: 18em;
@@ -83,10 +79,6 @@ export const StyledGallery = styled.section`
       img {
         width: 18em;
         height: 18em;
-      }
-
-      figure:nth-child(n+7) {
-        display: block;
       }
     }
   }
