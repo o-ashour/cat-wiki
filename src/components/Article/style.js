@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledC2a = styled.article`
+export const StyledArticle = styled.article`
   margin: 2em 1.25em 0;
 
   hr {

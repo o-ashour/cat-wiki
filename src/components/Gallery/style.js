@@ -9,17 +9,32 @@ export const StyledGallery = styled.section`
     }
   }
 
-  .details-gallery figure:nth-child(n+7) {
+  .details-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5em;
+    margin: 1.5em 0;
+  
+    img {
+      width: 10em;
+      height: 9em;
+      object-fit: cover;
+      border-radius: 1em;
+    }
+
+    figure:nth-child(n+7) {
       display: none;
+    }
   }
 
   @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
     padding: 3em 5.25em 8em;
+
     header {
       h2 {
         font-size: 2.3rem;
         padding: 0;
-
       }
     }
 
@@ -37,6 +52,11 @@ export const StyledGallery = styled.section`
       justify-content: start;
       gap: 2.5em;
       margin-top: 2.4em;
+
+      img {
+        width: 18em;
+        height: 18em;
+      }
 
       figure:nth-child(n+7) {
         display: block;

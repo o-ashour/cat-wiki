@@ -1,8 +1,8 @@
-import { Flex } from "../styles/Flex.styled";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import { StyledGallery } from "./style";
 import { Card } from "../Cardi";
 
+//maybe change out Card here for another component without a caption
 
 function Gallery() {
   return (
@@ -10,7 +10,7 @@ function Gallery() {
       <header>
         <h2>Other photos</h2>
       </header>
-      <Flex className='details-gallery'>
+      <div className='details-gallery'>
         <FaAngleLeft style={{alignSelf: 'center', position: 'absolute', left: 0}} fontSize="2em" fill="#DEC68B"/>
         <Card caption='none' />
         <Card caption='none' />
@@ -21,7 +21,7 @@ function Gallery() {
         <Card caption='none' />
         <Card caption='none' /> 
         <Card caption='none' />
-      </Flex>
+      </div>
     </StyledGallery>
   )
 }

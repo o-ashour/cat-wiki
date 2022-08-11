@@ -4,7 +4,7 @@ import roadImg from '../../assets/images/image 3.png';
 import { StyledImgContainer } from './style';
 
 
-function Container() {
+function ImgContainer() {
   return (
     <StyledImgContainer>
       <img src={persianImg} alt='persian cat' />
@@ -14,4 +14,4 @@ function Container() {
   )
 }
 
-export { Container };
+export { ImgContainer };

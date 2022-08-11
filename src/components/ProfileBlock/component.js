@@ -1,4 +1,3 @@
-import Card from "../Cardi";
 import Description from "../Description";
 import { StyledProfile } from "./style";
 import Avatar from "../Avatar";

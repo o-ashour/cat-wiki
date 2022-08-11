@@ -1,40 +1,36 @@
 import { Logo } from '../components/Logo';
-import { Desc } from '../components/Desc/component';
 import { Input } from '../components/InputField';
-import { Container } from '../components/Container';
-import { StyledHero } from '../components/styles/Hero.styled';
-import { Cover } from '../components/styles/Cover';
-import { Wrapper } from '../components/styles/Wrapper';
+import { ImgContainer } from '../components/ImgContainer';
+import { Cover } from '../components/styles/Cover.styled';
+import { Flex } from '../components/styles/Flex.styled';
 import { Discover } from '../components/Discover/component';
-import { StyledContainer } from '../components/styles/StyledContainer';
-import { StyledC2a } from '../components/styles/C2a.styled';
+import { StyledContainer } from '../components/HeroContainer/style';
+import { StyledArticle } from '../components/Article/style';
 import { C2a } from '../components/C2a';
 
 function App() {
   return (
     <>
       <StyledContainer>
-        <StyledHero>
-          <Wrapper>
-            <Logo theme='dark' section='hero'/>
+        <section className='hero-container'>
+          <Flex>
+            <Logo theme='dark' />
             <Cover />
-          </Wrapper>
-          <Desc />  
+          </Flex>
+          <p>Get to know more about your cat breed</p> 
           <Input />
-        </StyledHero>
+        </section>
         <Discover />
       </StyledContainer>
-      <StyledC2a>
+      <StyledArticle>
         <section className='article-summary'>
           <hr></hr>
           <h1>Why should you have a cat?</h1>
           <p>Having a cat around can actually trigger the release of calming chemicals in your body which lower your stress and anxiety levels</p>
           <C2a value='READ MORE' />
         </section>
-        <section>
-          <Container className="article-images" />
-        </section>
-      </StyledC2a>
+        <ImgContainer className="article-images" />
+      </StyledArticle>
     </>
   );
 }

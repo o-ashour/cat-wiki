@@ -20,10 +20,10 @@ export const StyledDetails = styled.div`
       margin-top: 0;
 
       ::after {
-        height: 25%;
-        left: 25%;
+        height: 38%;
+        left: 25.5%;
         border-radius: 19px;
-        top: 5%;
+        top: 6%;
       }
 
       img {

@@ -1,9 +1,9 @@
 import logo from '../../assets/svg/CatwikiLogo.svg';
 import { StyledLogo } from './style';
 
-function Logo({ theme, section }){
+function Logo({ theme }){
   return(
-    <StyledLogo theme={theme} src={logo} section={section} alt='logo' />
+    <StyledLogo theme={theme} src={logo} alt='logo' />
   )
 };
 

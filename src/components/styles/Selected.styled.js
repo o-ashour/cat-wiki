@@ -28,3 +28,7 @@ export const StyledSelected = styled.div`
       border-radius: 15px;
   }
 `
+// height: 38%;
+// left: 27%;
+// border-radius: 19px;
+// top: 6%;

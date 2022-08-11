@@ -10,7 +10,7 @@ export const StyledTopSearch = styled.article`
     }
   }
 
-  .topsearch-container {
+  main {
     margin: 3em 2em;
   }
 
@@ -25,7 +25,7 @@ export const StyledTopSearch = styled.article`
       }
     }
 
-    .topsearch-container {
+    main {
       flex-flow: column;
       margin: 0;
       margin-top: 3.25em;

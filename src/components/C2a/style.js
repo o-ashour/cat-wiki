@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledC2aReal = styled.button`
+export const StyledC2a = styled.button`
   a {
     display: flex;
     align-items: center;

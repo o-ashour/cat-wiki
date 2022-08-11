@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledImgContainer = styled.div`
+export const StyledImgContainer = styled.section`
   display: grid;
   grid-template-columns: 0.25fr 1.15fr 1.3fr;
   gap: 1em;
