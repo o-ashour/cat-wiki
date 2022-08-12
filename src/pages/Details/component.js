@@ -5,7 +5,6 @@ import { Attributes } from "../../components/Attributes";
 import { Gallery } from "../../components/Gallery";
 import { StyledDetails } from "./style";
 
-
 function Details(){
   return (
     <>

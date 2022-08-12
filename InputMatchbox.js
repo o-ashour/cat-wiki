@@ -1,6 +1,7 @@
-import { StyledMatchbox } from "./style";
+import { StyledMatchbox } from "./src/components/SearchModal/style";
 
 function InputMatchbox() {
+
   return(
     <StyledMatchbox>
       <ul>
@@ -9,7 +10,9 @@ function InputMatchbox() {
         <li>American Shorthair</li>
         <li>American Wirehair</li>
       </ul>
+      {console.log('abc')}
     </StyledMatchbox>
+
   )
 }
 

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledMatchbox = styled.div`
-  display: none;
+  display: block;
   background-color: #fff;
   color: #000;
   position: absolute;
@@ -15,6 +15,10 @@ export const StyledMatchbox = styled.div`
 
   li {
     margin-bottom: 0.75em;
+
+    :hover {
+      background: lightgrey;
+    }
   }
 
   @media(min-width: ${(props) => props.theme.breakpoints.medium}){
