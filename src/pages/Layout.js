@@ -3,6 +3,9 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import GlobalStyles from '../components/styles/Global';
 import { ThemeProvider } from 'styled-components';
+// import React, { createContext } from 'react';
+
+// export const UserContext = createContext(null);
 
 const theme = {
   colors: {

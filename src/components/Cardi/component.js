@@ -2,13 +2,14 @@ import persianImg from '../../assets/images/image 2.png';
 import { StyledCard } from './style';
 import { StyledSelected } from '../styles/Selected.styled';
 
-function Card({ caption, imgWidth, selected }) {
+function Card({ caption, imgWidth, selected, url }) {
   return (
     <StyledCard imgWidth={imgWidth}>
       {selected ? 
         <StyledSelected className='discover-selected'>
           <img src={persianImg} alt='persian' />  
-        </StyledSelected> :
+        </StyledSelected> : url ? 
+          <img src={url} alt='siamese' /> :
         <img src={persianImg} alt='persian' />  
       }
       <figcaption>

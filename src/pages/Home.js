@@ -7,8 +7,13 @@ import { Discover } from '../components/Discover/component';
 import { StyledContainer } from '../components/HeroContainer/style';
 import { StyledArticle } from '../components/Article/style';
 import { C2a } from '../components/C2a';
+// import { useContext } from "react";
+// import { UserContext } from '../App';
+// import { UserContext } from './Layout';
 
-function Home({ breedList, setSelectedBreedObj }) {
+function Home({ breedList }) {
+  // const breedContext = useContext(UserContext);
+
   return (
     <>
       <StyledContainer>
@@ -18,7 +23,7 @@ function Home({ breedList, setSelectedBreedObj }) {
             <Cover />
           </Flex>
           <p>Get to know more about your cat breed</p> 
-          <Input breedList={breedList} setSelectedBreedObj={setSelectedBreedObj} />
+          <Input breedList={breedList} />
         </section>
         <Discover />
       </StyledContainer>

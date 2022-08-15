@@ -1,26 +1,33 @@
 import { StyledArticle } from "../../components/Article/style";
-import persianImg from '../../assets/images/image 2.png';
+// import persianImg from '../../assets/images/image 2.png';
 import { StyledSelected } from "../../components/styles/Selected.styled";
 import { Attributes } from "../../components/Attributes";
 import { Gallery } from "../../components/Gallery";
 import { StyledDetails } from "./style";
+import { UserContext } from "../../App";
+import React, { useContext } from "react";
 
-function Details(){
+// line up attribute horizontal bars
+// try object-fit: contain for image and look into how to optimize as sizes are very large 
+
+function Details({ breedImgs }) {
+  const { selectedBreedObj } = useContext(UserContext);
+
   return (
     <>
       <StyledDetails>
         <StyledSelected className='profile-image'>
-          <img src={persianImg} alt='Persian' style={{zIndex: '1'}}/>
+          <img src={selectedBreedObj.image.url} alt={selectedBreedObj.name} style={{zIndex: '1'}}/>
         </StyledSelected>
         <div className='profile-description'>
           <StyledArticle>
-            <h1>Bengal</h1>
-            <p>Bengals are a lot of fun to live with, but they're definitely not the cat for everyone, or for first-time cat owners. Extremely intelligent, curious and active, they demand a lot of interaction and woe betide the owner who doesn't provide it.</p>
+            <h1>{selectedBreedObj.name}</h1>
+            <p>{selectedBreedObj.description}</p>
           </StyledArticle>
           <Attributes />
         </div>
       </StyledDetails>
-      <Gallery />
+      <Gallery breedImgs={breedImgs} />
     </>
   )
 }

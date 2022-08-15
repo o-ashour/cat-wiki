@@ -18,7 +18,7 @@ export const StyledAttribute = styled.div`
   }
 
   hr {
-    background: ${(props) => props.theme.colors.accent_4};
+    background: ${(props) => props.theme.colors.accent_5};
     display: inline-block;
     width: 3em;
     height: 0.6em;
@@ -27,8 +27,8 @@ export const StyledAttribute = styled.div`
     border-radius: 5px;
   }
 
-  hr:nth-child(2n){
-    background: ${(props) => props.theme.colors.accent_5};  
+  hr:nth-child(-n+${(props) => props.score}){
+    background: ${(props) => props.theme.colors.accent_4};  
   }
 
   @media(min-width: ${(props) => props.theme.breakpoints.medium}){
