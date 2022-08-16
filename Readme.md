@@ -2,7 +2,7 @@
 
 ## Using https://docs.thecatapi.com/ to complete this challenge. The client-side should not use the API directly. Everything should be handled on the server-side. For example, suggesting the breeds or getting images for the breed.
 
-    # User story: I can search for cat breeds and select a breed of my choice
+    ## User story: I can search for cat breeds and select a breed of my choice
     User story: I can see the most popular searched cat breeds summary on the homepage
     User story: I can see the top 10 most searched cat breeds
     User story: I can see the breed details including description, temperament, origin, life span, adaptability, affection level, child-friendly, grooming, intelligence, health issues, social needs, stranger friendly
