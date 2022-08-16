@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function Header(){
   return (
     <StyledHeader>
-      <Link to='/details'>
+      <Link to='/'>
         <Logo />
       </Link>
     </StyledHeader>

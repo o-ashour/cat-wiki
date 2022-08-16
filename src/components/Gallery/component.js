@@ -19,15 +19,20 @@ function Gallery() {
         <h2>Other photos</h2>
       </header>
       <div className='details-gallery'>
-        <FaAngleLeft style={{alignSelf: 'center', position: 'absolute', left: 0}} fontSize="2em" fill="#DEC68B"/>
-        <Card url={breedImgs[0].url} caption='none' />
-        <Card url={breedImgs[1].url} caption='none' />
-        <FaAngleRight style={{alignSelf: 'center', position: 'absolute', right: 0}} fontSize="2em" fill="#DEC68B"/>
-        <Card url={breedImgs[2].url} caption='none' /> 
-        <Card url={breedImgs[3].url} caption='none' />
+        {breedImgs.map((breedImg, idx) => {
+          return <Card key={idx} url={breedImg.url} caption='none' />
+        })}
       </div>
     </StyledGallery>
   )
 }
+// <Card url={breedImgs[0].url} caption='none' />
+// <Card url={breedImgs[1].url} caption='none' />
+
+// <Card url={breedImgs[2].url} caption='none' /> 
+// <Card url={breedImgs[3].url} caption='none' />
+// <FaAngleLeft style={{alignSelf: 'center', position: 'absolute', left: 0}} fontSize="2em" fill="#DEC68B"/>
+// <FaAngleRight style={{alignSelf: 'center', position: 'absolute', right: 0}} fontSize="2em" fill="#DEC68B"/>
+
 
 export { Gallery };

@@ -15,6 +15,7 @@ function App() {
   const [breedList, setBreedList] = useState([]);
   const [selectedBreedObj, setSelectedBreedObj] = useState({});
   const [breedImgs, setBreedImgs] = useState([]);
+  // const [isModalOpen, setIsModalOpen] = useState(true);
 
   // check out other authorization methods
   useEffect(() => {
@@ -47,7 +48,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route path="/" index element={<Home breedList={breedList} />} />
-              <Route path="details" element={<Details selectedBreedObj={selectedBreedObj} breedImgs={breedImgs}/>} />
+              <Route path="/details" element={<Details selectedBreedObj={selectedBreedObj} breedImgs={breedImgs}/>} />
               <Route path="/topsearch" element={<TopSearch />} />
             </Route>
           </Routes>
