@@ -9,6 +9,9 @@ export const UserContext = createContext(null);
 
 function App() {
   // state logic
+  // selectedBreedObj state would not update it seemed so kept getting empty array
+  // was trying to go to 'details' endpoint from outside app
+  // once I made Link to go to page from within app (logo) it worked
   const [breedList, setBreedList] = useState([]);
   const [selectedBreedObj, setSelectedBreedObj] = useState({});
   const [breedImgs, setBreedImgs] = useState([]);

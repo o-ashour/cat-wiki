@@ -1,10 +1,11 @@
 import { FaSearch } from 'react-icons/fa';
 import { StyledInput } from './style';
 import { StyledMatchbox } from '../SearchModal/style';
-import { React } from 'react';
+import { React, useContext } from 'react';
 import { UserContext } from '../../App';
-import { useContext } from 'react';
 
+// figure out a way to not only select breed from search results modal, but actually
+// go to 'Details' page when click on breed
 
 function Input({ breedList }) {
   const { setSelectedBreedObj } = useContext(UserContext);
