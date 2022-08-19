@@ -15,8 +15,7 @@ function App() {
   const [breedList, setBreedList] = useState([]);
   const [selectedBreedObj, setSelectedBreedObj] = useState({});
   const [breedImgs, setBreedImgs] = useState([]);
-  // const [isModalOpen, setIsModalOpen] = useState(true);
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
   // check out other authorization methods
   useEffect(() => {
     fetch('https://api.thecatapi.com/v1/breeds?api_key=8ecb9680-1e4f-44b7-b4c9-5919289455fe')
@@ -37,13 +36,15 @@ function App() {
     })
   }, [breedId])
 
-  console.log(breedId);
-  console.log(selectedBreedObj);
-  console.log(breedImgs);
+  function handleClick(e) {
+    if (isModalOpen && (e.target.className !== 'modal-item')){
+      setIsModalOpen(false);
+    }
+  }
 
   return (
-    <>
-      <UserContext.Provider value={{selectedBreedObj, setSelectedBreedObj, breedImgs}}>
+    <div onClick={handleClick}>
+      <UserContext.Provider value={{selectedBreedObj, setSelectedBreedObj, breedImgs, isModalOpen, setIsModalOpen}}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout />}>
@@ -54,7 +55,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </UserContext.Provider>
-    </>
+    </div>
   );
 }
 

@@ -1,15 +1,16 @@
 import BreedItem from "./BreedItem";
+import { StyledModal } from "./Modal.styled";
 
-function Modal({ breedList, onClick }) {
+function Modal({ breedList, onClick, id }) {
   return (
-    <ul>
+    <StyledModal id={id}>
       {breedList.map((breed, idx) => {
         return (
           <BreedItem key={idx} breed={breed} id={idx} onClick={onClick} />
         )
       })}
-    </ul>
+    </StyledModal>
   )
 }
 
-export default Modal
+export default Modal;

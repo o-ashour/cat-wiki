@@ -2,10 +2,11 @@ import { Link } from "react-router-dom";
 
 function BreedItem({ id, breed, onClick }){
   return (
-    <li onClick={onClick}>
-      <Link id={id} to='/details'>{breed.name}</Link>
-    </li>
+    <Link to='/details' className='modal-item'>
+      <li id={id} onClick={onClick}>{breed.name}</li>
+    </Link>
   )
 }
 
 export default BreedItem;
+

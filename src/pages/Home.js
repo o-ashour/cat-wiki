@@ -7,15 +7,10 @@ import { Discover } from '../components/Discover/component';
 import { StyledContainer } from '../components/HeroContainer/style';
 import { StyledArticle } from '../components/Article/style';
 import { C2a } from '../components/C2a';
-// import { useContext } from "react";
-// import { UserContext } from '../App';
-// import { UserContext } from './Layout';
 
 function Home({ breedList }) {
-  // const breedContext = useContext(UserContext);
-
   return (
-    <>
+    <div>
       <StyledContainer>
         <section className='hero-container'>
           <Flex>
@@ -36,7 +31,7 @@ function Home({ breedList }) {
         </section>
         <ImgContainer className="article-images" />
       </StyledArticle>
-    </>
+    </div>
   );
 }
 
