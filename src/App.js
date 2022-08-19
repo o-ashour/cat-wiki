@@ -44,7 +44,7 @@ function App() {
 
   return (
     <div onClick={handleClick}>
-      <UserContext.Provider value={{selectedBreedObj, setSelectedBreedObj, breedImgs, isModalOpen, setIsModalOpen}}>
+      <UserContext.Provider value={{selectedBreedObj, setSelectedBreedObj, breedImgs, isModalOpen, setIsModalOpen, breedList, setBreedList}}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout />}>

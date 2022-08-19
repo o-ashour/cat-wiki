@@ -6,8 +6,8 @@ import Modal from './Modal';
 // figure out a way to not only select breed from search results modal, but actually
 // go to 'Details' page when click on breed
 
-function Input({ breedList }) {
-  const { setSelectedBreedObj, isModalOpen, setIsModalOpen } = useContext(UserContext);
+function Input() {
+  const { setSelectedBreedObj, isModalOpen, setIsModalOpen, breedList, setBreedList } = useContext(UserContext);
 
   function handleClick(e){
       const selectedBreedId = e.target.id;
@@ -15,7 +15,36 @@ function Input({ breedList }) {
   } 
 
   function handleChange(e){
-    e.target.value === '' ? setIsModalOpen(false) : setIsModalOpen(true);
+    if (e.target.value === '') {
+      setIsModalOpen(false)
+    }
+    else {
+      setIsModalOpen(true);
+      const inputStr = e.target.value;
+      const miniInputStr = minifyString(inputStr);
+      const miniBreedStrArr = [];
+      breedList.forEach((breed) => miniBreedStrArr.push(minifyString(breed.name)));
+      const filteredBreedsIdx = [];
+      miniBreedStrArr.forEach((breedName, idx) => {
+        if (breedName.includes(miniInputStr)){
+          filteredBreedsIdx.push(idx);
+        }
+      });
+      console.log(miniBreedStrArr.filter((breed) => breed.includes(miniInputStr)));
+      console.log(filteredBreedsIdx);
+
+      const filteredBreeds = breedList.filter((breed, idx) => 
+      {
+        return filteredBreedsIdx.some(item => item === idx);
+      });      
+    }
+  }
+
+  function minifyString(str){
+    const miniStrArr = (str.match(/[A-Za-z]/g));
+    let miniStr = '';
+    miniStrArr.forEach((letter) => miniStr += letter);
+    return miniStr.toLowerCase();
   }
 
   return (
