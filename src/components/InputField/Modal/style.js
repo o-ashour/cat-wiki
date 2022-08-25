@@ -20,7 +20,7 @@ export const StyledModal = styled.ul`
     }
   }
 
-  @media(min-width: ${(props) => props.theme.breakpoints.medium}){
+  @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
     max-height: 14em;
     width: inherit;
     font-size: 0.9rem;
@@ -32,7 +32,7 @@ export const StyledModal = styled.ul`
     }
   }
 
-  @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
+  @media (min-width: ${(props) => props.theme.breakpoints.extra_large}) {
     font-size: 1.1rem;
     font-weight: 500;
     padding: 1.4em 1.25em 0.75em;
@@ -45,9 +45,4 @@ export const StyledModal = styled.ul`
       margin-bottom: 1em;
     }
   }
-`
-
- 
-
-  
-
+`;

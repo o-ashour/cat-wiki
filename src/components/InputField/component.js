@@ -3,45 +3,54 @@ import { StyledInput } from "./style";
 import { React, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../App";
-import Modal from "./Modal";
-// figure out a way to not only select breed from search results modal, but actually
-// go to 'Details' page when click on breed
+import { Modal } from "./Modal/component";
 
 function Input() {
-  const {
-    selectedBreedObj,
-    setSelectedBreedObj,
-    isModalOpen,
-    setIsModalOpen,
-    breedList,
-  } = useContext(UserContext);
-  // change breedNames to something like 'breed objects'
+  // variables
+  // using context hook to bring in states declared in top-level App component
+  const { setSelectedBreedObj, isModalOpen, setIsModalOpen, breedList } =
+    useContext(UserContext);
+  // using state hook to declare and update object of list of breeds post-search-filtering and list of breed ids
   const [breedListFiltered, setBreedListFiltered] = useState({
-    breedNames: breedList,
+    breedObjects: breedList,
     breedIds: breedList.map((breed, idx) => idx),
   });
+  // using navigate hook to change routes in keydown handler
   const navigate = useNavigate();
 
+  // functions (handler logic)
+  // handles logic of clicking on item in search modal
+  // stores item's id in variable then updates the 'selected breed object' with targeted item
   function handleClick(e) {
     const selectedBreedId = e.target.id;
     setSelectedBreedObj(breedList[selectedBreedId]);
   }
 
+  // handles logic of any input changes happening in search field
   function handleChange(e) {
+    // closes and initializes modal by checking if input field is blank
+    // breed list is set to initial list retrieved from api
     if (e.target.value === "") {
       setIsModalOpen(false);
       setBreedListFiltered({
-        breedNames: breedList,
+        breedObjects: breedList,
         breedIds: breedList.map((breed, idx) => idx),
       });
+      // when there is some input..
     } else {
+      // modal should appear
       setIsModalOpen(true);
+      // any value in input is stored in a constant variable
       const inputStr = e.target.value;
+      // the value from input is 'minified' or filtered from any non-alphabetical characters
+      // using a custom 'minify' function
       const miniInputStr = minifyString(inputStr);
       const miniBreedStrArr = [];
+      // same minification as above is done to all names of breeds from inital api list
       breedList.forEach((breed) =>
         miniBreedStrArr.push(minifyString(breed.name))
       );
+      // compare breed names from list to input and store matched indicies in array
       const filteredBreedsIdx = [];
       miniBreedStrArr.forEach((breedName, idx) => {
         if (breedName.includes(miniInputStr)) {
@@ -49,37 +58,47 @@ function Input() {
         }
       });
 
+      // match breed objects from initial api list to matched indicies from above
+      // store matches in array
       const filteredBreeds = breedList.filter((breed, idx) => {
         return filteredBreedsIdx.some((item) => item === idx);
       });
 
+      // if there are no matches, modal doesn't appear
       if (filteredBreeds.length === 0) {
         setIsModalOpen(false);
       }
 
+      // update filtered breed list
       setBreedListFiltered({
-        breedNames: filteredBreeds,
+        breedObjects: filteredBreeds,
         breedIds: filteredBreedsIdx,
       });
     }
   }
 
-  function handleKeyDown(e) {
-    if (e.key === "Enter" && breedListFiltered.breedNames.length === 1) {
+  // handles logic of user submitting search input value when pressing enter or clicking
+  // on search icon
+  // checks to see if there is one breed left in filtered list and, if so, updates
+  // the selected breed object with that breed
+  // go to details page to see selected breed using navigate
+  // probably better to do a more direct string comparison between input value
+  // and available breeds
+  function handleSearchSubmit(e) {
+    if (
+      (e.key === "Enter" || e.target.id === "search-icon") &&
+      breedListFiltered.breedObjects.length === 1
+    ) {
       const selectedBreedId = breedListFiltered.breedIds[0];
       setSelectedBreedObj(breedList[selectedBreedId]);
       navigate("/details");
     }
   }
 
-  function handleIconClick() {
-    if (breedListFiltered.breedNames.length === 1) {
-      const selectedBreedId = breedListFiltered.breedIds[0];
-      setSelectedBreedObj(breedList[selectedBreedId]);
-      navigate("/details");
-    }
-  }
-
+  // minifying string function taking in some string as argument
+  // uses a regular expression to match only alphabet characters
+  // uses string concatenation to combine matched letters into string variable 
+  // returns 'minified' string in lower case
   function minifyString(str) {
     const miniStrArr = str.match(/[A-Za-z]/g);
     let miniStr = "";
@@ -92,11 +111,11 @@ function Input() {
       <StyledInput>
         <input
           onChange={handleChange}
-          onKeyDown={handleKeyDown}
+          onKeyDown={handleSearchSubmit}
           className="input-btn"
           placeholder="Search"
         />
-        <FaSearch onClick={handleIconClick} />
+        <FaSearch id="search-icon" onClick={handleSearchSubmit} />
       </StyledInput>
       {isModalOpen && (
         <Modal
