@@ -19,6 +19,10 @@ export const StyledInput = styled.label`
     }
   }
 
+  svg {
+    cursor: pointer;
+  }
+
   .input-modal {
     background-color: #fff;
     color: #000;

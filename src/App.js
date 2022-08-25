@@ -48,7 +48,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout />}>
-              <Route path="/" index element={<Home breedList={breedList} />} />
+              <Route path="/" index element={<Home />} />
               <Route path="/details" element={<Details selectedBreedObj={selectedBreedObj} breedImgs={breedImgs}/>} />
               <Route path="/topsearch" element={<TopSearch />} />
             </Route>

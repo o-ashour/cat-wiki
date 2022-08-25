@@ -1,12 +1,12 @@
 import BreedItem from "./BreedItem";
 import { StyledModal } from "./Modal.styled";
 
-function Modal({ breedList, onClick, id }) {
+function Modal({ breedListFiltered, onClick, id }) {
   return (
     <StyledModal id={id}>
-      {breedList.map((breed, idx) => {
+      {breedListFiltered.breedNames.map((breed, idx) => {
         return (
-          <BreedItem key={idx} breed={breed} id={idx} onClick={onClick} />
+          <BreedItem key={idx} breed={breed} id={breedListFiltered.breedIds[idx]} onClick={onClick} />
         )
       })}
     </StyledModal>

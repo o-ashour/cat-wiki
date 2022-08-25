@@ -4,7 +4,7 @@ export const StyledModal = styled.ul`
   background-color: #fff;
   color: #000;
   position: absolute;
-  height: 12em;
+  max-height: 12em;
   width: 9em;
   overflow-y: scroll;
   font-size: 0.75rem;
@@ -21,7 +21,7 @@ export const StyledModal = styled.ul`
   }
 
   @media(min-width: ${(props) => props.theme.breakpoints.medium}){
-    height: 14em;
+    max-height: 14em;
     width: inherit;
     font-size: 0.9rem;
     margin-top: 0.75em;

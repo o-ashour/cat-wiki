@@ -8,7 +8,7 @@ import { StyledContainer } from '../components/HeroContainer/style';
 import { StyledArticle } from '../components/Article/style';
 import { C2a } from '../components/C2a';
 
-function Home({ breedList }) {
+function Home() {
   return (
     <div>
       <StyledContainer>
@@ -18,7 +18,7 @@ function Home({ breedList }) {
             <Cover />
           </Flex>
           <p>Get to know more about your cat breed</p> 
-          <Input breedList={breedList} />
+          <Input />
         </section>
         <Discover />
       </StyledContainer>
