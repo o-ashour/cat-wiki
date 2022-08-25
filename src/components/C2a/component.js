@@ -1,13 +1,14 @@
 import { FaLongArrowAltRight } from 'react-icons/fa';
 import { StyledC2a } from './style';
+import { Link } from 'react-router-dom';
 
-function C2a({ value }){
+function C2a({ value, url }){
   return (
     <StyledC2a>
-      <a href="#">
+      <Link to={url}>
         {value}
-        <FaLongArrowAltRight style={{fontSize: '0.9rem', marginLeft: '0.75em'}}/>
-      </a>
+        <FaLongArrowAltRight />
+      </Link>
     </StyledC2a>
   )
 }

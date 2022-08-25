@@ -27,7 +27,7 @@ function Home() {
           <hr></hr>
           <h1>Why should you have a cat?</h1>
           <p>Having a cat around can actually trigger the release of calming chemicals in your body which lower your stress and anxiety levels</p>
-          <C2a value='READ MORE' />
+          <C2a value='READ MORE' url='#' />
         </section>
         <ImgContainer className="article-images" />
       </StyledArticle>

@@ -1,7 +1,6 @@
 import { StyledDiscover } from "./style";
 import { Card } from "../Cardi";
 import { C2a } from "../C2a";
-import { StyledSelected } from "../styles/Selected.styled";
 
 function Discover() {
   return (
@@ -12,7 +11,7 @@ function Discover() {
         <div className='discover-heading'>
           <h2>66+ Breeds For you to Discover
           </h2>
-          <C2a value='SEE MORE' />
+          <C2a value='SEE MORE' url='/topsearch' />
         </div>
       </header>
       <article>

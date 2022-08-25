@@ -121,7 +121,6 @@ function Input() {
         <Modal
           breedListFiltered={breedListFiltered}
           onClick={handleClick}
-          id="modal"
         />
       )}
     </div>

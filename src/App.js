@@ -26,8 +26,7 @@ function App() {
   }, []);
 
   const breedId = selectedBreedObj.id;
-  // get 'selected breed' extra images
-  // is state necessary here?
+
   useEffect(() => {
     fetch(`https://api.thecatapi.com/v1/images/search?limit=8&breed_ids=${breedId}&api_key=8ecb9680-1e4f-44b7-b4c9-5919289455fe`)
     .then(res => res.json())

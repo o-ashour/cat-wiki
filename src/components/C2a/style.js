@@ -11,6 +11,11 @@ export const StyledC2a = styled.button`
     font-size: 0.8rem;
   }
 
+  svg {
+    font-size: 0.9rem; 
+    margin-left: 0.75em;
+  }
+
   @media(min-width: ${(props) => props.theme.breakpoints.medium}) {
     a {
       font-size: 0.9rem;

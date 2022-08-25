@@ -23,7 +23,7 @@ export const StyledGallery = styled.section`
       border-radius: 1em;
     }
 
-    figure:nth-child(n+7) {
+    figure:nth-child(n+5) {
       display: none;
     }
   }
@@ -49,7 +49,7 @@ export const StyledGallery = styled.section`
         height: 10em;
       }
 
-      figure:nth-child(n+7) {
+      figure:nth-child(n+5) {
         display: block;
       }
     }

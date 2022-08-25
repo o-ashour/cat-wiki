@@ -1,12 +1,12 @@
 import { StyledModal } from "./style";
 import { Link } from "react-router-dom";
 
-function Modal({ breedListFiltered, onClick, id }) {
+function Modal({ breedListFiltered, onClick }) {
   return (
-    <StyledModal id={id}>
+    <StyledModal>
       {breedListFiltered.breedObjects.map((breed, idx) => {
         return (
-          <Link to="/details" className="modal-item">
+          <Link key={idx} to="/details" className="modal-item">
             <li id={breedListFiltered.breedIds[idx]} onClick={onClick}>
               {breed.name}
             </li>

@@ -1,4 +1,3 @@
-import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import { StyledGallery } from "./style";
 import { Card } from "../Cardi";
 import { UserContext } from "../../App";
@@ -12,7 +11,6 @@ import { useContext } from "react";
 
 function Gallery() {
   const { breedImgs } = useContext(UserContext); 
-
   return (
     <StyledGallery>
       <header>
@@ -26,13 +24,5 @@ function Gallery() {
     </StyledGallery>
   )
 }
-// <Card url={breedImgs[0].url} caption='none' />
-// <Card url={breedImgs[1].url} caption='none' />
-
-// <Card url={breedImgs[2].url} caption='none' /> 
-// <Card url={breedImgs[3].url} caption='none' />
-// <FaAngleLeft style={{alignSelf: 'center', position: 'absolute', left: 0}} fontSize="2em" fill="#DEC68B"/>
-// <FaAngleRight style={{alignSelf: 'center', position: 'absolute', right: 0}} fontSize="2em" fill="#DEC68B"/>
-
 
 export { Gallery };
