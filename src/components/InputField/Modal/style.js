@@ -12,6 +12,11 @@ export const StyledModal = styled.ul`
   padding: 0.75em 1em;
   border-radius: 1em;
 
+  .modal-item:first-child {
+    :focus {
+      background: lightgrey;
+    }
+  }
   li {
     margin-bottom: 0.75em;
 

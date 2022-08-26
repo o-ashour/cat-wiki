@@ -28,9 +28,14 @@ function Input() {
 
   // handles logic of any input changes happening in search field
   function handleChange(e) {
+    // any value in input is stored in a constant variable
+    const inputStr = e.target.value;
+    // the value from input is 'minified' or filtered from any non-alphabetical characters
+    // using a custom 'minify' function
+    let miniInputStr = minifyString(inputStr);
     // closes and initializes modal by checking if input field is blank
     // breed list is set to initial list retrieved from api
-    if (e.target.value === "") {
+    if (e.target.value === "" || miniInputStr === "") {
       setIsModalOpen(false);
       setBreedListFiltered({
         breedObjects: breedList,
@@ -40,11 +45,7 @@ function Input() {
     } else {
       // modal should appear
       setIsModalOpen(true);
-      // any value in input is stored in a constant variable
-      const inputStr = e.target.value;
-      // the value from input is 'minified' or filtered from any non-alphabetical characters
-      // using a custom 'minify' function
-      const miniInputStr = minifyString(inputStr);
+
       const miniBreedStrArr = [];
       // same minification as above is done to all names of breeds from inital api list
       breedList.forEach((breed) =>
@@ -53,8 +54,10 @@ function Input() {
       // compare breed names from list to input and store matched indicies in array
       const filteredBreedsIdx = [];
       miniBreedStrArr.forEach((breedName, idx) => {
-        if (breedName.includes(miniInputStr)) {
-          filteredBreedsIdx.push(idx);
+        if (!(miniInputStr.length === 3 && /\s/g.test(miniInputStr))) {
+          if (breedName.charAt(0)=== miniInputStr.charAt(0) && (breedName.includes(miniInputStr) || breedName.replaceAll("-", " ").includes(miniInputStr))) {
+            filteredBreedsIdx.push(idx);
+          }
         }
       });
 
@@ -97,13 +100,19 @@ function Input() {
 
   // minifying string function taking in some string as argument
   // uses a regular expression to match only alphabet characters
-  // uses string concatenation to combine matched letters into string variable 
+  // uses string concatenation to combine matched letters into string variable
   // returns 'minified' string in lower case
   function minifyString(str) {
-    const miniStrArr = str.match(/[A-Za-z]/g);
-    let miniStr = "";
-    miniStrArr.forEach((letter) => (miniStr += letter));
-    return miniStr.toLowerCase();
+    str = str.trim();
+    const miniStrArr = str.match(/^[A-Za-z]+-*[A-Za-z]*\s*[A-Za-z]*-*[A-Za-z]*\s*[A-Za-z]*-*[A-Za-z]*\s*$/);
+    if (str !== "" && miniStrArr !== null) {
+      let miniStr = "";
+      miniStrArr.forEach((letter) => (miniStr += letter));
+      return miniStr.toLowerCase();
+    } else {
+      return "";
+    }
+    // else maybe give an error msg to user to enter a breed name
   }
 
   return (
@@ -118,10 +127,7 @@ function Input() {
         <FaSearch id="search-icon" onClick={handleSearchSubmit} />
       </StyledInput>
       {isModalOpen && (
-        <Modal
-          breedListFiltered={breedListFiltered}
-          onClick={handleClick}
-        />
+        <Modal breedListFiltered={breedListFiltered} onClick={handleClick} />
       )}
     </div>
   );
