@@ -6,9 +6,6 @@ import { StyledDetails } from "./style";
 import { UserContext } from "../../App";
 import React, { useContext } from "react";
 
-// line up attribute horizontal bars
-// try object-fit: contain for image and look into how to optimize as sizes are very large 
-
 function Details({ breedImgs }) {
   const { selectedBreedObj } = useContext(UserContext);
 

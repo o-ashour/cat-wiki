@@ -1,9 +1,7 @@
-import { Attribute } from "../Attribute";
+import { Attribute } from "./Attribute";
 import { StyledAttributes } from "./style";
 import { UserContext } from "../../App";
 import { useContext } from "react";
-
-// suggestion: make an object to get all necessary data, fill, then import here
 
 function Attributes(){
   const { selectedBreedObj } = useContext(UserContext);

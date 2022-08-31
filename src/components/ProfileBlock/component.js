@@ -1,6 +1,6 @@
-import Description from "../Description";
+import Description from "./Description";
 import { StyledProfile } from "./style";
-import Avatar from "../Avatar";
+import Avatar from "./Avatar";
 
 function Profile({ imgUrl, title, body }){
   return (
