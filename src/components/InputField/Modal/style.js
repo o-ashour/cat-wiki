@@ -12,6 +12,14 @@ export const StyledModal = styled.ul`
   padding: 0.75em 1em;
   border-radius: 1em;
 
+  #focused-link {
+    outline: 2px solid blue;
+  }
+
+  .modal-item:focus {
+    color: red;
+  }
+
   .modal-item:first-child {
     :focus {
       background: lightgrey;
@@ -50,4 +58,4 @@ export const StyledModal = styled.ul`
       margin-bottom: 1em;
     }
   }
-`;
+`
