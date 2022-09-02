@@ -6,14 +6,26 @@ import { ThemeProvider } from "styled-components";
 
 const theme = {
   colors: {
+    // white
     primary: "#fff",
     secondary: "#E3E1DC",
+    // black
     tertiary: "#000",
+    // lighter black
     accent_1: "#291507",
+    // dark woody brown
     accent_2: "#4D270C",
+    // lighter beige
     accent_3: "#DEC68B",
+    // brownish gray
     accent_4: "#544439",
+    // light gray
     accent_5: "#E0E0E0",
+    //error
+    // hot red
+    accent_6: "#ed2532",
+    // crimson-ish
+    accent_7: "#ba1d27",
   },
   breakpoints: {
     small: "600px",

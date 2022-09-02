@@ -5,7 +5,10 @@ export const StyledArticle = styled.article`
 
   hr {
     width: 3.2em;
-    border-top: 0.15em solid ${(props) => props.theme.colors.accent_2};  
+    height: 3px;
+    background: ${(props) => props.theme.colors.accent_2};
+    border: none;
+    border-radius: 25px;  
   }
 
   h1 {
@@ -30,8 +33,7 @@ export const StyledArticle = styled.article`
     padding-bottom: 0.75em;
 
     hr {
-      width: 4em;
-      border-width: 0.15em;  
+      // width: 4em;
     }
 
     h1 {

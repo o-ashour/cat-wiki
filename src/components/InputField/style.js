@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
-export const StyledInput = styled.label`
+export const StyledInput = styled.div`
+
   .input-btn {
     font-family: "Montserrat", sans-serif;
     padding: 0.65em 1em;
-    width: 8em;
+    width: 100%;
     border-radius: 2em;
     border: none;
 
@@ -20,9 +21,10 @@ export const StyledInput = styled.label`
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
+    height: 5em;
+
     .input-btn {
       padding: 1.25em 2em;
-      width: inherit;
       margin-top: 2em;
 
       ::placeholder {
@@ -32,9 +34,13 @@ export const StyledInput = styled.label`
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.extra_large}) {
+    height: 7.75em;
+    
     .input-btn {
+      font-size: 1.375rem;
+      font-weight: 500;
       margin: 1.9em 0 0.75em;
-      padding: 1.9em 2em;
+      padding: 1.15em 1.45em;      
       border-radius: 3em;
 
       ::placeholder {

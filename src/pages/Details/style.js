@@ -57,8 +57,8 @@ export const StyledDetails = styled.div`
       margin-top: 0;
 
       ::after {
-        height: 38%;
-        left: 25.5%;
+        height: 33%;
+        left: 29%;
         border-radius: 19px;
         top: 6%;
       }

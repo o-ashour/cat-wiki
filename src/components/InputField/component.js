@@ -13,20 +13,23 @@ function Input() {
     breedObjects: breedList,
     breedIds: breedList.map((breed, idx) => idx),
   });
-  const [arrowVar, setArrowVar] = useState({ value: 0, isChanged: false });
+  const [arrowVar, setArrowVar] = useState({ value: -1, isChanged: false });
+  const [isError, setIsError] = useState(false);
   const navigate = useNavigate();
 
   // functions
   // handles logic of clicking on item in search modal
   function handleClick(e) {
     const selectedBreedId = e.target.id;
+    console.log(selectedBreedId);
     setSelectedBreedObj(breedList[selectedBreedId]);
   }
 
   // handles changes in input field
   function handleChange(e) {
     const inputStr = e.target.value;
-    setArrowVar({ value: 0, isChanged: false });
+    setArrowVar({ value: -1, isChanged: false });
+    setIsError(false);
     // value from input is checked as a valid breed-name
     let validInputStr = validateInput(inputStr);
     // closes and initializes modal by checking if input field is blank
@@ -37,7 +40,7 @@ function Input() {
         breedIds: breedList.map((breed, idx) => idx),
       });
       // when there is some input..
-    } else {
+    } else if (!isError) {
       // modal should appear
       setIsModalOpen(true);
       // update search results displayed in modal
@@ -84,7 +87,7 @@ function Input() {
     // stops navigation at last item in list
     if (
       e.key === "ArrowDown" &&
-      !(arrowVar.value >= breedListFiltered.breedObjects.length)
+      !((arrowVar.value >= breedListFiltered.breedObjects.length - 1) || (arrowVar.value > 3))
     ) {
       setArrowVar((prevState) => {
         return { value: prevState.value + 1, isChanged: true };
@@ -93,28 +96,36 @@ function Input() {
       // stops navigation at first item in list
     } else if (e.key === "ArrowUp" && !(arrowVar.value <= 0)) {
       setArrowVar((prevState) => {
-        return { ...prevState, value: prevState.value - 1 };
+        return { value: prevState.value - 1, isChanged: true };
       });
+
       // navigates to appropriate breed details page when item is selected from list with arrows
       // and enter is pressed
-    } else if (e.key === "Enter" && arrowVar.value > 0) {
-      const selectedBreedId = breedListFiltered.breedIds[arrowVar.value - 1];
+    } else if (e.key === "Enter" && arrowVar.value > -1) {
+      const selectedBreedId = breedListFiltered.breedIds[arrowVar.value];
       setSelectedBreedObj(breedList[selectedBreedId]);
       navigate("/details");
       // finds match for keyed-in search and goes to appropriate page if matches on enter
     } else if (e.key === "Enter") {
       const inputStr = validateInput(e.target.value);
+      console.log(inputStr);
       const selectedBreedId = breedList.findIndex(
-        (breed) => validateInput(breed.name) === inputStr
+        (breed) =>
+          validateInput(breed.name) === inputStr ||
+          validateInput(breed.name.replaceAll("-", " ")) === inputStr
       );
       if (selectedBreedId !== -1) {
         setSelectedBreedObj(breedList[selectedBreedId]);
         navigate("/details");
       } else {
-        //replace with ui
-        console.log("enter valid breed");
+        setIsModalOpen(false);
+        setIsError(true);
       }
     }
+  }
+
+  function handleBlur() {
+    setIsError(false);
   }
 
   // matches expected breed-name string format based on regex
@@ -131,13 +142,16 @@ function Input() {
   }
 
   return (
-    <div>
-      <StyledInput>
+    <div className="input-search">
+      <StyledInput id="input">
+        <label htmlFor="input-btn"></label>
         <input
+          id="input-btn"
           className="input-btn"
           placeholder="Search"
           onChange={handleChange}
           onKeyDown={handleKeyDown}
+          onBlur={handleBlur}
         />
         <FaSearch id="search-icon" />
       </StyledInput>
@@ -146,7 +160,13 @@ function Input() {
           arrowVar={arrowVar}
           breedListFiltered={breedListFiltered}
           onClick={handleClick}
+          className="modal"
         />
+      )}
+      {isError && (
+        <div className="error-message">
+          <p>No match. Try again.</p>
+        </div>
       )}
     </div>
   );

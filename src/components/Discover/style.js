@@ -10,13 +10,16 @@ export const StyledDiscover = styled.section`
     h3 {
       font-weight: 400;
       font-size: 0.9rem;
+      margin-bottom: 0.45em;
     }
 
     hr {
       width: 3em;
+      height: 3px;
       margin-top: 0.25em;
-      border-top: 0.15em solid ${(props) => props.theme.colors.accent_2};
-      border-radius: 2px;
+      background: ${(props) => props.theme.colors.accent_2};
+      border: none;
+      border-radius: 25px;
     }
 
     h2 {
@@ -69,12 +72,11 @@ export const StyledDiscover = styled.section`
       h3 {
         font-weight: 500;
         font-size: 1rem;
-        margin-bottom: 0.35em;
+        margin-bottom: 0.5em;
       }
 
       hr {
         margin-top: 0.35em;
-        border-width: 0.18em;
       }
     }
 

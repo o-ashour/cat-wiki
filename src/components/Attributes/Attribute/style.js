@@ -4,7 +4,7 @@ export const StyledAttribute = styled.div`
   margin-bottom: 0;
   display: flex;
   flex-flow: column;
-  
+
   span:first-child {
     font-size: 1rem;
     font-weight: 600;
@@ -13,8 +13,6 @@ export const StyledAttribute = styled.div`
 
   div {
     font-size: 0.9rem;
-    align-self: center;
-    margin: 0.5em 0;
   }
 
   hr {
@@ -27,15 +25,16 @@ export const StyledAttribute = styled.div`
     border-radius: 5px;
   }
 
-  hr:nth-child(-n+${(props) => props.score}){
-    background: ${(props) => props.theme.colors.accent_4};  
+  hr:nth-child(-n + ${(props) => props.score}) {
+    background: ${(props) => props.theme.colors.accent_4};
   }
 
-  @media(min-width: ${(props) => props.theme.breakpoints.medium}){
+  @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
     flex-flow: row;
     margin-bottom: 1.5em;
 
     span:first-child {
+      min-width: ${(props) => (props.type === "scale" ? "9.5em" : "auto")};
       font-weight: 500;
       margin: 0;
       margin-right: 0.8em;
@@ -52,11 +51,13 @@ export const StyledAttribute = styled.div`
     }
   }
 
-  @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
+  @media (min-width: ${(props) => props.theme.breakpoints.extra_large}) {
     margin-top: 2em;
+    margin-right: 7em;
     color: ${(props) => props.theme.colors.tertiary};
-    
+
     span:first-child {
+      min-width: ${(props) => (props.type === "scale" ? "10em" : "auto")};
       font-weight: 700;
       margin: 0;
     }
@@ -67,9 +68,7 @@ export const StyledAttribute = styled.div`
     }
 
     div {
-      font-size: 1rem;
-      align-self: start;
-      margin-left: 4em;
+      margin-left: 1.5em;
     }
 
     hr {
@@ -78,4 +77,4 @@ export const StyledAttribute = styled.div`
       border-radius: 10px;
     }
   }
-`
+`;

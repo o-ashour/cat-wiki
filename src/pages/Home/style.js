@@ -16,11 +16,12 @@ export const StyledHome = styled.div`
     border-radius: 3em 3em 0 0;
 
     svg {
+      display: none;
       font-size: 0.75em;
       color: #291507;
       position: relative;
-      top: 0.06em;
-      right: 2.05em;
+      top: -2.2em;
+      left: 9.3em;
     }
 
     img {
@@ -31,6 +32,29 @@ export const StyledHome = styled.div`
       font-size: 0.8rem;
       width: 50%;
       color: ${(props) => props.theme.colors.primary};
+    }
+  }
+
+  .input-search {
+    width: 8.25em;
+  }
+
+  .error-message {
+    position: absolute;
+    width: 6.75em;
+    background-color: ${(props) => props.theme.colors.accent_6};
+    margin-top: 0.65em;
+    padding: 0.01em 0.75em;
+    border-radius: 10px;
+    opacity: 0.98;
+    box-shadow: 2px 3px 4px ${(props) => props.theme.colors.accent_7};
+
+    p {
+      font-size: 0.75rem;
+      color: ${(props) => props.theme.colors.primary};
+      text-align: center;
+      width: 100%;
+      font-weight: 600;
     }
   }
 
@@ -68,14 +92,10 @@ export const StyledHome = styled.div`
       background-image: url(${bgImgMd});
       padding: 4em 5em 5em;
 
-      label {
-        width: 18em;
-      }
-
       svg {
         font-size: 1em;
-        top: 0.2em;
-        right: 2.1em;
+        top: -2.05em;
+        left: 12.75em;
         opacity: 0.8;
       }
 
@@ -88,6 +108,10 @@ export const StyledHome = styled.div`
         width: 65%;
         margin-top: 1.35em;
       }
+    }
+
+    .input-search {
+      width: 15em;
     }
 
     .article-images {
@@ -109,14 +133,10 @@ export const StyledHome = styled.div`
       background-position: bottom;
       padding: 5em 6em 8em;
 
-      label {
-        width: 23.75em;
-      }
-
       svg {
         font-size: 1.25em;
-        top: 0.2em;
-        right: 2.1em;
+        top: -3.25em;
+        left: 17.8em;
         opacity: 0.8;
       }
 
@@ -129,6 +149,10 @@ export const StyledHome = styled.div`
         width: 35%;
         margin-top: 0.35em;
       }
+    }
+
+    .input-search {
+      width: 25em;
     }
 
     .article-images {

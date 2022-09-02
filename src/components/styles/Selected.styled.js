@@ -8,6 +8,10 @@ export const StyledSelected = styled.div`
   display: flex;
   align-items: center;
 
+  img {
+    border-radius: 12px;
+  }
+
   ::after {
     content: '';
     width: 16px;
@@ -17,6 +21,13 @@ export const StyledSelected = styled.div`
     left: -5px;
     z-index: 0;
     border-radius: 1em;
+  }
+
+  @media(min-width: ${(props) => props.theme.breakpoints.medium}){
+    width: auto;
+    img {
+      height: 20em;
+    }
   }
 
   @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){

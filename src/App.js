@@ -37,7 +37,7 @@ function App() {
 
   //functions
   function handleClick(e) {
-    if (isModalOpen && e.target.className !== "modal-item") {
+    if (isModalOpen && e.target.parentElement.id !== "input" && e.target.id !== "modal" && e.target.parentElement.id !== "search-icon") {
       setIsModalOpen(false);
     }
   }

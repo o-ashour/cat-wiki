@@ -1,5 +1,5 @@
 import { StyledGallery } from "./style";
-import { Card } from "../Cardi";
+import { Photo } from "./Photo";
 import { UserContext } from "../../App";
 import { useContext } from "react";
 
@@ -10,9 +10,9 @@ function Gallery() {
       <header>
         <h2>Other photos</h2>
       </header>
-      <div className='details-gallery'>
+      <div className='container'>
         {breedImgs.map((breedImg, idx) => {
-          return <Card key={idx} url={breedImg.url} caption='none' />
+          return <Photo key={idx} url={breedImg.url} name={breedImg.breeds[0].name}/>
         })}
       </div>
     </StyledGallery>

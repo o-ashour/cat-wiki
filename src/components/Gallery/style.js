@@ -4,33 +4,28 @@ export const StyledGallery = styled.section`
   padding: 0;
   header {
     h2 {
-      font-weight: 600; 
+      font-weight: 600;
       padding: 0 0.75em;
     }
   }
 
-  .details-gallery {
+  .container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 0.5em;
     margin: 1.5em 0;
-  
-    img {
-      width: 10em;
-      height: 9em;
-      object-fit: cover;
-      border-radius: 1em;
-    }
+    padding: 0 1em;
 
-    figure:nth-child(n+5) {
+
+    figure:nth-child(n + 5) {
       display: none;
     }
   }
 
-  @media(min-width: ${(props) => props.theme.breakpoints.medium}){  
+  @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
     margin-bottom: 3em;
-      
+
     header {
       margin-left: 2em;
 
@@ -39,23 +34,20 @@ export const StyledGallery = styled.section`
       }
     }
 
-    .details-gallery {
+    .container {
+      justify-content: start;
+      gap: 2em;
+      
       svg {
         display: none;
       }
-
-      img {
-        width: 11em;
-        height: 10em;
-      }
-
-      figure:nth-child(n+5) {
-        display: block;
-      }
     }
+
+
+    
   }
 
-  @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
+  @media (min-width: ${(props) => props.theme.breakpoints.extra_large}) {
     padding: 3em 5.25em 8em;
 
     header {
@@ -65,21 +57,14 @@ export const StyledGallery = styled.section`
       }
     }
 
-    img {
-      width: 17.5em;
-      height: 18em;
-      border-radius: 2em;
-    }
-
-    .details-gallery {
+    .container {
       justify-content: start;
       gap: 2.5em;
       margin-top: 2.4em;
 
-      img {
-        width: 18em;
-        height: 18em;
+      figure:nth-child(n + 5) {
+        display: block;
       }
     }
   }
-`
+`;
