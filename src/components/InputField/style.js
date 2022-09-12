@@ -1,6 +1,13 @@
 import styled from "styled-components";
 
 export const StyledInput = styled.div`
+  width: inherit;
+  transition: width 1s;
+  position: relative;
+  
+  .active {
+    width: 12em;
+  }
 
   .input-btn {
     font-family: "Montserrat", sans-serif;
@@ -21,7 +28,8 @@ export const StyledInput = styled.div`
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
-    height: 5em;
+    // display: block;
+    // height: 5em;
 
     .input-btn {
       padding: 1.25em 2em;

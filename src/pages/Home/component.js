@@ -20,7 +20,7 @@ function Home() {
             <Cover />
           </Flex>
           <p>Get to know more about your cat breed</p>
-          <Input />
+          <Input className="main-input" id="main-input" />
         </section>
         <Discover />
       </div>

@@ -1,6 +1,6 @@
 import { React, useState, useEffect, createContext } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import Layout from "./pages/Layout";
+import Layout from "./pages/Layout/component";
 import { Home } from "./pages/Home/component";
 import { Details } from "./pages/Details";
 import { TopSearch } from "./pages/TopSearch/component";
@@ -13,6 +13,23 @@ function App() {
   const [selectedBreedObj, setSelectedBreedObj] = useState({});
   const [breedImgs, setBreedImgs] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalRealOpen, setIsModalRealOpen] = useState(false);
+  const [windowDimenion, detectW] = useState(window.innerWidth);
+  
+  const detectSize = () => {
+    detectW(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", detectSize);
+    if (windowDimenion > 601){
+      setIsModalRealOpen(false);
+    }
+
+    return () => {
+      window.removeEventListener("resize", detectSize);
+    };
+  }, [windowDimenion]);
 
   useEffect(() => {
     fetch(
@@ -37,8 +54,21 @@ function App() {
 
   //functions
   function handleClick(e) {
-    if (isModalOpen && e.target.parentElement.id !== "input" && e.target.id !== "modal" && e.target.parentElement.id !== "search-icon") {
+    if (
+      isModalOpen &&
+      e.target.parentElement.id !== "input" &&
+      e.target.id !== "modal" &&
+      e.target.parentElement.id !== "search-icon" &&
+      !isModalRealOpen
+    ) {
       setIsModalOpen(false);
+    }
+    if (
+      (e.target.parentElement.id === "input" ||
+        e.target.parentElement.id === "search-icon") &&
+      windowDimenion < 601
+    ) {
+      setIsModalRealOpen(true);
     }
   }
 
@@ -53,6 +83,9 @@ function App() {
           setIsModalOpen,
           breedList,
           setBreedList,
+          isModalRealOpen,
+          setIsModalRealOpen,
+          windowDimenion
         }}
       >
         <BrowserRouter>

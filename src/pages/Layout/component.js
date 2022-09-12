@@ -1,13 +1,17 @@
 import { Outlet } from "react-router-dom";
-import { Header } from "../components/Header";
-import { Footer } from "../components/Footer";
-import GlobalStyles from "../components/styles/Global";
+import { Header } from "../../components/Header";
+import { Footer } from "../../components/Footer";
+import GlobalStyles from "../../components/styles/Global";
 import { ThemeProvider } from "styled-components";
+import { ModalReal } from "../../components/ModalReal/component";
+import { useContext } from "react";
+import { UserContext } from "../../App";
 
 const theme = {
   colors: {
     // white
     primary: "#fff",
+    // cool grey
     secondary: "#E3E1DC",
     // black
     tertiary: "#000",
@@ -36,9 +40,12 @@ const theme = {
 };
 
 function Layout() {
+  const { isModalRealOpen } = useContext(UserContext);
+
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyles />
+      <GlobalStyles isModalRealOpen={isModalRealOpen} />
+      <ModalReal />
       <Header />
       <Outlet />
       <Footer />

@@ -16,12 +16,11 @@ export const StyledHome = styled.div`
     border-radius: 3em 3em 0 0;
 
     svg {
-      display: none;
       font-size: 0.75em;
       color: #291507;
-      position: relative;
-      top: -2.2em;
-      left: 9.3em;
+      position: absolute;
+      top: 10px;
+      right: 13px;
     }
 
     img {
@@ -37,6 +36,11 @@ export const StyledHome = styled.div`
 
   .input-search {
     width: 8.25em;
+    transition: width 0.7s;
+  }
+
+  .input-search#active {
+    width: 12em;
   }
 
   .error-message {
@@ -94,8 +98,10 @@ export const StyledHome = styled.div`
 
       svg {
         font-size: 1em;
-        top: -2.05em;
-        left: 12.75em;
+        top: initial;
+        left: initial;
+        bottom: 18px;
+        right: 13px;
         opacity: 0.8;
       }
 
@@ -112,6 +118,10 @@ export const StyledHome = styled.div`
 
     .input-search {
       width: 15em;
+    }
+
+    .input-search#active {
+      width: 18em;
     }
 
     .article-images {
@@ -135,8 +145,8 @@ export const StyledHome = styled.div`
 
       svg {
         font-size: 1.25em;
-        top: -3.25em;
-        left: 17.8em;
+        bottom: 34px;
+        right: 22px;
         opacity: 0.8;
       }
 
@@ -153,6 +163,10 @@ export const StyledHome = styled.div`
 
     .input-search {
       width: 25em;
+    }
+
+    .input-search#active {
+      width: 30em;
     }
 
     .article-images {

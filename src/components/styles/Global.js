@@ -9,6 +9,7 @@ const GlobalStyles = createGlobalStyle`
 
   html {
     min-height: 100%;
+    overflow: ${(props) => (props.isModalRealOpen ? "hidden" : "auto")}
   }
 
   body {
@@ -48,6 +49,5 @@ const GlobalStyles = createGlobalStyle`
   figure {
     margin: 0;
   }
-`
+`;
 export default GlobalStyles;
-

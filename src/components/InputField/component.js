@@ -1,35 +1,50 @@
 import { FaSearch } from "react-icons/fa";
 import { StyledInput } from "./style";
-import { React, useContext, useState } from "react";
+import { React, useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../App";
 import { Modal } from "./Modal/component";
 
-function Input() {
+function Input({ id }) {
   // hooks
-  const { setSelectedBreedObj, isModalOpen, setIsModalOpen, breedList } =
-    useContext(UserContext);
+  const {
+    setSelectedBreedObj,
+    isModalOpen,
+    setIsModalOpen,
+    breedList,
+    isModalRealOpen,
+    setIsModalRealOpen,
+    windowDimenion
+  } = useContext(UserContext);
   const [breedListFiltered, setBreedListFiltered] = useState({
     breedObjects: breedList,
     breedIds: breedList.map((breed, idx) => idx),
   });
   const [arrowVar, setArrowVar] = useState({ value: -1, isChanged: false });
   const [isError, setIsError] = useState(false);
+  const [isActive, setIsActive] = useState("");
+  const [inputStr, setInputStr] = useState("");
   const navigate = useNavigate();
 
-  // functions
+  useEffect(() => {
+    setInputStr("");
+  }, [isModalRealOpen]);
+
   // handles logic of clicking on item in search modal
   function handleClick(e) {
     const selectedBreedId = e.target.id;
-    console.log(selectedBreedId);
     setSelectedBreedObj(breedList[selectedBreedId]);
+    setIsModalRealOpen(false);
   }
 
   // handles changes in input field
   function handleChange(e) {
-    const inputStr = e.target.value;
+    setInputStr(e.target.value);
     setArrowVar({ value: -1, isChanged: false });
     setIsError(false);
+  }
+
+  useEffect(() => {
     // value from input is checked as a valid breed-name
     let validInputStr = validateInput(inputStr);
     // closes and initializes modal by checking if input field is blank
@@ -46,7 +61,7 @@ function Input() {
       // update search results displayed in modal
       updateModalList(validInputStr);
     }
-  }
+  }, [inputStr]);
 
   function updateModalList(str) {
     const breedsLowerCaseArr = breedList.map((breed) =>
@@ -87,7 +102,10 @@ function Input() {
     // stops navigation at last item in list
     if (
       e.key === "ArrowDown" &&
-      !((arrowVar.value >= breedListFiltered.breedObjects.length - 1) || (arrowVar.value > 3))
+      !(
+        arrowVar.value >= breedListFiltered.breedObjects.length - 1 ||
+        arrowVar.value > 3
+      )
     ) {
       setArrowVar((prevState) => {
         return { value: prevState.value + 1, isChanged: true };
@@ -105,10 +123,10 @@ function Input() {
       const selectedBreedId = breedListFiltered.breedIds[arrowVar.value];
       setSelectedBreedObj(breedList[selectedBreedId]);
       navigate("/details");
+      setIsModalRealOpen(false);
       // finds match for keyed-in search and goes to appropriate page if matches on enter
     } else if (e.key === "Enter") {
       const inputStr = validateInput(e.target.value);
-      console.log(inputStr);
       const selectedBreedId = breedList.findIndex(
         (breed) =>
           validateInput(breed.name) === inputStr ||
@@ -117,6 +135,7 @@ function Input() {
       if (selectedBreedId !== -1) {
         setSelectedBreedObj(breedList[selectedBreedId]);
         navigate("/details");
+        setIsModalRealOpen(false);
       } else {
         setIsModalOpen(false);
         setIsError(true);
@@ -126,6 +145,11 @@ function Input() {
 
   function handleBlur() {
     setIsError(false);
+    setIsActive("inactive");
+  }
+
+  function handleFocus() {
+    setIsActive("active");
   }
 
   // matches expected breed-name string format based on regex
@@ -142,27 +166,42 @@ function Input() {
   }
 
   return (
-    <div className="input-search">
+    <div className="input-search" id={isActive}>
       <StyledInput id="input">
         <label htmlFor="input-btn"></label>
-        <input
-          id="input-btn"
-          className="input-btn"
-          placeholder="Search"
-          onChange={handleChange}
-          onKeyDown={handleKeyDown}
-          onBlur={handleBlur}
-        />
+        {((id === "main-input" && isModalRealOpen) ||
+        (id === "modal-input" && !isModalRealOpen)) && windowDimenion < 601 ? (
+          <input
+            id="input-btn"
+            className="input-btn"
+            placeholder="Search"
+            value={inputStr}
+            disabled
+          />
+        ) : (
+          <input
+            id="input-btn"
+            className="input-btn"
+            placeholder="Search"
+            value={inputStr}
+            onChange={handleChange}
+            onKeyDown={handleKeyDown}
+            onBlur={handleBlur}
+            onFocus={handleFocus}
+          />
+        )}
+
         <FaSearch id="search-icon" />
       </StyledInput>
-      {isModalOpen && (
+      {(id === "modal-input" && isModalOpen && isModalRealOpen) ||
+      (id === "main-input" && isModalOpen && !isModalRealOpen) ? (
         <Modal
           arrowVar={arrowVar}
           breedListFiltered={breedListFiltered}
           onClick={handleClick}
           className="modal"
         />
-      )}
+      ) : null}
       {isError && (
         <div className="error-message">
           <p>No match. Try again.</p>
