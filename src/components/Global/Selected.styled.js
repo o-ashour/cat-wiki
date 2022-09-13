@@ -28,6 +28,13 @@ export const StyledSelected = styled.div`
     img {
       height: 20em;
     }
+
+    ::after {
+      height: 33%;
+      left: 29%;
+      border-radius: 19px;
+      top: 6%;
+    }
   }
 
   @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
@@ -39,7 +46,3 @@ export const StyledSelected = styled.div`
       border-radius: 15px;
   }
 `
-// height: 38%;
-// left: 27%;
-// border-radius: 19px;
-// top: 6%;

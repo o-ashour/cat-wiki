@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
-import GlobalStyles from "../../components/styles/Global";
+import GlobalStyles from "../../components/Global/Global";
 import { ThemeProvider } from "styled-components";
 import { ModalReal } from "../../components/ModalReal/component";
 import { useContext } from "react";

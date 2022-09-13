@@ -27,7 +27,7 @@ export const StyledModal = styled.ul`
     margin-bottom: 0.75em;
 
     :hover {
-      background: ${(props) => props.theme.colors.accent_5}
+      font-weight: 600;
     }
   }
 

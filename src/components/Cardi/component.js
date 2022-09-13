@@ -1,6 +1,6 @@
 import persianImg from '../../assets/images/image 2.png'; 
 import { StyledCard } from './style';
-import { StyledSelected } from '../styles/Selected.styled';
+import { StyledSelected } from '../Global/Selected.styled';
 
 function Card({ caption, imgWidth, selected, url }) {
   return (

@@ -15,6 +15,11 @@ export const StyledHome = styled.div`
     padding: 1em 1.8em 2em;
     border-radius: 3em 3em 0 0;
 
+    .wrapper {
+      display: flex;
+      flex-direction: row;
+    }
+    
     svg {
       font-size: 0.75em;
       color: #291507;
@@ -25,6 +30,14 @@ export const StyledHome = styled.div`
 
     img {
       width: 5em;
+    }
+
+    .logo-cover {
+      height: 1.4em;
+      width: 4em;
+      background: #000;
+      position: absolute;
+      left: 6.25em;
     }
 
     p {
@@ -107,6 +120,10 @@ export const StyledHome = styled.div`
 
       img {
         width: 14em;
+      }
+
+      .logo-cover {
+        display: none;
       }
 
       p {

@@ -20,6 +20,10 @@ export const StyledDetails = styled.div`
       margin-top: 1em;
       margin-left: 3em;
 
+      img {
+        z-index: 1;
+      }
+
       ::after {
         left: -8px;
       }
@@ -55,13 +59,6 @@ export const StyledDetails = styled.div`
       flex: 0.8;
       align-items: start;
       margin-top: 0;
-
-      ::after {
-        height: 33%;
-        left: 29%;
-        border-radius: 19px;
-        top: 6%;
-      }
 
       img {
         margin: 1em 0em 1em 10em;

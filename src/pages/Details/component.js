@@ -1,5 +1,5 @@
 import { StyledArticle } from "../../components/Article/style";
-import { StyledSelected } from "../../components/styles/Selected.styled";
+import { StyledSelected } from "../../components/Global/Selected.styled";
 import { Attributes } from "../../components/Attributes";
 import { Gallery } from "../../components/Gallery";
 import { StyledDetails } from "./style";
@@ -12,10 +12,10 @@ function Details({ breedImgs }) {
   return (
     <>
       <StyledDetails>
-        <StyledSelected className='profile-image'>
-          <img src={selectedBreedObj.image.url} alt={selectedBreedObj.name} style={{zIndex: '1'}}/>
+        <StyledSelected className="profile-image">
+          <img src={selectedBreedObj.image.url} alt={selectedBreedObj.name} />
         </StyledSelected>
-        <div className='profile-description'>
+        <div className="profile-description">
           <StyledArticle>
             <h1>{selectedBreedObj.name}</h1>
             <p>{selectedBreedObj.description}</p>
@@ -25,7 +25,7 @@ function Details({ breedImgs }) {
       </StyledDetails>
       <Gallery breedImgs={breedImgs} />
     </>
-  )
+  );
 }
 
 export { Details };

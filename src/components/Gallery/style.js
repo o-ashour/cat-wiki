@@ -42,9 +42,6 @@ export const StyledGallery = styled.section`
         display: none;
       }
     }
-
-
-    
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.extra_large}) {

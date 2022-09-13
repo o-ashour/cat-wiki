@@ -1,7 +1,5 @@
 import { Logo } from "../../components/Logo";
 import { Input } from "../../components/InputField";
-import { Cover } from "../../components/styles/Cover.styled";
-import { Flex } from "../../components/styles/Flex.styled";
 import { Discover } from "../../components/Discover/component";
 import { StyledHome } from "./style";
 import { StyledArticle } from "../../components/Article/style";
@@ -15,10 +13,10 @@ function Home() {
     <StyledHome>
       <div className="container">
         <section className="hero-container">
-          <Flex>
+          <div class="wrapper">
             <Logo theme="dark" />
-            <Cover />
-          </Flex>
+            <div className="logo-cover" />
+          </div>
           <p>Get to know more about your cat breed</p>
           <Input className="main-input" id="main-input" />
         </section>

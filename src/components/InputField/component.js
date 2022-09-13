@@ -14,7 +14,9 @@ function Input({ id }) {
     breedList,
     isModalRealOpen,
     setIsModalRealOpen,
-    windowDimenion
+    windowDimenion,
+    isLoading,
+    reqError,
   } = useContext(UserContext);
   const [breedListFiltered, setBreedListFiltered] = useState({
     breedObjects: breedList,
@@ -136,7 +138,7 @@ function Input({ id }) {
         setSelectedBreedObj(breedList[selectedBreedId]);
         navigate("/details");
         setIsModalRealOpen(false);
-      } else {
+      } else if (!isLoading && !reqError) {
         setIsModalOpen(false);
         setIsError(true);
       }
@@ -165,12 +167,42 @@ function Input({ id }) {
     }
   }
 
+  let content = "";
+
+  if (breedList.length === 0 && !reqError) {
+    content = <p>No breeds to search right now...</p>;
+  }
+
+  if (
+    ((id === "modal-input" && isModalOpen && isModalRealOpen) ||
+      (id === "main-input" && isModalOpen && !isModalRealOpen)) &&
+    breedList.length > 0
+  ) {
+    content = (
+      <Modal
+        arrowVar={arrowVar}
+        breedListFiltered={breedListFiltered}
+        onClick={handleClick}
+        className="modal"
+      />
+    );
+  }
+
+  if (reqError) {
+    content = <p>{reqError}</p>;
+  }
+
+  if (isLoading) {
+    content = <p>Retrieving breeds...</p>;
+  }
+
   return (
     <div className="input-search" id={isActive}>
       <StyledInput id="input">
         <label htmlFor="input-btn"></label>
         {((id === "main-input" && isModalRealOpen) ||
-        (id === "modal-input" && !isModalRealOpen)) && windowDimenion < 601 ? (
+          (id === "modal-input" && !isModalRealOpen)) &&
+        windowDimenion < 601 ? (
           <input
             id="input-btn"
             className="input-btn"
@@ -193,15 +225,7 @@ function Input({ id }) {
 
         <FaSearch id="search-icon" />
       </StyledInput>
-      {(id === "modal-input" && isModalOpen && isModalRealOpen) ||
-      (id === "main-input" && isModalOpen && !isModalRealOpen) ? (
-        <Modal
-          arrowVar={arrowVar}
-          breedListFiltered={breedListFiltered}
-          onClick={handleClick}
-          className="modal"
-        />
-      ) : null}
+      {content}
       {isError && (
         <div className="error-message">
           <p>No match. Try again.</p>
@@ -212,3 +236,28 @@ function Input({ id }) {
 }
 
 export { Input };
+
+// {isLoading ? (
+//   <div className="loading-message">
+//     <p>Retrieving breeds...</p>
+//   </div>
+// ) : breedList.length === 0 && !reqError ? (
+//   <div className="empty-list-message">
+//     <p>No breeds to search right now...</p>
+//   </div>
+// ) : null}
+// {((id === "modal-input" && isModalOpen && isModalRealOpen) ||
+//   (id === "main-input" && isModalOpen && !isModalRealOpen)) &&
+// breedList.length > 0 ? (
+//   <Modal
+//     arrowVar={arrowVar}
+//     breedListFiltered={breedListFiltered}
+//     onClick={handleClick}
+//     className="modal"
+//   />
+// ) : null}
+// {reqError && (
+//   <div className="req-error-message">
+//     <p>{reqError}</p>
+//   </div>
+// )}
