@@ -76,7 +76,14 @@ export const StyledModalReal = styled.div`
     }
   }
 
-  @media(min-width: 601px) {
-    display: none;
+  .error-message {
+    color: ${(props) => props.theme.colors.accent_6};
+    margin-left: 1em;
+    font-weight: 500;
   }
+
+
+  // @media(min-width: 601px) {
+  //   display: none;
+  // }
 `;

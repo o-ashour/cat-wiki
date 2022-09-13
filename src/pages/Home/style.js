@@ -45,11 +45,11 @@ export const StyledHome = styled.div`
 
   .error-message {
     position: absolute;
-    width: 6.75em;
+    width: inherit;
     background-color: ${(props) => props.theme.colors.accent_6};
     margin-top: 0.65em;
     padding: 0.01em 0.75em;
-    border-radius: 10px;
+    border-radius: 4px;
     opacity: 0.98;
     box-shadow: 2px 3px 4px ${(props) => props.theme.colors.accent_7};
 
@@ -124,6 +124,20 @@ export const StyledHome = styled.div`
       width: 18em;
     }
 
+    .error-message {
+      width: 10em;
+      margin-left: 0.7em;
+      padding: 0;
+
+      p {
+        font-size: 0.8rem;
+        text-align: left;
+        width: inherit;
+        margin: 0.8em;
+        padding-left: 0.1em;
+      }
+    }
+
     .article-images {
       grid-template-columns: 1em 8em 10em;
       gap: 0.75em;
@@ -167,6 +181,16 @@ export const StyledHome = styled.div`
 
     .input-search#active {
       width: 30em;
+    }
+
+    .error-message {
+      width: 14em;
+      margin-left: 1em;
+      p {
+        font-size: 1.125rem;
+        width: inherit;
+        margin: 0.5em;
+      }
     }
 
     .article-images {
