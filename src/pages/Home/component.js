@@ -2,7 +2,7 @@ import { Logo } from "../../components/Logo";
 import { Input } from "../../components/InputField";
 import { Discover } from "../../components/Discover/component";
 import { StyledHome } from "./style";
-import { StyledArticle } from "../../components/Article/style";
+import { StyledArticle } from "../../components/Global/Article.styled";
 import { C2a } from "../../components/C2a";
 import ladyImg from "../../assets/images/image 1.png";
 import persianImg from "../../assets/images/image 2.png";
@@ -13,16 +13,16 @@ function Home() {
     <StyledHome>
       <div className="container">
         <section className="hero-container">
-          <div class="wrapper">
+          <div className="wrapper">
             <Logo theme="dark" />
             <div className="logo-cover" />
           </div>
           <p>Get to know more about your cat breed</p>
-          <Input className="main-input" id="main-input" />
+          <Input id="main-input" />
         </section>
         <Discover />
       </div>
-      <StyledArticle>
+      <StyledArticle className="info">
         <section className="article-summary">
           <hr></hr>
           <h1>Why should you have a cat?</h1>

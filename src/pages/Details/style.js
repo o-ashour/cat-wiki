@@ -1,6 +1,15 @@
 import styled from "styled-components";
 
-export const StyledDetails = styled.div` 
+export const StyledDetails = styled.div`
+  .profile-image {
+    margin: 1em 2em 0;
+
+    img {
+      z-index: 1;
+      border-radius: 12px;
+    }
+  }
+
   article {
     h1 {
       margin-bottom: 0.5em;
@@ -10,8 +19,8 @@ export const StyledDetails = styled.div`
       font-weight: 400;
     }
   }
-  
-  @media(min-width: ${(props) => props.theme.breakpoints.medium}){
+
+  @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
     padding: 2em;
     padding-top: 0.5em;
 
@@ -19,10 +28,6 @@ export const StyledDetails = styled.div`
       width: auto;
       margin-top: 1em;
       margin-left: 3em;
-
-      img {
-        z-index: 1;
-      }
 
       ::after {
         left: -8px;
@@ -52,18 +57,21 @@ export const StyledDetails = styled.div`
     }
   }
 
-  @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
+  @media (min-width: ${(props) => props.theme.breakpoints.extra_large}) {
     display: flex;
 
     .profile-image {
       flex: 0.8;
       align-items: start;
       margin-top: 0;
+      margin-left: 3em;
+      padding-top: 2em;
 
       img {
-        margin: 1em 0em 1em 10em;
-        width: 23em;
-        height: 23em;
+        // margin: 1em 0em 1em 10em;
+        // width: 23em;
+        // height: 23em;
+        width: 100%;
         object-fit: cover;
         border-radius: 31px;
       }
@@ -71,23 +79,22 @@ export const StyledDetails = styled.div`
 
     .profile-description {
       flex: 1.2;
-      margin-left: 6em;
+      margin-left: 2em;
 
       article {
-
         h1 {
           font-size: 2.4rem;
           font-weight: 600;
           margin-bottom: 0.2em;
         }
-  
+
         p {
           font-size: 1.2rem;
           font-weight: 500;
           margin-bottom: 0.25em;
-          padding-right: 8em; 
+          padding-right: 8em;
         }
       }
     }
   }
-`
+`;

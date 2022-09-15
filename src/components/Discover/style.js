@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledDiscover = styled.section`
   background-color: ${(props) => props.theme.colors.secondary};
   color: ${(props) => props.theme.colors.accent};
-  padding: 1.2em 1.8em;
+  padding: 1.2em 1.8em 2.25em;
   border-radius: 0 0 3em 3em;
 
   header {
@@ -28,7 +28,7 @@ export const StyledDiscover = styled.section`
       width: 11em;
     }
   }
-  
+
   article {
     display: flex;
     flex-wrap: wrap;
@@ -37,6 +37,26 @@ export const StyledDiscover = styled.section`
 
     figure {
       width: 48%;
+
+      :first-child {
+        position: relative;
+
+        img {
+          position: relative;
+        }
+
+        ::before {
+          content: "";
+          width: 12px;
+          height: 57%;
+          background: ${(props) => props.theme.colors.accent_3};
+          position: absolute;
+          top: 14px;
+          left: -4px;
+          z-index: 0;
+          border-radius: 1em;
+        }
+      }
     }
 
     figcaption {
@@ -47,7 +67,9 @@ export const StyledDiscover = styled.section`
 
     img {
       border-radius: 1em;
-      height: 8.5em;
+      object-fit: cover;
+      height: 8em;
+      width: 100%;
     }
   }
 
@@ -64,8 +86,22 @@ export const StyledDiscover = styled.section`
     }
   }
 
-  @media(min-width: ${(props) => props.theme.breakpoints.medium}){
+  @media (min-width: ${(props) => props.theme.breakpoints.small}) {
+    article {
+      figure {
+        :first-child {
+          ::before {
+            top: 24px;
+          }
+        }
+      }
+      img {
+        height: 10em;
+      }
+    }
+  }
 
+  @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
     padding: 1.2em 5em 2.5em;
 
     header {
@@ -84,7 +120,7 @@ export const StyledDiscover = styled.section`
       display: flex;
       justify-content: space-between;
       margin-top: 0.7em;
-      
+
       h2 {
         font-size: 1.5rem;
         font-weight: 600;
@@ -99,21 +135,48 @@ export const StyledDiscover = styled.section`
     article {
       margin-top: 2.25em;
 
+      figure {
+        :first-child {
+          ::before {
+            height: 54%;
+            top: 30px;
+            left: -3px;
+            border-radius: 37px;
+          }
+        }
+      }
+
       figcaption {
         font-size: 0.9rem;
         margin: 0.35em 0 1.5em;
       }
 
       img {
-        height: 10.5em;
+        height: 12em;
         border-radius: 2.25em;
       }
     }
   }
 
+  @media (min-width: 1000px) {
+    article {
+      figure {
+        :first-child {
+          ::before {
+            height: 56%;
+            top: 42px;
+          }
+        }
+      }
 
-  @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
-    padding: 1.5em 7em 5em;
+      img {
+        height: 15.5em;
+      }
+    }
+  }
+
+  @media (min-width: ${(props) => props.theme.breakpoints.extra_large}) {
+    padding: 1.5em 6.25em 5em;
 
     header {
       h3 {
@@ -139,11 +202,17 @@ export const StyledDiscover = styled.section`
     article {
       flex-wrap: initial;
       justify-content: initial;
-      gap: 3.25em;
+      gap: 1.55em;
       margin-top: 3.25em;
 
       figure {
-        width: 47%;
+        width: initial;
+
+        :first-child {
+          ::before {
+            top: 34px;
+          }
+        }
       }
 
       figcaption {
@@ -152,9 +221,9 @@ export const StyledDiscover = styled.section`
       }
 
       img {
-        height: 14em;
+        height: 14.5em;
         border-radius: 2em;
       }
     }
-  }  
-`
+  }
+`;

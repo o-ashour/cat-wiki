@@ -15,7 +15,7 @@ function Discover() {
         </div>
       </header>
       <article>
-        <Card selected={true} />
+        <Card />
         <Card />
         <Card />
         <Card />

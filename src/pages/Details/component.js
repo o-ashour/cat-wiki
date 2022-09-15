@@ -1,4 +1,4 @@
-import { StyledArticle } from "../../components/Article/style";
+import { StyledArticle } from "../../components/Global/Article.styled";
 import { StyledSelected } from "../../components/Global/Selected.styled";
 import { Attributes } from "../../components/Attributes";
 import { Gallery } from "../../components/Gallery";

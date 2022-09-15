@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const StyledModal = styled.ul`
-  background-color: #fff;
-  color: #000;
+export const StyledInputResults = styled.ul`
+  background-color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.tertiary};
   position: absolute;
   max-height: 12em;
   width: inherit;

@@ -9,6 +9,7 @@ export const StyledHome = styled.div`
   }
 
   .hero-container {
+    background-color: ${(props) => props.theme.colors.tertiary};
     background-image: url(${bgImgSm});
     background-size: cover;
     background-repeat: no-repeat;
@@ -17,9 +18,8 @@ export const StyledHome = styled.div`
 
     .wrapper {
       display: flex;
-      flex-direction: row;
     }
-    
+
     svg {
       font-size: 0.75em;
       color: #291507;
@@ -49,11 +49,19 @@ export const StyledHome = styled.div`
 
   .input-search {
     width: 8.25em;
-    transition: width 0.7s;
   }
 
-  .input-search#active {
-    width: 12em;
+  .state-message {
+    width: inherit;
+
+    p {
+      position: absolute;
+      font-size: 0.75rem;
+      color: #fff;
+      font-weight: 600;
+      margin-left: 0.75em;
+      margin-top: 0.5em;
+    }
   }
 
   .error-message {
@@ -78,6 +86,11 @@ export const StyledHome = styled.div`
   .article-images {
     display: grid;
     grid-template-columns: 0.25fr 1.15fr 1.3fr;
+    // grid-template-columns: 3em 8.25em 8.75em;
+    // width: 50%;
+    // margin-left: auto;
+    // margin-right: auto;
+
     gap: 1em;
     grid-gap: 1em;
     margin-top: 4em;
@@ -99,6 +112,56 @@ export const StyledHome = styled.div`
     }
   }
 
+  @media (min-width: 435px) {
+    .hero-container {
+      background-size: contain;
+      background-position: right;
+    }
+
+    .article-images {
+      padding-left: 3em;
+      padding-right: 3em;
+    }
+  }
+
+  @media (min-width: ${(props) => props.theme.breakpoints.small}) {
+    .hero-container {
+      svg {
+        font-size: 0.8em;
+        top: 12px;
+      }
+
+      img {
+        width: 6em;
+      }
+
+      .logo-cover {
+        height: 1.6em;
+        left: 7.1em;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+    }
+
+    .input-search {
+      width: 11.25em;
+    }
+
+    .article-images {
+      padding-left: 4em;
+      padding-right: 4em;
+    }
+  }
+
+  // @media (min-width: 700px) {
+  //   .article-images {
+  //     padding-left: 5em;
+  //     padding-right: 5em;
+  //   }
+  // }
+
   @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
     .container {
       margin-left: 2em;
@@ -107,6 +170,8 @@ export const StyledHome = styled.div`
 
     .hero-container {
       background-image: url(${bgImgMd});
+      background-size: cover;
+      background-position: center;
       padding: 4em 5em 5em;
 
       svg {
@@ -128,7 +193,6 @@ export const StyledHome = styled.div`
 
       p {
         font-size: 1.2rem;
-        width: 65%;
         margin-top: 1.35em;
       }
     }
@@ -137,12 +201,17 @@ export const StyledHome = styled.div`
       width: 15em;
     }
 
-    .input-search#active {
-      width: 18em;
+    .state-message {
+      p {
+        font-size: 0.9rem;
+        margin-top: 1.05em;
+        margin-left: 0.85em;
+      }
     }
 
     .error-message {
       width: 10em;
+      width: auto;
       margin-left: 0.7em;
       padding: 0;
 
@@ -155,12 +224,33 @@ export const StyledHome = styled.div`
       }
     }
 
+    .info {
+      gap: 12px;
+    }
+
+    .article-summary {
+      margin-right: 0;
+      flex: 1;
+    }
+
     .article-images {
-      grid-template-columns: 1em 8em 10em;
+      // grid-template-columns: 1em 8em 10em;
+      grid-template-columns: 0.25fr 1.15fr 1.3fr;
+
       gap: 0.75em;
       grid-gap: 0.75em;
+      flex: 1;
       margin-top: 2em;
-      margin-right: 4em;
+      // margin-right: 4em;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  @media (min-width: 941px) {
+    .hero-container {
+      background-size: contain;
+      background-position: right;
     }
   }
 
@@ -171,6 +261,7 @@ export const StyledHome = styled.div`
 
     .hero-container {
       background-image: url(${bgImgLg});
+      background-size: cover;
       background-position: bottom;
       padding: 5em 6em 8em;
 
@@ -196,18 +287,42 @@ export const StyledHome = styled.div`
       width: 25em;
     }
 
-    .input-search#active {
-      width: 30em;
+    .state-message {
+      p {
+        font-size: 1.05rem;
+        margin-top: 0.45em;
+        margin-left: 1.1em;
+      }
     }
 
     .error-message {
       width: 14em;
       margin-left: 1em;
+
       p {
         font-size: 1.125rem;
-        width: inherit;
+        // width: inherit;
         margin: 0.5em;
       }
+    }
+
+    .info {
+      gap: 20px;
+      padding: 1em 6em 3.25em;
+    }
+
+    // .article-images {
+    //   grid-template-columns: 4em 12em 14.5em;
+    //   gap: 1.5em;
+    //   grid-gap: 1.5em;
+    //   margin-top: 0;
+    // }
+  }
+
+  @media (min-width: 1435px) {
+    .hero-container {
+      background-size: contain;
+      background-position: right;
     }
 
     .article-images {

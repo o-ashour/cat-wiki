@@ -3,17 +3,17 @@ import { StyledInput } from "./style";
 import { React, useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../App";
-import { Modal } from "./Modal/component";
+import { InputResults } from "./InputResults/component";
 
 function Input({ id }) {
   // hooks
   const {
     setSelectedBreedObj,
+    isInResultsOpen,
+    setIsInResultsOpen,
+    breedList,
     isModalOpen,
     setIsModalOpen,
-    breedList,
-    isModalRealOpen,
-    setIsModalRealOpen,
     windowDimenion,
     isLoading,
     reqError,
@@ -24,19 +24,18 @@ function Input({ id }) {
   });
   const [arrowVar, setArrowVar] = useState({ value: -1, isChanged: false });
   const [isError, setIsError] = useState(false);
-  const [isActive, setIsActive] = useState("");
   const [inputStr, setInputStr] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
     setInputStr("");
-  }, [isModalRealOpen]);
+  }, [isModalOpen]);
 
   // handles logic of clicking on item in search modal
   function handleClick(e) {
     const selectedBreedId = e.target.id;
     setSelectedBreedObj(breedList[selectedBreedId]);
-    setIsModalRealOpen(false);
+    setIsModalOpen(false);
   }
 
   // handles changes in input field
@@ -51,7 +50,7 @@ function Input({ id }) {
     let validInputStr = validateInput(inputStr);
     // closes and initializes modal by checking if input field is blank
     if (validInputStr === "") {
-      setIsModalOpen(false);
+      setIsInResultsOpen(false);
       setBreedListFiltered({
         breedObjects: breedList,
         breedIds: breedList.map((breed, idx) => idx),
@@ -59,7 +58,7 @@ function Input({ id }) {
       // when there is some input..
     } else if (!isError) {
       // modal should appear
-      setIsModalOpen(true);
+      setIsInResultsOpen(true);
       // update search results displayed in modal
       updateModalList(validInputStr);
     }
@@ -88,7 +87,7 @@ function Input({ id }) {
 
     // if there are no matches, modal doesn't appear
     if (filteredBreeds.length === 0) {
-      setIsModalOpen(false);
+      setIsInResultsOpen(false);
     }
 
     // update filtered breed list
@@ -125,7 +124,7 @@ function Input({ id }) {
       const selectedBreedId = breedListFiltered.breedIds[arrowVar.value];
       setSelectedBreedObj(breedList[selectedBreedId]);
       navigate("/details");
-      setIsModalRealOpen(false);
+      setIsModalOpen(false);
       // finds match for keyed-in search and goes to appropriate page if matches on enter
     } else if (e.key === "Enter") {
       const inputStr = validateInput(e.target.value);
@@ -137,9 +136,9 @@ function Input({ id }) {
       if (selectedBreedId !== -1) {
         setSelectedBreedObj(breedList[selectedBreedId]);
         navigate("/details");
-        setIsModalRealOpen(false);
-      } else if (!isLoading && !reqError) {
         setIsModalOpen(false);
+      } else if (!isLoading && !reqError) {
+        setIsInResultsOpen(false);
         setIsError(true);
       }
     }
@@ -147,11 +146,6 @@ function Input({ id }) {
 
   function handleBlur() {
     setIsError(false);
-    setIsActive("inactive");
-  }
-
-  function handleFocus() {
-    setIsActive("active");
   }
 
   // matches expected breed-name string format based on regex
@@ -170,20 +164,19 @@ function Input({ id }) {
   let content = "";
 
   if (breedList.length === 0 && !reqError) {
-    content = <p>No breeds to search right now...</p>;
+    content = <p>No breeds to search right now...<small>try again later</small></p>;
   }
 
   if (
-    ((id === "modal-input" && isModalOpen && isModalRealOpen) ||
-      (id === "main-input" && isModalOpen && !isModalRealOpen)) &&
+    ((id === "modal-input" && isInResultsOpen && isModalOpen) ||
+      (id === "main-input" && isInResultsOpen && !isModalOpen)) &&
     breedList.length > 0
   ) {
     content = (
-      <Modal
+      <InputResults
         arrowVar={arrowVar}
         breedListFiltered={breedListFiltered}
         onClick={handleClick}
-        className="modal"
       />
     );
   }
@@ -193,15 +186,16 @@ function Input({ id }) {
   }
 
   if (isLoading) {
-    content = <p>Retrieving breeds...</p>;
+    content = <p>Retrieving breeds...<small>please wait</small></p>;
   }
 
   return (
-    <div className="input-search" id={isActive}>
+    <div className="input-search">
       <StyledInput id="input">
         <label htmlFor="input-btn"></label>
-        {((id === "main-input" && isModalRealOpen) ||
-          (id === "modal-input" && !isModalRealOpen)) &&
+        {((id === "main-input" && isModalOpen) ||
+          (id === "modal-input" && !isModalOpen)) &&
+        // when window is less wide than small-screen breakpoint
         windowDimenion < 601 ? (
           <input
             id="input-btn"
@@ -219,13 +213,13 @@ function Input({ id }) {
             onChange={handleChange}
             onKeyDown={handleKeyDown}
             onBlur={handleBlur}
-            onFocus={handleFocus}
           />
         )}
 
         <FaSearch id="search-icon" />
       </StyledInput>
-      {content}
+
+      <div className={reqError ? "error-message" : "state-message"}>{content}</div>
       {isError && (
         <div className="error-message">
           <p>No match. Try again.</p>
@@ -236,28 +230,3 @@ function Input({ id }) {
 }
 
 export { Input };
-
-// {isLoading ? (
-//   <div className="loading-message">
-//     <p>Retrieving breeds...</p>
-//   </div>
-// ) : breedList.length === 0 && !reqError ? (
-//   <div className="empty-list-message">
-//     <p>No breeds to search right now...</p>
-//   </div>
-// ) : null}
-// {((id === "modal-input" && isModalOpen && isModalRealOpen) ||
-//   (id === "main-input" && isModalOpen && !isModalRealOpen)) &&
-// breedList.length > 0 ? (
-//   <Modal
-//     arrowVar={arrowVar}
-//     breedListFiltered={breedListFiltered}
-//     onClick={handleClick}
-//     className="modal"
-//   />
-// ) : null}
-// {reqError && (
-//   <div className="req-error-message">
-//     <p>{reqError}</p>
-//   </div>
-// )}

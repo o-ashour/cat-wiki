@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom";
-import { Header } from "../../components/Header";
-import { Footer } from "../../components/Footer";
-import GlobalStyles from "../../components/Global/Global";
+import { Header } from "../Header";
+import { Footer } from "../Footer";
+import GlobalStyles from "./Global";
 import { ThemeProvider } from "styled-components";
-import { ModalReal } from "../../components/ModalReal/component";
+import { Modal } from "../Modal/component";
 import { useContext } from "react";
 import { UserContext } from "../../App";
 
@@ -40,12 +40,12 @@ const theme = {
 };
 
 function Layout() {
-  const { isModalRealOpen } = useContext(UserContext);
+  const { isModalOpen } = useContext(UserContext);
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyles isModalRealOpen={isModalRealOpen} />
-      <ModalReal />
+      <GlobalStyles isModalOpen={isModalOpen} />
+      <Modal />
       <Header />
       <Outlet />
       <Footer />

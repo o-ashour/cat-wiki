@@ -32,10 +32,6 @@ export const StyledArticle = styled.article`
     margin: 2em 1.25em 2em;
     padding-bottom: 0.75em;
 
-    hr {
-      // width: 4em;
-    }
-
     h1 {
       font-size: 2.5rem;
       font-weight: 600;

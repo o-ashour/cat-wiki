@@ -1,9 +1,9 @@
-import { StyledModal } from "./style";
+import { StyledInputResults } from "./style";
 import { Link } from "react-router-dom";
 
-function Modal({ breedListFiltered, onClick, arrowVar }) {
+function InputResults({ breedListFiltered, onClick, arrowVar }) {
   return (
-    <StyledModal id="modal">
+    <StyledInputResults id="input-results">
       {breedListFiltered.breedObjects.map((breed, idx) => {
         if (idx < 5) {
           if (arrowVar.value === idx && arrowVar.isChanged) {
@@ -27,8 +27,8 @@ function Modal({ breedListFiltered, onClick, arrowVar }) {
           return null;
         }
       })}
-    </StyledModal>
+    </StyledInputResults>
   );
 }
 
-export { Modal };
+export { InputResults };

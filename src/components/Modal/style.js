@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const StyledModalReal = styled.div`
-  display: ${(props) => (props.isModalRealOpen ? "block" : "none")};
+export const StyledModal = styled.div`
+  display: ${(props) => (props.isModalOpen ? "block" : "none")};
 
   .modal-background {
     position: absolute;
@@ -57,7 +57,7 @@ export const StyledModalReal = styled.div`
     opacity: 0.87;
   }
 
-  #modal {
+  #input-results {
     position: initial;
     width: 100%;
     max-height: initial;
@@ -81,9 +81,4 @@ export const StyledModalReal = styled.div`
     margin-left: 1em;
     font-weight: 500;
   }
-
-
-  // @media(min-width: 601px) {
-  //   display: none;
-  // }
 `;

@@ -1,5 +1,5 @@
 import { StyledAttribute } from "./style";
-import HorizRules from "./HorizRules";
+import HorizRules from "./elements/HorizRules";
 
 function Attribute(props) {
   return (
