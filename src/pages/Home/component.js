@@ -30,7 +30,7 @@ function Home() {
             Having a cat around can actually trigger the release of calming
             chemicals in your body which lower your stress and anxiety levels
           </p>
-          <C2a value="READ MORE" url="#" />
+          <C2a value="READ MORE" url="#" direction="right" />
         </section>
         <section className="article-images">
           <img src={persianImg} alt="persian cat" />

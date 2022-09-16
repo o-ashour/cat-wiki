@@ -8,10 +8,9 @@ function Discover() {
       <header>
         <h3>Most Searched Breeds</h3>
         <hr></hr>
-        <div className='discover-heading'>
-          <h2>66+ Breeds For you to Discover
-          </h2>
-          <C2a value='SEE MORE' url='/topsearch' />
+        <div className="discover-heading">
+          <h2>66+ Breeds For you to Discover</h2>
+          <C2a value="SEE MORE" url="/topsearch" direction="right" />
         </div>
       </header>
       <article>
@@ -21,7 +20,7 @@ function Discover() {
         <Card />
       </article>
     </StyledDiscover>
-  )
+  );
 }
 
 export { Discover };

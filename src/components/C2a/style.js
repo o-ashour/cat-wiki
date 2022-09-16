@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 export const StyledC2a = styled.button`
+  float: ${(props) => props.id === 'gallery-btn' && props.direction === 'right' ? 'right' : props.id === 'gallery-btn' && props.direction === 'left' ? 'left' : 'initial'};
+
+  // margin-bottom: ${(props) => props.id === 'gallery-btn' ? '2em' : 'initial'};
+  
   a {
     display: flex;
     align-items: center;
@@ -16,9 +20,29 @@ export const StyledC2a = styled.button`
     margin-left: 0.75em;
   }
 
+  .arrow-right {
+    // margin-left: 0.75em;
+    margin-right: 1.5em;
+  }
+
+  .arrow-left {
+    margin-left: 1.5em;
+    margin-right: 0.75em;
+  }
+
   @media(min-width: ${(props) => props.theme.breakpoints.medium}) {
     a {
       font-size: 0.9rem;
+    }
+
+    .arrow-right {
+      // margin-left: 0.75em;
+      margin-right: 4em;
+    }
+  
+    .arrow-left {
+      margin-left: 4em;
+      margin-right: 0.75em;
     }
   }
 

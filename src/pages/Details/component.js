@@ -13,7 +13,7 @@ function Details({ breedImgs }) {
     <>
       <StyledDetails>
         <StyledSelected className="profile-image">
-          <img src={selectedBreedObj.image.url} alt={selectedBreedObj.name} />
+          {selectedBreedObj.image ?  <img src={selectedBreedObj.image.url} alt={selectedBreedObj.name} /> : <message>Oooops! No image to display.</message>}
         </StyledSelected>
         <div className="profile-description">
           <StyledArticle>
