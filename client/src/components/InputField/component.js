@@ -33,6 +33,7 @@ function Input({ id }) {
 
   // handles logic of clicking on item in search modal
   function handleClick(e) {
+    // post request to server incrementing search score for selected breed
     const selectedBreedId = e.target.id;
     setSelectedBreedObj(breedList[selectedBreedId]);
     setIsModalOpen(false);

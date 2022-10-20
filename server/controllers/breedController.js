@@ -1,9 +1,6 @@
-// const asyncHandler = require("express-async-handler");
 const _ = require("lodash");
 const axios = require("axios");
-
 const Breed = require("../models/breedModel");
-
 const apiKey = process.env.API_KEY;
 
 // @desc Get breeds
@@ -11,8 +8,11 @@ const apiKey = process.env.API_KEY;
 // @access Public //should be private
 const getBreeds = async (req, res) => {
   try {
+    // ?api_key=${apiKey}
     axios
-      .get(`https://api.thecatapi.com/v1/breeds?api_key=${apiKey}`)
+      .get('https://api.thecatapi.com/v1/breeds', {
+        headers: {'x-api-key': apiKey}
+      })
       .then(async (response) => {
         const breedsResArr = response.data;
 
@@ -35,7 +35,6 @@ const getBreeds = async (req, res) => {
             stranger_friendly: breed.stranger_friendly,
           };
           const foundBreed = await Breed.findOne({ name: breed.name });
-          // await Breed.deleteMany();
 
           if (!foundBreed) {
             await Breed.create(breedObj);
@@ -74,9 +73,11 @@ const getBreeds = async (req, res) => {
 const getBreedImgs = async (req, res) => {
   try {
     const breedId = await req.params.id;
+    // &api_key=${apiKey}
     axios
-      .get(
-        `https://api.thecatapi.com/v1/images/search?limit=8&breed_ids=${breedId}&api_key=${apiKey}`
+      .get (
+        `https://api.thecatapi.com/v1/images/search?limit=8&breed_ids=${breedId}`, {headers: {'x-api-key': apiKey}
+      }
       )
       .then((response) => {
         const breedImgs = response.data;

@@ -17,8 +17,6 @@ function Gallery() {
     }
   }
 
-  // console.log(imgGroup);
-
   const { breedImgs } = useContext(UserContext);
   return (
     <StyledGallery imgGroup={imgGroup}>

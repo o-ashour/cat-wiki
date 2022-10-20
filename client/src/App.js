@@ -19,9 +19,6 @@ function App() {
   const [reqError, setReqError] = useState(null);
 
   const breedId = selectedBreedObj.id;
-  // const apiKey = "8ecb9680-1e4f-44b7-b4c9-5919289455fe";
-  // const breedsUrl = `https://api.thecatapi.com/v1/breeds`;
-  // const breedImgsUrl = `https://api.thecatapi.com/v1/images/search?limit=8&breed_ids=${breedId}&api_key=${apiKey}`;
 
   // maybe rethink this as it might be adding bugs
   // which are hard to trace
@@ -47,12 +44,10 @@ function App() {
     setReqError(null);
 
     try {
-      const breedsRes = await fetch('http://localhost:5000/', {
+      const breedsRes = await fetch("http://localhost:5000/", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-                    // "x-api-key": apiKey,
-
         },
       });
 
@@ -62,29 +57,32 @@ function App() {
 
       const breedsData = await breedsRes.json();
       setBreedList(breedsData);
-    } catch (error) {
-      setReqError(error.message);
+    } catch (err) {
+      setReqError(err.message);
     }
 
     setIsLoading(false);
   }, []);
 
   const fetchBreedImgsHandler = useCallback(async () => {
-    const breedImgsRes = await fetch(`http://localhost:5000/${breedId}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        // "x-api-key": apiKey,
-      },
-    });
+    try {
+      const breedImgsRes = await fetch(`http://localhost:5000/${breedId}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-    if (!breedImgsRes.ok) {
-      throw new Error("Something went wrong!");
+      if (!breedImgsRes.ok) {
+        throw new Error("Something went wrong!");
+      }
+
+      const breedImgsData = await breedImgsRes.json();
+      setBreedImgs(breedImgsData);
+    } catch (err) {
+      console.log(err);
     }
-
-    const breedImgsData = await breedImgsRes.json();
-    setBreedImgs(breedImgsData);
-  }, []);
+  }, [breedId]);
 
   useEffect(() => {
     fetchBreedsHandler();
