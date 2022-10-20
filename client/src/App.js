@@ -19,9 +19,9 @@ function App() {
   const [reqError, setReqError] = useState(null);
 
   const breedId = selectedBreedObj.id;
-  const apiKey = "8ecb9680-1e4f-44b7-b4c9-5919289455fe";
-  const breedsUrl = `https://api.thecatapi.com/v1/breeds`;
-  const breedImgsUrl = `https://api.thecatapi.com/v1/images/search?limit=8&breed_ids=${breedId}&api_key=${apiKey}`;
+  // const apiKey = "8ecb9680-1e4f-44b7-b4c9-5919289455fe";
+  // const breedsUrl = `https://api.thecatapi.com/v1/breeds`;
+  // const breedImgsUrl = `https://api.thecatapi.com/v1/images/search?limit=8&breed_ids=${breedId}&api_key=${apiKey}`;
 
   // maybe rethink this as it might be adding bugs
   // which are hard to trace
@@ -47,11 +47,12 @@ function App() {
     setReqError(null);
 
     try {
-      const breedsRes = await fetch(breedsUrl, {
+      const breedsRes = await fetch('http://localhost:5000/', {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          "x-api-key": apiKey,
+                    // "x-api-key": apiKey,
+
         },
       });
 
@@ -66,14 +67,14 @@ function App() {
     }
 
     setIsLoading(false);
-  }, [breedsUrl]);
+  }, []);
 
   const fetchBreedImgsHandler = useCallback(async () => {
-    const breedImgsRes = await fetch(breedImgsUrl, {
+    const breedImgsRes = await fetch(`http://localhost:5000/${breedId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "x-api-key": apiKey,
+        // "x-api-key": apiKey,
       },
     });
 
@@ -83,7 +84,7 @@ function App() {
 
     const breedImgsData = await breedImgsRes.json();
     setBreedImgs(breedImgsData);
-  }, [breedImgsUrl]);
+  }, []);
 
   useEffect(() => {
     fetchBreedsHandler();

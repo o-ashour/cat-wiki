@@ -17,7 +17,7 @@ function Gallery() {
     }
   }
 
-  console.log(imgGroup);
+  // console.log(imgGroup);
 
   const { breedImgs } = useContext(UserContext);
   return (
