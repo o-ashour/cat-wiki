@@ -35,6 +35,29 @@ function Input({ id }) {
   function handleClick(e) {
     // post request to server incrementing search score for selected breed
     const selectedBreedId = e.target.id;
+
+    const updateBreedScore = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:5000/update/${selectedBreedId}`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error("Something went wrong!");
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    updateBreedScore();
+
     setSelectedBreedObj(breedList[selectedBreedId]);
     setIsModalOpen(false);
   }
@@ -165,7 +188,11 @@ function Input({ id }) {
   let content = "";
 
   if (breedList.length === 0 && !reqError) {
-    content = <p>No breeds to search right now...<small>try again later</small></p>;
+    content = (
+      <p>
+        No breeds to search right now...<small>try again later</small>
+      </p>
+    );
   }
 
   if (
@@ -187,7 +214,11 @@ function Input({ id }) {
   }
 
   if (isLoading) {
-    content = <p>Retrieving breeds...<small>please wait</small></p>;
+    content = (
+      <p>
+        Retrieving breeds...<small>please wait</small>
+      </p>
+    );
   }
 
   return (
@@ -220,7 +251,9 @@ function Input({ id }) {
         <FaSearch id="search-icon" />
       </StyledInput>
 
-      <div className={reqError ? "error-message" : "state-message"}>{content}</div>
+      <div className={reqError ? "error-message" : "state-message"}>
+        {content}
+      </div>
       {isError && (
         <div className="error-message">
           <p>No match. Try again.</p>
@@ -231,3 +264,4 @@ function Input({ id }) {
 }
 
 export { Input };
+
