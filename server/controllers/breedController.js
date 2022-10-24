@@ -106,7 +106,8 @@ const updateBreedScore = async (req, res) => {
       }
     });
 
-    res.json("breed score updated");
+    const updatedBreedList = await Breed.find();
+    res.json(updatedBreedList);
   } catch (error) {
     console.log(error);
   }

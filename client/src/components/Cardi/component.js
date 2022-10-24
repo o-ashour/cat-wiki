@@ -1,15 +1,15 @@
 import persianImg from "../../assets/images/image 2.png";
 import { StyledCard } from "./style";
 
-function Card({ caption, imgWidth, selected, url }) {
+function Card({ imgWidth, name, imageUrl }) {
   return (
     <StyledCard imgWidth={imgWidth}>
-      {url ? (
-        <img src={url} alt="siamese" />
+      {imageUrl ? (
+        <img src={imageUrl} alt={name} />
       ) : (
         <img src={persianImg} alt="persian" />
       )}
-      <figcaption>persian</figcaption>
+      <figcaption>{name}</figcaption>
     </StyledCard>
   );
 }

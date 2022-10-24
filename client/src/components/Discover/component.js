@@ -2,7 +2,13 @@ import { StyledDiscover } from "./style";
 import { Card } from "../Cardi";
 import { C2a } from "../C2a";
 
-function Discover() {
+function Discover({ topBreedList }) {
+  let previewTopBreedList;
+
+  for (let i = 0; i <= 4; i++) {
+    previewTopBreedList = topBreedList.slice(0, 4);
+  }
+
   return (
     <StyledDiscover>
       <header>
@@ -14,10 +20,9 @@ function Discover() {
         </div>
       </header>
       <article>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {previewTopBreedList.map((breed) => {
+          return <Card name={breed.name} imageUrl={breed.imageUrl} />;
+        })}
       </article>
     </StyledDiscover>
   );

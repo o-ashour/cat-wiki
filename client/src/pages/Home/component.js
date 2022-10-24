@@ -8,7 +8,7 @@ import ladyImg from "../../assets/images/image 1.png";
 import persianImg from "../../assets/images/image 2.png";
 import roadImg from "../../assets/images/image 3.png";
 
-function Home() {
+function Home({ topBreedList }) {
   return (
     <StyledHome>
       <div className="container">
@@ -20,7 +20,7 @@ function Home() {
           <p>Get to know more about your cat breed</p>
           <Input id="main-input" />
         </section>
-        <Discover />
+        <Discover topBreedList={topBreedList} />
       </div>
       <StyledArticle className="info">
         <section className="article-summary">

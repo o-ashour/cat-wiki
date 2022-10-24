@@ -12,6 +12,7 @@ function Input({ id }) {
     isInResultsOpen,
     setIsInResultsOpen,
     breedList,
+    setBreedList,
     isModalOpen,
     setIsModalOpen,
     windowDimenion,
@@ -51,6 +52,9 @@ function Input({ id }) {
         if (!response.ok) {
           throw new Error("Something went wrong!");
         }
+
+        const updatedBreedsData = await response.json();
+        setBreedList(updatedBreedsData);
       } catch (err) {
         console.log(err);
       }

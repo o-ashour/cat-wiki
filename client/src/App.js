@@ -12,6 +12,7 @@ function App() {
   const [breedList, setBreedList] = useState([]);
   const [selectedBreedObj, setSelectedBreedObj] = useState({});
   const [breedImgs, setBreedImgs] = useState([]);
+  const [topBreedList, setTopBreedList] = useState([]);
   const [isInResultsOpen, setIsInResultsOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [windowDimenion, detectW] = useState(window.innerWidth);
@@ -84,6 +85,28 @@ function App() {
     }
   }, [breedId]);
 
+  function getTopBreeds() {
+    const slimBreedList = [];
+
+    breedList.forEach((breed) => {
+      const slimBreedObj = {
+        name: breed.name,
+        description: breed.description,
+        imageUrl: breed.imageUrl,
+        search_score: breed.search_score,
+      };
+
+      slimBreedList.push(slimBreedObj);
+    });
+
+    // sort by score
+    slimBreedList.sort(function (x, y) {
+      return y.search_score - x.search_score;
+    });
+
+    setTopBreedList(slimBreedList.slice(0, 10));
+  }
+
   useEffect(() => {
     fetchBreedsHandler();
   }, []);
@@ -91,6 +114,10 @@ function App() {
   useEffect(() => {
     fetchBreedImgsHandler();
   }, [fetchBreedImgsHandler]);
+
+  useEffect(() => {
+    getTopBreeds();
+  }, [breedList]);
 
   //functions
   function handleClick(e) {
@@ -133,12 +160,19 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout />}>
-              <Route path="/" index element={<Home />} />
+              <Route
+                path="/"
+                index
+                element={<Home topBreedList={topBreedList} />}
+              />
               <Route
                 path="/details"
                 element={<Details breedImgs={breedImgs} />}
               />
-              <Route path="/topsearch" element={<TopSearch />} />
+              <Route
+                path="/topsearch"
+                element={<TopSearch topBreedList={topBreedList} />}
+              />
             </Route>
           </Routes>
         </BrowserRouter>
