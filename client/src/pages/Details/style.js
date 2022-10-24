@@ -68,9 +68,6 @@ export const StyledDetails = styled.div`
       padding-top: 2em;
 
       img {
-        // margin: 1em 0em 1em 10em;
-        // width: 23em;
-        // height: 23em;
         width: 100%;
         object-fit: cover;
         border-radius: 31px;

@@ -27,6 +27,7 @@ export const StyledInput = styled.div`
       padding: 0.85em 1em;
     }
   }
+
   @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
     .input-btn {
       padding: 1.25em 2em;

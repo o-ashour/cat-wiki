@@ -7,6 +7,7 @@ function Card({ imgWidth, name, imageUrl }) {
       {imageUrl ? (
         <img src={imageUrl} alt={name} />
       ) : (
+        // find stock image or use image from breedImgs collection
         <img src={persianImg} alt="persian" />
       )}
       <figcaption>{name}</figcaption>

@@ -86,11 +86,6 @@ export const StyledHome = styled.div`
   .article-images {
     display: grid;
     grid-template-columns: 0.25fr 1.15fr 1.3fr;
-    // grid-template-columns: 3em 8.25em 8.75em;
-    // width: 50%;
-    // margin-left: auto;
-    // margin-right: auto;
-
     gap: 1em;
     grid-gap: 1em;
     margin-top: 4em;
@@ -155,13 +150,6 @@ export const StyledHome = styled.div`
     }
   }
 
-  // @media (min-width: 700px) {
-  //   .article-images {
-  //     padding-left: 5em;
-  //     padding-right: 5em;
-  //   }
-  // }
-
   @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
     .container {
       margin-left: 2em;
@@ -210,17 +198,13 @@ export const StyledHome = styled.div`
     }
 
     .error-message {
-      width: 10em;
-      width: auto;
       margin-left: 0.7em;
-      padding: 0;
+      width: auto;
+      padding: inherit 0.5em;
 
       p {
-        font-size: 0.8rem;
+        font-size: 1rem;
         text-align: left;
-        width: inherit;
-        margin: 0.8em;
-        padding-left: 0.1em;
       }
     }
 
@@ -234,16 +218,10 @@ export const StyledHome = styled.div`
     }
 
     .article-images {
-      // grid-template-columns: 1em 8em 10em;
       grid-template-columns: 0.25fr 1.15fr 1.3fr;
-
       gap: 0.75em;
       grid-gap: 0.75em;
       flex: 1;
-      margin-top: 2em;
-      // margin-right: 4em;
-      padding-left: 0;
-      padding-right: 0;
     }
   }
 
@@ -278,7 +256,6 @@ export const StyledHome = styled.div`
 
       p {
         font-size: 1.5rem;
-        width: 35%;
         margin-top: 0.35em;
       }
     }
@@ -296,13 +273,13 @@ export const StyledHome = styled.div`
     }
 
     .error-message {
-      width: 14em;
       margin-left: 1em;
 
       p {
         font-size: 1.125rem;
-        // width: inherit;
-        margin: 0.5em;
+        padding: 1em 0.5em;
+        margin-bottom: 0;
+        margin-top: 0;
       }
     }
 
@@ -310,13 +287,6 @@ export const StyledHome = styled.div`
       gap: 20px;
       padding: 1em 6em 3.25em;
     }
-
-    // .article-images {
-    //   grid-template-columns: 4em 12em 14.5em;
-    //   gap: 1.5em;
-    //   grid-gap: 1.5em;
-    //   margin-top: 0;
-    // }
   }
 
   @media (min-width: 1435px) {

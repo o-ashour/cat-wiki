@@ -4,6 +4,7 @@ import Layout from "./components/Global/Layout";
 import { Home } from "./pages/Home/component";
 import { Details } from "./pages/Details";
 import { TopSearch } from "./pages/TopSearch/component";
+import _ from "lodash"; 
 
 export const UserContext = createContext(null);
 
@@ -57,7 +58,9 @@ function App() {
       }
 
       const breedsData = await breedsRes.json();
-      setBreedList(breedsData);
+      const sortedBreedsData = _.sortBy(breedsData, ['name']);
+      
+      setBreedList(sortedBreedsData);
     } catch (err) {
       setReqError(err.message);
     }

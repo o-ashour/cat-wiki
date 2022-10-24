@@ -32,35 +32,54 @@ function Input({ id }) {
     setInputStr("");
   }, [isModalOpen]);
 
+  const updateBreedScore = async (breedId) => {
+    try {
+      const response = await fetch(`http://localhost:5000/update/${breedId}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Something went wrong!");
+      }
+
+      const updatedBreedsData = await response.json();
+      setBreedList(updatedBreedsData);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   // handles logic of clicking on item in search modal
   function handleClick(e) {
     // post request to server incrementing search score for selected breed
     const selectedBreedId = e.target.id;
 
-    const updateBreedScore = async () => {
-      try {
-        const response = await fetch(
-          `http://localhost:5000/update/${selectedBreedId}`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+    // const updateBreedScore = async () => {
+    //   try {
+    //     const response = await fetch(
+    //       `http://localhost:5000/update/${selectedBreedId}`,
+    //       {
+    //         method: "POST",
+    //         headers: {
+    //           "Content-Type": "application/json",
+    //         },
+    //       }
+    //     );
 
-        if (!response.ok) {
-          throw new Error("Something went wrong!");
-        }
+    //     if (!response.ok) {
+    //       throw new Error("Something went wrong!");
+    //     }
 
-        const updatedBreedsData = await response.json();
-        setBreedList(updatedBreedsData);
-      } catch (err) {
-        console.log(err);
-      }
-    };
+    //     const updatedBreedsData = await response.json();
+    //     setBreedList(updatedBreedsData);
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    // };
 
-    updateBreedScore();
+    updateBreedScore(selectedBreedId);
 
     setSelectedBreedObj(breedList[selectedBreedId]);
     setIsModalOpen(false);
@@ -151,6 +170,7 @@ function Input({ id }) {
     } else if (e.key === "Enter" && arrowVar.value > -1) {
       const selectedBreedId = breedListFiltered.breedIds[arrowVar.value];
       setSelectedBreedObj(breedList[selectedBreedId]);
+      updateBreedScore(selectedBreedId);
       navigate("/details");
       setIsModalOpen(false);
       // finds match for keyed-in search and goes to appropriate page if matches on enter
@@ -163,6 +183,7 @@ function Input({ id }) {
       );
       if (selectedBreedId !== -1) {
         setSelectedBreedObj(breedList[selectedBreedId]);
+        updateBreedScore(selectedBreedId);
         navigate("/details");
         setIsModalOpen(false);
       } else if (!isLoading && !reqError) {
@@ -268,4 +289,3 @@ function Input({ id }) {
 }
 
 export { Input };
-
