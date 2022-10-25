@@ -56,10 +56,10 @@ const getBreeds = async (req, res) => {
             social_needs: foundBreed.social_needs,
             stranger_friendly: foundBreed.stranger_friendly,
             search_score: !foundBreed.search_score
-            ? 0
-            : foundBreed.search_score,
+              ? 0
+              : foundBreed.search_score,
           };
-          if (!(_.isEqual(breedObj, foundBreedObj))) {
+          if (!_.isEqual(breedObj, foundBreedObj)) {
             await Breed.replaceOne({ name: breed.name }, breedObj);
           }
         }
@@ -78,9 +78,10 @@ const getBreeds = async (req, res) => {
 // @access Public //should be private
 const getBreedImgs = async (req, res) => {
   const breedId = await req.params.id;
+  const limit = await req.params.limit;
   axios
     .get(
-      `https://api.thecatapi.com/v1/images/search?limit=8&breed_ids=${breedId}`,
+      `https://api.thecatapi.com/v1/images/search?limit=${limit}&breed_ids=${breedId}`,
       { headers: { "x-api-key": apiKey } }
     )
     .then((response) => {
@@ -102,7 +103,7 @@ const updateBreedScore = async (req, res) => {
 
     breedList.forEach(async (breed, idx) => {
       if (selectedBreedId === idx) {
-        await Breed.updateOne(breed, {$inc : {search_score : 1}});
+        await Breed.updateOne(breed, { $inc: { search_score: 1 } });
       }
     });
 

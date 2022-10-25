@@ -34,6 +34,7 @@ function Input({ id }) {
 
   const updateBreedScore = async (breedId) => {
     try {
+          // post request to server incrementing search score for selected breed
       const response = await fetch(`http://localhost:5000/update/${breedId}`, {
         method: "POST",
         headers: {
@@ -53,31 +54,7 @@ function Input({ id }) {
   };
   // handles logic of clicking on item in search modal
   function handleClick(e) {
-    // post request to server incrementing search score for selected breed
     const selectedBreedId = e.target.id;
-
-    // const updateBreedScore = async () => {
-    //   try {
-    //     const response = await fetch(
-    //       `http://localhost:5000/update/${selectedBreedId}`,
-    //       {
-    //         method: "POST",
-    //         headers: {
-    //           "Content-Type": "application/json",
-    //         },
-    //       }
-    //     );
-
-    //     if (!response.ok) {
-    //       throw new Error("Something went wrong!");
-    //     }
-
-    //     const updatedBreedsData = await response.json();
-    //     setBreedList(updatedBreedsData);
-    //   } catch (err) {
-    //     console.log(err);
-    //   }
-    // };
 
     updateBreedScore(selectedBreedId);
 

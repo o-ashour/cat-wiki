@@ -2,7 +2,7 @@ import { StyledDiscover } from "./style";
 import { Card } from "../Cardi";
 import { C2a } from "../C2a";
 
-function Discover({ topBreedList }) {
+function Discover({ topBreedList, breedImgs }) {
   let previewTopBreedList;
 
   for (let i = 0; i <= 4; i++) {

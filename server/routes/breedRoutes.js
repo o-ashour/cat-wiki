@@ -9,7 +9,7 @@ const { getBreeds, getBreedImgs, updateBreedScore } = require("../controllers/br
 router.route("/").get(getBreeds);
 // router.route("/details")  
 router.route("/topsearch").get(getBreeds);
-router.route("/:id").get(getBreedImgs);
+router.route("/:id/:limit").get(getBreedImgs);
 router.route("/update/:id").post(updateBreedScore);
 
 module.exports = router;

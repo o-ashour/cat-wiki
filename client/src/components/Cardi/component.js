@@ -4,12 +4,7 @@ import { StyledCard } from "./style";
 function Card({ imgWidth, name, imageUrl }) {
   return (
     <StyledCard imgWidth={imgWidth}>
-      {imageUrl ? (
-        <img src={imageUrl} alt={name} />
-      ) : (
-        // find stock image or use image from breedImgs collection
-        <img src={persianImg} alt="persian" />
-      )}
+      <img src={imageUrl} alt={name} />
       <figcaption>{name}</figcaption>
     </StyledCard>
   );

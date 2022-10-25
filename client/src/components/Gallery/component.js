@@ -1,11 +1,11 @@
 import { StyledGallery } from "./style";
 import { Photo } from "./Photo";
-import { UserContext } from "../../App";
-import { useContext } from "react";
+// import { UserContext } from "../../App";
+// import { useContext } from "react";
 import { useState } from "react";
 import { C2a } from "../C2a";
 
-function Gallery() {
+function Gallery({breedImgs}) {
   const [imgGroup, setImgGroup] = useState(0);
 
   function handleClick() {
@@ -17,7 +17,7 @@ function Gallery() {
     }
   }
 
-  const { breedImgs } = useContext(UserContext);
+  // const { breedImgs } = useContext(UserContext);
   return (
     <StyledGallery imgGroup={imgGroup}>
       <header>

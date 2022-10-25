@@ -6,6 +6,7 @@ import { StyledDetails } from "./style";
 import { UserContext } from "../../App";
 import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import _ from "lodash";
 
 function Details({ breedImgs }) {
   const { selectedBreedObj } = useContext(UserContext);
@@ -29,6 +30,11 @@ function Details({ breedImgs }) {
                   src={selectedBreedObj.imageUrl}
                   alt={selectedBreedObj.name}
                 />
+              ) : breedImgs.length > 0 ? (
+                <img
+                  src={breedImgs[_.random(breedImgs.length - 1)].url}
+                  alt={selectedBreedObj.name}
+                />
               ) : (
                 <p className="message">Oooops! No image to display.</p>
               )}
@@ -41,11 +47,11 @@ function Details({ breedImgs }) {
               <Attributes />
             </div>
           </StyledDetails>
-          <Gallery breedImgs={breedImgs} />{" "}
+          <Gallery breedImgs={breedImgs} />
         </>
       )}
     </>
   );
 }
-
+// {" "}
 export { Details };

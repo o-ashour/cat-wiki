@@ -4,7 +4,8 @@ import Layout from "./components/Global/Layout";
 import { Home } from "./pages/Home/component";
 import { Details } from "./pages/Details";
 import { TopSearch } from "./pages/TopSearch/component";
-import _ from "lodash"; 
+import _ from "lodash";
+import failSafeCat from "./assets/images/cat_reading.png";
 
 export const UserContext = createContext(null);
 
@@ -19,6 +20,7 @@ function App() {
   const [windowDimenion, detectW] = useState(window.innerWidth);
   const [isLoading, setIsLoading] = useState(false);
   const [reqError, setReqError] = useState(null);
+  const [breedImg, setBreedImg] = useState('');
 
   const breedId = selectedBreedObj.id;
 
@@ -58,8 +60,8 @@ function App() {
       }
 
       const breedsData = await breedsRes.json();
-      const sortedBreedsData = _.sortBy(breedsData, ['name']);
-      
+      const sortedBreedsData = _.sortBy(breedsData, ["name"]);
+
       setBreedList(sortedBreedsData);
     } catch (err) {
       setReqError(err.message);
@@ -70,7 +72,7 @@ function App() {
 
   const fetchBreedImgsHandler = useCallback(async () => {
     try {
-      const breedImgsRes = await fetch(`http://localhost:5000/${breedId}`, {
+      const breedImgsRes = await fetch(`http://localhost:5000/${breedId}/8`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -93,9 +95,10 @@ function App() {
 
     breedList.forEach((breed) => {
       const slimBreedObj = {
+        id: breed.id,
         name: breed.name,
         description: breed.description,
-        imageUrl: breed.imageUrl,
+        imageUrl: breed.imageUrl ? breed.imageUrl : failSafeCat,
         search_score: breed.search_score,
       };
 
@@ -166,7 +169,9 @@ function App() {
               <Route
                 path="/"
                 index
-                element={<Home topBreedList={topBreedList} />}
+                element={
+                  <Home topBreedList={topBreedList} breedImgs={breedImgs} />
+                }
               />
               <Route
                 path="/details"
@@ -174,7 +179,12 @@ function App() {
               />
               <Route
                 path="/topsearch"
-                element={<TopSearch topBreedList={topBreedList} />}
+                element={
+                  <TopSearch
+                    topBreedList={topBreedList}
+                    breedImgs={breedImgs}
+                  />
+                }
               />
             </Route>
           </Routes>
