@@ -1,22 +1,27 @@
 import styled from "styled-components";
 
 export const StyledProfile = styled.section`
-  
-  @media(min-width: ${(props) => props.theme.breakpoints.medium}){
+  margin-bottom: 2.5em;
+
+  img {
+    max-width: 20em;
+  }
+
+  @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
     display: flex;
     margin-bottom: 3em;
 
     img {
-      width: 12em;
-      height: 12em;
+      width: 14em;
       object-fit: cover;
+      object-position: left;
       border-radius: 27px;
     }
 
     .description {
       margin-left: 2.75em;
 
-      h2 { 
+      h2 {
         font-weight: 400;
         font-size: 2.1rem;
         margin: 0;
@@ -30,15 +35,15 @@ export const StyledProfile = styled.section`
     }
   }
 
-  @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
-
+  @media (min-width: ${(props) => props.theme.breakpoints.extra_large}) {
     img {
-      width: 10.5em;
-      height: 10.5em;
+      width: 17.5em;
     }
 
     .description {
-      h2 { 
+      margin-left: 4.75em;
+
+      h2 {
         font-weight: 600;
         font-size: 2.25rem;
       }
@@ -50,4 +55,4 @@ export const StyledProfile = styled.section`
       }
     }
   }
-`
+`;

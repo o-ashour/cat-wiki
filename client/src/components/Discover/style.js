@@ -68,6 +68,7 @@ export const StyledDiscover = styled.section`
     img {
       border-radius: 1em;
       object-fit: cover;
+      object-position: top;
       height: 8em;
       width: 100%;
     }
@@ -200,13 +201,14 @@ export const StyledDiscover = styled.section`
     }
 
     article {
-      flex-wrap: initial;
-      justify-content: initial;
+      // flex-wrap: initial;
+      // justify-content: space-around;
       gap: 1.55em;
       margin-top: 3.25em;
 
       figure {
-        width: initial;
+        // width: initial;
+        flex: 1;
 
         :first-child {
           ::before {

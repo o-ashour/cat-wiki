@@ -11,9 +11,10 @@ function TopSearch({ topBreedList }) {
         {topBreedList.map((breed, idx) => {
           return (
             <Profile
+              name={breed.name}
               imgUrl={breed.imageUrl}
-              title={`${idx + 1}. ${breed.name}`}
               body={breed.description}
+              idx={idx}
             />
           );
         })}

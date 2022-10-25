@@ -30,7 +30,7 @@ export const StyledSelected = styled.div`
     ::after {
       width: 3em;
       height: 16em;
-      top: 4em;
+      top: 6em;
       left: -13px;
       z-index: -1;
       border-radius: 15px;

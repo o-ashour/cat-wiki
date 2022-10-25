@@ -1,6 +1,6 @@
-function Avatar({ imgUrl }){
+function Avatar({ imgUrl, title }){
   return(
-    <img src={imgUrl} alt='Persian' />
+    <img src={imgUrl} alt={title} />
   )
 }
 

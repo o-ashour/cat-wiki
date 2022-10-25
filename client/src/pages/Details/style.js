@@ -57,19 +57,20 @@ export const StyledDetails = styled.div`
     }
   }
 
-  @media (min-width: ${(props) => props.theme.breakpoints.extra_large}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.super_large}) {
     display: flex;
 
     .profile-image {
       flex: 0.8;
       align-items: start;
       margin-top: 0;
-      margin-left: 3em;
+      margin-left: 6em;
       padding-top: 2em;
 
       img {
         width: 100%;
-        object-fit: cover;
+        height: auto;
+        object-fit: contain;
         border-radius: 31px;
       }
     }

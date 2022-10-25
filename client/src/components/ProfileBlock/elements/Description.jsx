@@ -1,7 +1,7 @@
-function Description({ title, body }) {
+function Description({ name, body, idx }) {
   return (
     <div className='description'>
-      <h2>{title}</h2>
+      <h2>{`${idx + 1}. ${name}`}</h2>
       <p>{body}</p>
     </div>
   )
