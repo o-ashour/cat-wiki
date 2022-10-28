@@ -1,5 +1,4 @@
 import { StyledDiscover } from "./style";
-import { Card } from "../Cardi";
 import { C2a } from "../C2a";
 
 function Discover({ topBreedList, breedImgs }) {
@@ -21,7 +20,12 @@ function Discover({ topBreedList, breedImgs }) {
       </header>
       <article>
         {previewTopBreedList.map((breed) => {
-          return <Card name={breed.name} imageUrl={breed.imageUrl} />;
+          return (
+            <figure key={breed.id}>
+              <img src={breed.imageUrl} alt={breed.name} />
+              <figcaption>{breed.name}</figcaption>
+            </figure>
+          );
         })}
       </article>
     </StyledDiscover>

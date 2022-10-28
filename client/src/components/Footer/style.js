@@ -26,7 +26,7 @@ export const StyledFooter = styled.footer`
     margin-right: 0.4em;
   }
 
-  a {
+  .footer-link {
     color: ${(props) => props.theme.colors.primary};
     font-weight: 600;
   }
@@ -46,7 +46,7 @@ export const StyledFooter = styled.footer`
     }
   }
 
-  @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
+  @media(min-width: ${(props) => props.theme.breakpoints.large}){
     margin: 0 5.25em;
     padding: 2em 2em 2.5em 6.5em;
 

@@ -5,7 +5,8 @@ import { useContext } from "react";
 import { UserContext } from "../../App";
 
 function Modal() {
-  const { isModalOpen, setIsModalOpen, setIsInResultsOpen } = useContext(UserContext);
+  const { isModalOpen, setIsModalOpen, setIsInResultsOpen } =
+    useContext(UserContext);
 
   function handleClick() {
     setIsModalOpen(false);

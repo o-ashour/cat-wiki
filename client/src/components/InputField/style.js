@@ -39,7 +39,7 @@ export const StyledInput = styled.div`
     }
   }
 
-  @media (min-width: ${(props) => props.theme.breakpoints.extra_large}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.large}) {
     height: 7.75em;
 
     .input-btn {

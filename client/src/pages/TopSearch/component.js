@@ -1,5 +1,6 @@
 import { StyledTopSearch } from "./style";
 import { Profile } from "../../components/ProfileBlock";
+import { C2a } from "../../components/C2a";
 
 function TopSearch({ topBreedList }) {
   return (
@@ -11,6 +12,7 @@ function TopSearch({ topBreedList }) {
         {topBreedList.map((breed, idx) => {
           return (
             <Profile
+              key={breed.id}
               name={breed.name}
               imgUrl={breed.imageUrl}
               body={breed.description}

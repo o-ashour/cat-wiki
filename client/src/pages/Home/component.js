@@ -9,6 +9,9 @@ import persianImg from "../../assets/images/image 2.png";
 import roadImg from "../../assets/images/image 3.png";
 
 function Home({ topBreedList, breedImgs }) {
+  const articleUrl =
+    "https://www.singlecare.com/blog/benefits-of-having-a-cat/";
+
   return (
     <StyledHome>
       <div className="container">
@@ -20,7 +23,7 @@ function Home({ topBreedList, breedImgs }) {
           <p>Get to know more about your cat breed</p>
           <Input id="main-input" />
         </section>
-        <Discover topBreedList={topBreedList} breedImgs={breedImgs}/>
+        <Discover topBreedList={topBreedList} breedImgs={breedImgs} />
       </div>
       <StyledArticle className="info">
         <section className="article-summary">
@@ -30,7 +33,12 @@ function Home({ topBreedList, breedImgs }) {
             Having a cat around can actually trigger the release of calming
             chemicals in your body which lower your stress and anxiety levels
           </p>
-          <C2a value="READ MORE" url="#" direction="right" />
+          <C2a
+            value="READ MORE"
+            linkType="external"
+            url={articleUrl}
+            direction="right"
+          />
         </section>
         <section className="article-images">
           <img src={persianImg} alt="persian cat" />

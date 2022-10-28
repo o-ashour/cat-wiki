@@ -5,7 +5,7 @@ import { Home } from "./pages/Home/component";
 import { Details } from "./pages/Details";
 import { TopSearch } from "./pages/TopSearch/component";
 import _ from "lodash";
-import failSafeCat from "./assets/images/cat_reading.png";
+import failSafeCat from "./assets/images/cat_tea.jpg";
 
 export const UserContext = createContext(null);
 
@@ -20,8 +20,8 @@ function App() {
   const [windowDimenion, detectW] = useState(window.innerWidth);
   const [isLoading, setIsLoading] = useState(false);
   const [reqError, setReqError] = useState(null);
-  const [breedImg, setBreedImg] = useState('');
 
+  // console.log('this happens');
   const breedId = selectedBreedObj.id;
 
   // maybe rethink this as it might be adding bugs
@@ -61,12 +61,10 @@ function App() {
 
       const breedsData = await breedsRes.json();
       const sortedBreedsData = _.sortBy(breedsData, ["name"]);
-
       setBreedList(sortedBreedsData);
     } catch (err) {
       setReqError(err.message);
     }
-
     setIsLoading(false);
   }, []);
 
@@ -88,12 +86,12 @@ function App() {
     } catch (err) {
       console.log(err);
     }
-  }, [breedId]);
+  }, [selectedBreedObj]);
 
   function getTopBreeds() {
     const slimBreedList = [];
 
-    breedList.forEach((breed) => {
+    breedList.forEach(async (breed) => {
       const slimBreedObj = {
         id: breed.id,
         name: breed.name,
@@ -126,6 +124,7 @@ function App() {
   }, [breedList]);
 
   //functions
+  //not all functions are under here
   function handleClick(e) {
     if (
       isInResultsOpen &&

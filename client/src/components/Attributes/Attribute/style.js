@@ -51,7 +51,7 @@ export const StyledAttribute = styled.div`
     }
   }
 
-  @media (min-width: ${(props) => props.theme.breakpoints.extra_large}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.large}) {
     margin-top: 2em;
     margin-right: 7em;
     color: ${(props) => props.theme.colors.tertiary};

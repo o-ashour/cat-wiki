@@ -1,6 +1,7 @@
 const _ = require("lodash");
 const axios = require("axios");
 const Breed = require("../models/breedModel");
+const MissingImg = require("../models/missingImgModel");
 const apiKey = process.env.API_KEY;
 
 // @desc Get breeds
@@ -16,6 +17,11 @@ const getBreeds = async (req, res) => {
 
       breedsResArr.forEach(async (breed) => {
         const foundBreed = await Breed.findOne({ name: breed.name });
+        let foundBreedImg;
+        if (!breed.image) {
+          getMissingImg(breed);
+          foundBreedImg = await MissingImg.findOne({ id: breed.id });
+        }
 
         const breedObj = {
           id: breed.id,
@@ -23,7 +29,11 @@ const getBreeds = async (req, res) => {
           temperament: breed.temperament,
           origin: breed.origin,
           description: breed.description,
-          imageUrl: breed.image ? breed.image.url : null,
+          imageUrl: breed.image
+            ? breed.image.url
+            : foundBreedImg
+            ? foundBreedImg.url
+            : null,
           life_span: breed.life_span,
           adaptability: breed.adaptability,
           affection_level: breed.affection_level,
@@ -74,7 +84,7 @@ const getBreeds = async (req, res) => {
 };
 
 // @desc Get breed images
-// @route GET /:id
+// @route GET /:id/:limit
 // @access Public //should be private
 const getBreedImgs = async (req, res) => {
   const breedId = await req.params.id;
@@ -91,6 +101,19 @@ const getBreedImgs = async (req, res) => {
     .catch((err) => {
       console.log("Error", err.message);
     });
+};
+
+// @desc Redirect to article page
+// @route GET /article
+// @access Public
+const getArticle = (req, res) => {
+  try {
+    res.redirect(
+      "https://www.catmastermind.com/psychological-benefits-of-having-cats-at-home/"
+    );
+  } catch (error) {
+    res.json(error);
+  }
 };
 
 // @desc Update breed score
@@ -114,4 +137,37 @@ const updateBreedScore = async (req, res) => {
   }
 };
 
-module.exports = { getBreeds, getBreedImgs, updateBreedScore };
+// @desc Get missing breed image
+// @route GET /:id/:limit
+// @access Public
+const getMissingImg = async (breed) => {
+  const breedId = await breed.id;
+  const limit = 1;
+
+  axios
+    .get(
+      `https://api.thecatapi.com/v1/images/search?limit=${limit}&breed_ids=${breedId}`,
+      { headers: { "x-api-key": apiKey } }
+    )
+    .then(async (response) => {
+      const breedImg = response.data;
+      if (breedImg.length > 0) {
+        const breedUrl = breedImg[0].url;
+        const foundBreedImg = await MissingImg.findOne({ id: breedId });
+
+        if (!foundBreedImg) {
+          await MissingImg.create({ id: breedId, url: breedUrl });
+        }
+      }
+    })
+    .catch((err) => {
+      console.log("Error", err.message);
+    });
+};
+
+module.exports = {
+  getBreeds,
+  getBreedImgs,
+  getArticle,
+  updateBreedScore,
+};

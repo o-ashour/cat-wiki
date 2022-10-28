@@ -34,9 +34,7 @@ const theme = {
   breakpoints: {
     small: "600px",
     medium: "768px",
-    large: "992px",
-    extra_large: "1200px",
-    super_large: "1268px"
+    large: "1200px",
   },
 };
 

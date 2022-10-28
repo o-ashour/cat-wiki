@@ -34,7 +34,7 @@ function Input({ id }) {
 
   const updateBreedScore = async (breedId) => {
     try {
-          // post request to server incrementing search score for selected breed
+      // post request to server incrementing search score for selected breed
       const response = await fetch(`http://localhost:5000/update/${breedId}`, {
         method: "POST",
         headers: {

@@ -145,8 +145,8 @@ export const StyledHome = styled.div`
     }
 
     .article-images {
-      padding-left: 4em;
-      padding-right: 4em;
+      padding-left: 5em;
+      padding-right: 5em;
     }
   }
 
@@ -222,6 +222,8 @@ export const StyledHome = styled.div`
       gap: 0.75em;
       grid-gap: 0.75em;
       flex: 1;
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 
@@ -232,7 +234,7 @@ export const StyledHome = styled.div`
     }
   }
 
-  @media (min-width: ${(props) => props.theme.breakpoints.extra_large}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.large}) {
     .container {
       margin: 0 5em 5em;
     }

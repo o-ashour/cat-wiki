@@ -1,11 +1,9 @@
 import { StyledGallery } from "./style";
 import { Photo } from "./Photo";
-// import { UserContext } from "../../App";
-// import { useContext } from "react";
 import { useState } from "react";
 import { C2a } from "../C2a";
 
-function Gallery({breedImgs}) {
+function Gallery({ breedImgs }) {
   const [imgGroup, setImgGroup] = useState(0);
 
   function handleClick() {
@@ -17,14 +15,13 @@ function Gallery({breedImgs}) {
     }
   }
 
-  // const { breedImgs } = useContext(UserContext);
   return (
     <StyledGallery imgGroup={imgGroup}>
       <header>
         <h2>Other photos</h2>
       </header>
       {!breedImgs.length > 0 ? (
-        <message>Sorry, no images to display</message>
+        <p className="message">Sorry, no images to display</p>
       ) : null}
       <div className="container">
         {breedImgs.map((breedImg, idx) => {

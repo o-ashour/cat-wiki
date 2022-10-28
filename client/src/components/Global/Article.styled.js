@@ -51,7 +51,7 @@ export const StyledArticle = styled.article`
     }
   }
 
-  @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
+  @media(min-width: ${(props) => props.theme.breakpoints.large}){
     padding: 1em 10em 3.25em 11em;
 
     hr {

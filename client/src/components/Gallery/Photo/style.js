@@ -11,7 +11,7 @@ export const StyledPhoto = styled.figure`
       height: 12em;
     }
   }
-  @media (min-width: ${(props) => props.theme.breakpoints.extra_large}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.large}) {
     img {
       height: 14em;
     }

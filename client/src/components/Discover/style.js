@@ -96,6 +96,7 @@ export const StyledDiscover = styled.section`
           }
         }
       }
+
       img {
         height: 10em;
       }
@@ -176,7 +177,7 @@ export const StyledDiscover = styled.section`
     }
   }
 
-  @media (min-width: ${(props) => props.theme.breakpoints.extra_large}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.large}) {
     padding: 1.5em 6.25em 5em;
 
     header {
@@ -201,13 +202,10 @@ export const StyledDiscover = styled.section`
     }
 
     article {
-      // flex-wrap: initial;
-      // justify-content: space-around;
       gap: 1.55em;
       margin-top: 3.25em;
 
       figure {
-        // width: initial;
         flex: 1;
 
         :first-child {

@@ -35,7 +35,7 @@ export const StyledProfile = styled.section`
     }
   }
 
-  @media (min-width: ${(props) => props.theme.breakpoints.extra_large}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.large}) {
     img {
       width: 17.5em;
     }

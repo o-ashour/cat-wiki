@@ -2,7 +2,22 @@ import styled from "styled-components";
 
 export const StyledDetails = styled.div`
   .profile-image {
+    display: flex;
+    position: relative;
+    align-items: center;
+    width: 20em;
     margin: 1em 2em 0;
+
+    ::after {
+      content: "";
+      width: 16px;
+      height: 73%;
+      background: ${(props) => props.theme.colors.accent_3};
+      position: absolute;
+      left: -5px;
+      z-index: 0;
+      border-radius: 1em;
+    }
 
     img {
       z-index: 1;
@@ -32,6 +47,10 @@ export const StyledDetails = styled.div`
       ::after {
         left: -8px;
       }
+
+      img {
+        height: 20em;
+      }
     }
 
     .profile-description {
@@ -57,15 +76,19 @@ export const StyledDetails = styled.div`
     }
   }
 
-  @media (min-width: ${(props) => props.theme.breakpoints.super_large}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.large}) {
     display: flex;
 
     .profile-image {
       flex: 0.8;
       align-items: start;
       margin-top: 0;
-      margin-left: 6em;
+      margin-left: 3em;
       padding-top: 2em;
+
+      ::after {
+        display: none;
+      }
 
       img {
         width: 100%;

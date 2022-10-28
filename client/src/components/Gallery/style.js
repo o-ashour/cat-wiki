@@ -11,6 +11,19 @@ export const StyledGallery = styled.section`
     }
   }
 
+  .message {
+    font-size: 1.125rem;
+    font-weight: 500;
+    text-align: center;
+    background: ${(props) => props.theme.colors.accent_7};
+    color: ${(props) => props.theme.colors.primary};
+    letter-spacing: 3px;
+    width: fit-content;
+    margin: 2em auto;
+    padding: 0.75em;
+    border-radius: 8px;
+  }
+
   .container {
     display: flex;
     flex-wrap: wrap;
@@ -18,10 +31,6 @@ export const StyledGallery = styled.section`
     gap: 0.5em;
     margin: 1.5em 0 0.75em;
     padding: 0 1em;
-
-    // figure:nth-child(n + 5) {
-    //   display: ${(props) => (props.imgGroup === 0 ? "none" : null)};
-    // }
 
     figure:nth-child(n + 0):nth-child(-n + 4) {
       display: ${(props) => (props.imgGroup === 0 ? "block" : "none")};
@@ -49,6 +58,12 @@ export const StyledGallery = styled.section`
       }
     }
 
+    .message {
+      letter-spacing: 4px;
+      margin: 3em auto;
+      padding: 1em;
+    }
+
     .container {
       justify-content: start;
       gap: 2em;
@@ -60,7 +75,7 @@ export const StyledGallery = styled.section`
     }
   }
 
-  @media (min-width: ${(props) => props.theme.breakpoints.extra_large}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.large}) {
     padding: 3em 5.25em 8em;
 
     header {
@@ -70,16 +85,18 @@ export const StyledGallery = styled.section`
       }
     }
 
+    .message {
+      font-size: 1.4375rem;
+    }
+
     .container {
       justify-content: start;
       gap: 2.5em;
       margin-top: 2.4em;
 
-
       figure:nth-child(n + 0):nth-child(-n + 8) {
         display: block;
       }
-
     }
 
     nav {

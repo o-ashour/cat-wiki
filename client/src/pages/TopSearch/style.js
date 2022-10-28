@@ -4,8 +4,8 @@ export const StyledTopSearch = styled.article`
   header {
     h1 {
       font-size: 2.4rem;
-      font-weight: 600; 
-      padding: 0 1em; 
+      font-weight: 600;
+      padding: 0 1em;
       text-align: left;
     }
   }
@@ -14,7 +14,7 @@ export const StyledTopSearch = styled.article`
     margin: 3em 2em;
   }
 
-  @media(min-width: ${(props) => props.theme.breakpoints.medium}){
+  @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
     margin-bottom: 7em;
     padding: 0 2em;
 
@@ -33,7 +33,7 @@ export const StyledTopSearch = styled.article`
     }
   }
 
-  @media(min-width: ${(props) => props.theme.breakpoints.extra_large}){
+  @media (min-width: ${(props) => props.theme.breakpoints.large}) {
     padding: 0 5.25em;
 
     header {
@@ -43,4 +43,4 @@ export const StyledTopSearch = styled.article`
       }
     }
   }
-`
+`;

@@ -1,11 +1,11 @@
-import { Logo } from '../Logo';
-import { StyledHeader } from './style';
-import { Link } from 'react-router-dom';
+import { Logo } from "../Logo";
+import { StyledHeader } from "./style";
+import { Link } from "react-router-dom";
 
-function Header(){
+function Header() {
   return (
     <StyledHeader>
-      <Link to='/'>
+      <Link to="/">
         <Logo />
       </Link>
     </StyledHeader>

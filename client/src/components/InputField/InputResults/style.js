@@ -46,12 +46,11 @@ export const StyledInputResults = styled.ul`
     }
   }
 
-  @media (min-width: ${(props) => props.theme.breakpoints.extra_large}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.large}) {
     font-size: 1.1rem;
     font-weight: 500;
     padding: 1em 1.6em 0.4em;
     border-radius: 28px;
-
 
     a {
       text-decoration: none;
@@ -60,11 +59,11 @@ export const StyledInputResults = styled.ul`
 
     li {
       margin-bottom: 1.9em;
-      padding: 0.25em
+      padding: 0.25em;
     }
 
     li:last-child {
       margin-bottom: 0.5em;
     }
   }
-`
+`;

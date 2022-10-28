@@ -17,7 +17,7 @@ const breedSchema = new Schema({
   intelligence: Number,
   social_needs: Number,
   stranger_friendly: Number,
-  search_score: Number
+  search_score: Number,
 });
 
 module.exports = mongoose.model("Breed", breedSchema);
