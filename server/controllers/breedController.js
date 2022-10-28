@@ -103,19 +103,6 @@ const getBreedImgs = async (req, res) => {
     });
 };
 
-// @desc Redirect to article page
-// @route GET /article
-// @access Public
-const getArticle = (req, res) => {
-  try {
-    res.redirect(
-      "https://www.catmastermind.com/psychological-benefits-of-having-cats-at-home/"
-    );
-  } catch (error) {
-    res.json(error);
-  }
-};
-
 // @desc Update breed score
 // @route POST /update/:id
 // @access Public //should be private
@@ -168,6 +155,5 @@ const getMissingImg = async (breed) => {
 module.exports = {
   getBreeds,
   getBreedImgs,
-  getArticle,
   updateBreedScore,
 };

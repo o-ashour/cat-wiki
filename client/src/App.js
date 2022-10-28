@@ -20,9 +20,10 @@ function App() {
   const [windowDimenion, detectW] = useState(window.innerWidth);
   const [isLoading, setIsLoading] = useState(false);
   const [reqError, setReqError] = useState(null);
+  // const [breedId, setBreedId]
 
   // console.log('this happens');
-  const breedId = selectedBreedObj.id;
+  // let breedId = selectedBreedObj.id;
 
   // maybe rethink this as it might be adding bugs
   // which are hard to trace
@@ -48,7 +49,7 @@ function App() {
     setReqError(null);
 
     try {
-      const breedsRes = await fetch("http://localhost:5000/", {
+      const breedsRes = await fetch("http://localhost:5000/api/breeds", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -70,18 +71,27 @@ function App() {
 
   const fetchBreedImgsHandler = useCallback(async () => {
     try {
-      const breedImgsRes = await fetch(`http://localhost:5000/${breedId}/8`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      // if (!breedId) {
+      //   breedId = "ebur";
+      // }
+      const breedId = selectedBreedObj.id ? selectedBreedObj.id : 'ebur';
+
+      const breedImgsRes = await fetch(
+        `http://localhost:5000/api/breeds/${breedId}/8`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (!breedImgsRes.ok) {
         throw new Error("Something went wrong!");
       }
 
       const breedImgsData = await breedImgsRes.json();
+      console.log(breedImgsData);
       setBreedImgs(breedImgsData);
     } catch (err) {
       console.log(err);
