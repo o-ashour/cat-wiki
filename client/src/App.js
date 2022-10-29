@@ -77,7 +77,7 @@ function App() {
       const breedId = selectedBreedObj.id ? selectedBreedObj.id : 'ebur';
 
       const breedImgsRes = await fetch(
-        `/api/breeds/ebur/8`,
+        `/api/breeds/${breedId}/8`,
         {
           method: "GET",
           headers: {
