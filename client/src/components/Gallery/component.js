@@ -29,9 +29,10 @@ function Gallery({ breedImgs }) {
             <Photo
               key={idx}
               url={breedImg.url}
-              name={breedImg.breeds[0].name}
+              name= "mewmew"
             />
           );
+          // {breedImg.breeds[0].name}
         })}
       </div>
       <nav>
