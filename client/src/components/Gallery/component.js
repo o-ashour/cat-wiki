@@ -3,7 +3,7 @@ import { Photo } from "./Photo";
 import { useState } from "react";
 import { C2a } from "../C2a";
 
-function Gallery({ breedImgs }) {
+function Gallery({ breedImgs, selectedBreedObj}) {
   const [imgGroup, setImgGroup] = useState(0);
 
   function handleClick() {
@@ -25,16 +25,13 @@ function Gallery({ breedImgs }) {
       ) : null}
       <div className="container">
         {breedImgs.map((breedImg, idx) => {
-          // console.log(breedImg.breeds[0].name);
-          const breedName = breedImg.breeds[0].name;
           return (
             <Photo
               key={idx}
               url={breedImg.url}
-              name= {breedName}
+              name= {selectedBreedObj.name}
             />
           );
-          // {breedImg[0].breeds.name}
         })}
       </div>
       <nav>

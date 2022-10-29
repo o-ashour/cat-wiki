@@ -2,7 +2,6 @@ import { StyledArticle } from "../../components/Global/Article.styled";
 import { Attributes } from "../../components/Attributes";
 import { Gallery } from "../../components/Gallery";
 import { StyledDetails } from "./style";
-import { C2a } from "../../components/C2a";
 import { UserContext } from "../../App";
 import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -50,7 +49,7 @@ function Details({ breedImgs }) {
               <Attributes />
             </div>
           </StyledDetails>
-          <Gallery breedImgs={breedImgs} />
+          <Gallery breedImgs={breedImgs} selectedBreedObj={selectedBreedObj}/>
         </>
       )}
     </>

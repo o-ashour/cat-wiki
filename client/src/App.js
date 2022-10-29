@@ -71,9 +71,6 @@ function App() {
 
   const fetchBreedImgsHandler = useCallback(async () => {
     try {
-      // if (!breedId) {
-      //   breedId = "ebur";
-      // }
       const breedId = selectedBreedObj.id ? selectedBreedObj.id : 'ebur';
 
       const breedImgsRes = await fetch(
