@@ -91,7 +91,6 @@ function App() {
       }
 
       const breedImgsData = await breedImgsRes.json();
-      console.log(breedImgsData);
       setBreedImgs(breedImgsData);
     } catch (err) {
       console.log(err);
