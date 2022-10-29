@@ -20,10 +20,6 @@ function App() {
   const [windowDimenion, detectW] = useState(window.innerWidth);
   const [isLoading, setIsLoading] = useState(false);
   const [reqError, setReqError] = useState(null);
-  // const [breedId, setBreedId]
-
-  // console.log('this happens');
-  // let breedId = selectedBreedObj.id;
 
   // maybe rethink this as it might be adding bugs
   // which are hard to trace
