@@ -25,14 +25,16 @@ function Gallery({ breedImgs }) {
       ) : null}
       <div className="container">
         {breedImgs.map((breedImg, idx) => {
+          // console.log(breedImg.breeds[0].name);
+          const breedName = breedImg.breeds[0].name;
           return (
             <Photo
               key={idx}
               url={breedImg.url}
-              name= "mewmew"
+              name= {breedName}
             />
           );
-          // {breedImg.breeds[0].name}
+          // {breedImg[0].breeds.name}
         })}
       </div>
       <nav>
