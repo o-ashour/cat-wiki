@@ -49,7 +49,7 @@ function App() {
     setReqError(null);
 
     try {
-      const breedsRes = await fetch("http://localhost:5000/api/breeds", {
+      const breedsRes = await fetch("/api/breeds", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -77,7 +77,7 @@ function App() {
       const breedId = selectedBreedObj.id ? selectedBreedObj.id : 'ebur';
 
       const breedImgsRes = await fetch(
-        `http://localhost:5000/api/breeds/ebur/8`,
+        `/api/breeds/ebur/8`,
         {
           method: "GET",
           headers: {
