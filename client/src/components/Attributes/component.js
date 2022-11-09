@@ -6,63 +6,75 @@ import { useContext } from "react";
 function Attributes() {
   const { selectedBreedObj } = useContext(UserContext);
 
+  const selectedAttributes = [
+    {
+      type: "description",
+      title: "Temperament",
+      value: selectedBreedObj.temperament,
+    },
+    {
+      type: "description",
+      title: "Origin",
+      value: selectedBreedObj.origin,
+    },
+    {
+      type: "description",
+      title: "Life Span",
+      value: `${selectedBreedObj.life_span} years`,
+    },
+    {
+      type: "scale",
+      title: "Adaptability",
+      value: selectedBreedObj.adaptability,
+    },
+    {
+      type: "scale",
+      title: "Affection Level",
+      value: selectedBreedObj.affection_level,
+    },
+    {
+      type: "scale",
+      title: "Child Friendly",
+      value: selectedBreedObj.child_friendly,
+    },
+    {
+      type: "scale",
+      title: "Grooming",
+      value: selectedBreedObj.grooming,
+    },
+    {
+      type: "scale",
+      title: "Intelligence",
+      value: selectedBreedObj.intelligence,
+    },
+    {
+      type: "scale",
+      title: "Health issues",
+      value: selectedBreedObj.health_issues,
+    },
+    {
+      type: "scale",
+      title: "Social needs",
+      value: selectedBreedObj.social_needs,
+    },
+    {
+      type: "scale",
+      title: "Stranger friendly",
+      value: selectedBreedObj.stranger_friendly,
+    },
+  ];
+
   return (
     <StyledAttributes>
-      <Attribute
-        type="description"
-        title="Temperament"
-        description={selectedBreedObj.temperament}
-      />
-      <Attribute
-        type="description"
-        title="Origin"
-        description={selectedBreedObj.origin}
-      />
-      <Attribute
-        type="description"
-        title="Life Span"
-        description={`${selectedBreedObj.life_span} years`}
-      />
-      <Attribute
-        type="scale"
-        title="Adaptability"
-        score={selectedBreedObj.adaptability}
-      />
-      <Attribute
-        type="scale"
-        title="Affection Level"
-        score={selectedBreedObj.affection_level}
-      />
-      <Attribute
-        type="scale"
-        title="Child Friendly"
-        score={selectedBreedObj.child_friendly}
-      />
-      <Attribute
-        type="scale"
-        title="Grooming"
-        score={selectedBreedObj.grooming}
-      />
-      <Attribute
-        type="scale"
-        title="Intelligence"
-        score={selectedBreedObj.intelligence}
-      />
-      <Attribute
-        type="scale"
-        title="Health issues"
-        score={selectedBreedObj.health_issues}
-      />
-      <Attribute
-        type="scale"
-        title="Social needs"
-        score={selectedBreedObj.social_needs}
-      />
-      <Attribute
-        type="scale"
-        title="Stranger friendly"
-        score={selectedBreedObj.stranger_friendly}
-      />
+      {selectedAttributes.map((selectedAttribute) => {
+        return (
+          <Attribute
+            type={selectedAttribute.type}
+            title={selectedAttribute.title}
+            value={selectedAttribute.value}
+          />
+        );
+      })}
     </StyledAttributes>
   );
 }

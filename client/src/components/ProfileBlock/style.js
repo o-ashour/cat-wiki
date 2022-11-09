@@ -28,6 +28,10 @@ export const StyledProfile = styled.section`
         margin-bottom: 0.6em;
       }
 
+      .wrapper {
+        max-width: 48em;
+      }
+
       p {
         font-size: 1.1rem;
         margin: 0;
@@ -37,7 +41,8 @@ export const StyledProfile = styled.section`
 
   @media (min-width: ${(props) => props.theme.breakpoints.large}) {
     img {
-      width: 17.5em;
+      max-width: initial;
+      width: 30%;
     }
 
     .description {
@@ -46,6 +51,10 @@ export const StyledProfile = styled.section`
       h2 {
         font-weight: 600;
         font-size: 2.25rem;
+      }
+
+      .wrapper {
+        max-width: 60em;
       }
 
       p {

@@ -2,7 +2,6 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
   
-
   * {
     box-sizing: border-box; 
   }
@@ -17,7 +16,8 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     font-family: 'Montserrat', sans-serif;    
     font-size: 16px; 
-    color: ${({ theme }) => theme.colors.accent};
+    color: ${({ theme }) => theme.colors.accent_1};
+    overflow: ${(props) => (props.isNavOpen || props.isModalOpen ? "hidden" : "auto")}
   }
 
   p {

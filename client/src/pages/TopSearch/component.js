@@ -1,6 +1,5 @@
 import { StyledTopSearch } from "./style";
 import { Profile } from "../../components/ProfileBlock";
-import { C2a } from "../../components/C2a";
 
 function TopSearch({ topBreedList }) {
   return (

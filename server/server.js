@@ -5,7 +5,6 @@ const connectDB = require("./db/conn");
 require("dotenv").config({ path: "./config.env" });
 const port = process.env.PORT || 5000;
 const cors = require("cors");
-//somoething or otherr
 // Used to allow HTTP requests from any origin
 app.use(cors());
 
@@ -18,7 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 // connect Mongoose to MongoDB
 connectDB();
 
-app.use("/api/breeds", require("./routes/breedRoutes"));
+app.use("/", require("./routes/breedRoutes"));
 
 // Serve frontend
 if (process.env.NODE_ENV === "production") {
@@ -30,7 +29,7 @@ if (process.env.NODE_ENV === "production") {
     )
   );
 } else {
-  app.get('/', (req,res) => res.send('Please set to production.'))
+  app.get("/", (req, res) => res.send("Please set to production."));
 }
 
 app.listen(port, () => console.log(`Server started on port: ${port}`));

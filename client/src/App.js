@@ -6,6 +6,7 @@ import { Details } from "./pages/Details";
 import { TopSearch } from "./pages/TopSearch/component";
 import _ from "lodash";
 import failSafeCat from "./assets/images/cat_tea.jpg";
+import ScrollToTop from "./helpers/ScrollToTop";
 
 export const UserContext = createContext(null);
 
@@ -17,35 +18,35 @@ function App() {
   const [topBreedList, setTopBreedList] = useState([]);
   const [isInResultsOpen, setIsInResultsOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [windowDimenion, detectW] = useState(window.innerWidth);
+  const [windowDimension, detectW] = useState(window.innerWidth);
   const [isLoading, setIsLoading] = useState(false);
   const [reqError, setReqError] = useState(null);
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
-  // maybe rethink this as it might be adding bugs
-  // which are hard to trace
-  // maybe too many quick re-renders, api requests
   const detectSize = () => {
     detectW(window.innerWidth);
   };
 
+  // closes search modal for medium-sized screens and larger
   useEffect(() => {
     window.addEventListener("resize", detectSize);
     // when the window is wider than the small-screen breakpoint..
-    if (windowDimenion > 601) {
+    if (windowDimension > 601) {
       setIsModalOpen(false);
     }
 
     return () => {
       window.removeEventListener("resize", detectSize);
     };
-  }, [windowDimenion]);
+  }, [windowDimension]);
 
+  // api-dependent functions
   const fetchBreedsHandler = useCallback(async () => {
     setIsLoading(true);
     setReqError(null);
 
     try {
-      const breedsRes = await fetch("/api/breeds", {
+      const breedsRes = await fetch("http://localhost:5000/", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -67,17 +68,14 @@ function App() {
 
   const fetchBreedImgsHandler = useCallback(async () => {
     try {
-      const breedId = selectedBreedObj.id ? selectedBreedObj.id : 'ebur';
+      const breedId = selectedBreedObj.id ? selectedBreedObj.id : "ebur";
 
-      const breedImgsRes = await fetch(
-        `/api/breeds/${breedId}/8`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const breedImgsRes = await fetch(`http://localhost:5000/${breedId}/8`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       if (!breedImgsRes.ok) {
         throw new Error("Something went wrong!");
@@ -125,8 +123,16 @@ function App() {
     getTopBreeds();
   }, [breedList]);
 
-  //functions
-  //not all functions are under here
+  // other functions
+  function scrollUp() {
+    document.documentElement.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant", // this is to skip the scrolling animation
+    });
+  }
+
+  // handles logic for interacting with input field for search
   function handleClick(e) {
     if (
       isInResultsOpen &&
@@ -140,8 +146,9 @@ function App() {
     if (
       (e.target.parentElement.id === "input" ||
         e.target.parentElement.id === "search-icon") &&
-      windowDimenion < 601
+      windowDimension < 601
     ) {
+      scrollUp();
       setIsModalOpen(true);
     }
   }
@@ -159,12 +166,15 @@ function App() {
           setBreedList,
           isModalOpen,
           setIsModalOpen,
-          windowDimenion,
+          windowDimension,
           isLoading,
           reqError,
+          isNavOpen,
+          setIsNavOpen,
         }}
       >
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route

@@ -1,13 +1,12 @@
 import { Logo } from "../Logo";
 import { StyledHeader } from "./style";
-import { Link } from "react-router-dom";
+import { Nav } from "../Nav/component";
 
 function Header() {
   return (
     <StyledHeader>
-      <Link to="/">
-        <Logo />
-      </Link>
+      <Logo />
+      <Nav />
     </StyledHeader>
   );
 }

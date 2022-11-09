@@ -49,7 +49,7 @@ function Details({ breedImgs }) {
               <Attributes />
             </div>
           </StyledDetails>
-          <Gallery breedImgs={breedImgs} selectedBreedObj={selectedBreedObj}/>
+          <Gallery breedImgs={breedImgs} selectedBreedObj={selectedBreedObj} />
         </>
       )}
     </>

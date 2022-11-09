@@ -1,13 +1,17 @@
 import { StyledAttribute } from "./style";
 import HorizRules from "./elements/HorizRules";
 
-function Attribute(props) {
+function Attribute({ type, title, value }) {
   return (
-    <StyledAttribute score={props.score} type={props.type}>
-      <span>{props.title}: </span>
-      {props.type === 'scale' ? <HorizRules /> : <span>{props.description}</span>}
+    <StyledAttribute value={Number(value) ? value : null} type={type}>
+      <span>{title}: </span>
+      {type === "scale" ? (
+        <HorizRules />
+      ) : (
+        <span>{String(value) ? value : null}</span>
+      )}
     </StyledAttribute>
-  )
+  );
 }
 
 export { Attribute };

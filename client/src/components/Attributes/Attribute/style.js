@@ -25,7 +25,7 @@ export const StyledAttribute = styled.div`
     border-radius: 5px;
   }
 
-  hr:nth-child(-n + ${(props) => props.score}) {
+  hr:nth-child(-n + ${(props) => props.value}) {
     background: ${(props) => props.theme.colors.accent_4};
   }
 

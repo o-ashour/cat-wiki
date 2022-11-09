@@ -4,9 +4,7 @@ export const StyledInputResults = styled.ul`
   background-color: ${(props) => props.theme.colors.primary};
   color: ${(props) => props.theme.colors.tertiary};
   position: absolute;
-  max-height: 12em;
   width: inherit;
-  overflow-y: scroll;
   font-size: 0.75rem;
   margin-top: 0.5em;
   padding: 0.75em 1em;

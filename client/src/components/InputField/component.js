@@ -35,7 +35,7 @@ function Input({ id }) {
   const updateBreedScore = async (breedId) => {
     try {
       // post request to server incrementing search score for selected breed
-      const response = await fetch(`/api/breeds/update/${breedId}`, {
+      const response = await fetch(`http://localhost:5000/update/${breedId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -43,7 +43,7 @@ function Input({ id }) {
       });
 
       if (!response.ok) {
-        throw new Error("Something went wrong!");
+        throw new Error("Breed score update request failed.");
       }
 
       const updatedBreedsData = await response.json();
@@ -52,7 +52,7 @@ function Input({ id }) {
       console.log(err);
     }
   };
-  // handles logic of clicking on item in search modal
+  // handles logic of clicking on item in search results
   function handleClick(e) {
     const selectedBreedId = e.target.id;
 
@@ -177,6 +177,8 @@ function Input({ id }) {
   // matches expected breed-name string format based on regex
   function validateInput(str) {
     const trimmedStr = str.trim();
+    // regex for checking whether typed cat breed name in search is valid
+    //valid name is a noun made of 1-4 words with possible hyphenation for compound names
     const regex =
       /^[A-Za-z]+-*[A-Za-z]*\s*[A-Za-z]*-*[A-Za-z]*\s*[A-Za-z]*-*[A-Za-z]*\s*$/;
     const strArr = trimmedStr.match(regex);
