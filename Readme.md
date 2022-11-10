@@ -29,10 +29,11 @@ $ git clone https://github.com/o-ashour/cat-wiki
 # Install dependencies
 $ npm install
 
-# Run the server (while in server directory)
+# Run the server
 $ npm run server
 
-# Run the app (while in client directory)
+# Run the app
+$ cd client 
 $ npm start
 ```
 
