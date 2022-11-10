@@ -23,6 +23,14 @@ function App() {
   const [reqError, setReqError] = useState(null);
   const [isNavOpen, setIsNavOpen] = useState(false);
 
+  // sets current environment to determine endpoints for server calls
+  // change to 'development' or 'production' based on current environment
+  const env = "production";
+
+  // will vary depending on 'development' or 'production' environment
+  const apiUrl = env === "production" ? "/api/breeds" : "http://localhost:5000";
+  console.log(apiUrl);
+
   const detectSize = () => {
     detectW(window.innerWidth);
   };
@@ -46,7 +54,7 @@ function App() {
     setReqError(null);
 
     try {
-      const breedsRes = await fetch("http://localhost:5000/", {
+      const breedsRes = await fetch(apiUrl, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -54,7 +62,7 @@ function App() {
       });
 
       if (!breedsRes.ok) {
-        throw new Error("Something went wrong!");
+        throw new Error("Breeds Get Request failed!");
       }
 
       const breedsData = await breedsRes.json();
@@ -70,7 +78,7 @@ function App() {
     try {
       const breedId = selectedBreedObj.id ? selectedBreedObj.id : "ebur";
 
-      const breedImgsRes = await fetch(`http://localhost:5000/${breedId}/8`, {
+      const breedImgsRes = await fetch(`${apiUrl}/${breedId}/8`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -78,7 +86,7 @@ function App() {
       });
 
       if (!breedImgsRes.ok) {
-        throw new Error("Something went wrong!");
+        throw new Error("Breed-Images Get Request failed!");
       }
 
       const breedImgsData = await breedImgsRes.json();

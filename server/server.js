@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 // connect Mongoose to MongoDB
 connectDB();
 
-app.use("/", require("./routes/breedRoutes"));
+app.use("/api/breeds", require("./routes/breedRoutes"));
 
 // Serve frontend
 if (process.env.NODE_ENV === "production") {

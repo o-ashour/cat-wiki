@@ -28,6 +28,13 @@ function Input({ id }) {
   const [inputStr, setInputStr] = useState("");
   const navigate = useNavigate();
 
+  // sets current environment to determine endpoints for server calls
+  // change to 'development' or 'production' based on current environment
+  const env = "production";
+
+  // will vary depending on 'development' or 'production' environment
+  const apiUrl = env === "production" ? "/api/breeds" : "http://localhost:5000";
+
   useEffect(() => {
     setInputStr("");
   }, [isModalOpen]);
@@ -35,7 +42,7 @@ function Input({ id }) {
   const updateBreedScore = async (breedId) => {
     try {
       // post request to server incrementing search score for selected breed
-      const response = await fetch(`http://localhost:5000/update/${breedId}`, {
+      const response = await fetch(`${apiUrl}/update/${breedId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
