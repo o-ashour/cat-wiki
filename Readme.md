@@ -26,14 +26,19 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 # Clone this repository
 $ git clone https://github.com/o-ashour/cat-wiki
 
-# Install dependencies
+# Install backend dependencies
 $ npm install
 
 # Run the server
 $ npm run server
 
-# Run the app
+## In a separate terminal
+
+# Install frontend dependencies 
 $ cd client 
+$ npm install
+
+# Run the app
 $ npm start
 ```
 
