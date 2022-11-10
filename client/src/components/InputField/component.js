@@ -18,6 +18,7 @@ function Input({ id }) {
     windowDimenion,
     isLoading,
     reqError,
+    env
   } = useContext(UserContext);
   const [breedListFiltered, setBreedListFiltered] = useState({
     breedObjects: breedList,
@@ -27,10 +28,6 @@ function Input({ id }) {
   const [isError, setIsError] = useState(false);
   const [inputStr, setInputStr] = useState("");
   const navigate = useNavigate();
-
-  // sets current environment to determine endpoints for server calls
-  // change to 'development' or 'production' based on current environment
-  const env = "production";
 
   // will vary depending on 'development' or 'production' environment
   const apiUrl = env === "production" ? "/api/breeds" : "http://localhost:5000";

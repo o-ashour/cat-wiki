@@ -24,12 +24,11 @@ function App() {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   // sets current environment to determine endpoints for server calls
-  // change to 'development' or 'production' based on current environment
-  const env = "production";
+  // intialize to 'development' or 'production' based on current environment
+  const [env] = useState("development");
 
   // will vary depending on 'development' or 'production' environment
   const apiUrl = env === "production" ? "/api/breeds" : "http://localhost:5000";
-  console.log(apiUrl);
 
   const detectSize = () => {
     detectW(window.innerWidth);
@@ -182,6 +181,7 @@ function App() {
           reqError,
           isNavOpen,
           setIsNavOpen,
+          env,
         }}
       >
         <BrowserRouter>

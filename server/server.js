@@ -5,6 +5,9 @@ const connectDB = require("./db/conn");
 require("dotenv").config({ path: "./config.env" });
 const port = process.env.PORT || 5000;
 const cors = require("cors");
+// change url for server requests based on current environment
+const url = process.env.NODE_ENV === 'production' ? '/api/breeds' : '/';
+
 // Used to allow HTTP requests from any origin
 app.use(cors());
 
@@ -17,7 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 // connect Mongoose to MongoDB
 connectDB();
 
-app.use("/api/breeds", require("./routes/breedRoutes"));
+app.use(url, require("./routes/breedRoutes"));
 
 // Serve frontend
 if (process.env.NODE_ENV === "production") {

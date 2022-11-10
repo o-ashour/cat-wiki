@@ -42,6 +42,8 @@ $ npm install
 $ npm start
 ```
 
+Note: Make sure environment variables in client/app.js and server/config.env are set to 'development' in order to run the app in local environment
+
 ### The challenge
 
 Users should be able to:
