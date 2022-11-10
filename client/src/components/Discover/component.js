@@ -1,7 +1,7 @@
 import { StyledDiscover } from "./style";
 import { C2a } from "../C2a";
 
-function Discover({ topBreedList, breedImgs }) {
+function Discover({ topBreedList }) {
   let previewTopBreedList;
 
   for (let i = 0; i <= 4; i++) {

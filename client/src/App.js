@@ -151,6 +151,9 @@ function App() {
       scrollUp();
       setIsModalOpen(true);
     }
+    if (isModalOpen && e.target.className === "modal-background") {
+      setIsModalOpen(false);
+    }
   }
 
   return (
@@ -180,9 +183,7 @@ function App() {
               <Route
                 path="/"
                 index
-                element={
-                  <Home topBreedList={topBreedList} breedImgs={breedImgs} />
-                }
+                element={<Home topBreedList={topBreedList} />}
               />
               <Route
                 path="/details"

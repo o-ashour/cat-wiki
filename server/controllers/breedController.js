@@ -15,12 +15,17 @@ const getBreeds = async (req, res) => {
     .then(async (response) => {
       const breedsResArr = response.data;
 
-      breedsResArr.forEach(async (breed) => {
-        const foundBreed = await Breed.findOne({ name: breed.name });
-        let foundBreedImg;
-        if (!breed.image) {
-          getMissingImg(breed);
-          foundBreedImg = await MissingImg.findOne({ id: breed.id });
+      const makeBreedObj = (breed, foundBreed, breedImgUrl) => {
+        let breedScore;
+
+        if (!foundBreed) {
+          !breed.search_score
+            ? (breedScore = 0)
+            : (breedScore = breed.search_score);
+        } else {
+          !foundBreed.search_score
+            ? (breedScore = 0)
+            : (breedScore = foundBreed.search_score);
         }
 
         const breedObj = {
@@ -29,11 +34,7 @@ const getBreeds = async (req, res) => {
           temperament: breed.temperament,
           origin: breed.origin,
           description: breed.description,
-          imageUrl: breed.image
-            ? breed.image.url
-            : foundBreedImg
-            ? foundBreedImg.url
-            : null,
+          imageUrl: breedImgUrl ? breedImgUrl : breed.imageUrl,
           life_span: breed.life_span,
           adaptability: breed.adaptability,
           affection_level: breed.affection_level,
@@ -43,32 +44,33 @@ const getBreeds = async (req, res) => {
           intelligence: breed.intelligence,
           social_needs: breed.social_needs,
           stranger_friendly: breed.stranger_friendly,
-          search_score: !foundBreed.search_score ? 0 : foundBreed.search_score,
+          search_score: breedScore,
         };
+        return breedObj;
+      };
+
+      breedsResArr.forEach(async (breed) => {
+        const foundBreed = await Breed.findOne({ name: breed.name });
+        let foundBreedImg;
+
+        if (!breed.image) {
+          getMissingImg(breed);
+          foundBreedImg = await MissingImg.findOne({ id: breed.id });
+        }
+
+        const imageUrl = breed.image
+          ? breed.image.url
+          : foundBreedImg
+          ? foundBreedImg.url
+          : null;
+
+        const breedObj = makeBreedObj(breed, foundBreed, imageUrl);
 
         if (!foundBreed) {
           await Breed.create(breedObj);
         } else {
-          const foundBreedObj = {
-            id: foundBreed.id,
-            name: foundBreed.name,
-            temperament: foundBreed.temperament,
-            origin: foundBreed.origin,
-            description: foundBreed.description,
-            imageUrl: foundBreed.imageUrl,
-            life_span: foundBreed.life_span,
-            adaptability: foundBreed.adaptability,
-            affection_level: foundBreed.affection_level,
-            child_friendly: foundBreed.child_friendly,
-            grooming: foundBreed.grooming,
-            health_issues: foundBreed.health_issues,
-            intelligence: foundBreed.intelligence,
-            social_needs: foundBreed.social_needs,
-            stranger_friendly: foundBreed.stranger_friendly,
-            search_score: !foundBreed.search_score
-              ? 0
-              : foundBreed.search_score,
-          };
+          const foundBreedObj = makeBreedObj(foundBreed);
+
           if (!_.isEqual(breedObj, foundBreedObj)) {
             await Breed.replaceOne({ name: breed.name }, breedObj);
           }

@@ -12,6 +12,26 @@ function Details({ breedImgs }) {
   const navigate = useNavigate();
   const isBreedSelected = Object.keys(selectedBreedObj).length > 0;
 
+  function setProfileImg() {
+    let profileImg;
+
+    if (selectedBreedObj.imageUrl) {
+      profileImg = (
+        <img src={selectedBreedObj.imageUrl} alt={selectedBreedObj.name} />
+      );
+    } else if (breedImgs.length > 0) {
+      profileImg = (
+        <img
+          src={breedImgs[_.random(breedImgs.length - 1)].url}
+          alt={selectedBreedObj.name}
+        />
+      );
+    } else {
+      return <blockquote>Oooops! No image to display.</blockquote>;
+    }
+    return profileImg;
+  }
+
   useEffect(() => {
     if (!isBreedSelected) {
       navigate("/");
@@ -24,21 +44,7 @@ function Details({ breedImgs }) {
         <>
           <StyledDetails>
             {selectedBreedObj.imageUrl || breedImgs.length > 0 ? (
-              <div className="profile-image">
-                {selectedBreedObj.imageUrl ? (
-                  <img
-                    src={selectedBreedObj.imageUrl}
-                    alt={selectedBreedObj.name}
-                  />
-                ) : breedImgs.length > 0 ? (
-                  <img
-                    src={breedImgs[_.random(breedImgs.length - 1)].url}
-                    alt={selectedBreedObj.name}
-                  />
-                ) : (
-                  <blockquote>Oooops! No image to display.</blockquote>
-                )}
-              </div>
+              <div className="profile-image">{setProfileImg()}</div>
             ) : null}
 
             <div className="profile-description">

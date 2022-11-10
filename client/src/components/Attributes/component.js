@@ -66,9 +66,10 @@ function Attributes() {
 
   return (
     <StyledAttributes>
-      {selectedAttributes.map((selectedAttribute) => {
+      {selectedAttributes.map((selectedAttribute, idx) => {
         return (
           <Attribute
+            key={idx}
             type={selectedAttribute.type}
             title={selectedAttribute.title}
             value={selectedAttribute.value}
