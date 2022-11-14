@@ -24,8 +24,9 @@ export const StyledHome = styled.div`
       font-size: 0.75em;
       color: #291507;
       position: absolute;
-      top: 10px;
-      right: 13px;
+      // top: 10px;
+      // right: 13px;
+      margin-right: 0.75em;
     }
 
     img {
@@ -123,7 +124,8 @@ export const StyledHome = styled.div`
     .hero-container {
       svg {
         font-size: 0.8em;
-        top: 12px;
+        margin-right: 1em;
+        // top: 12px;
       }
 
       img {
@@ -165,9 +167,10 @@ export const StyledHome = styled.div`
       svg {
         font-size: 1em;
         top: initial;
-        left: initial;
-        bottom: 18px;
         right: 13px;
+        bottom: 18px;
+        left: initial;
+        margin-right: 0;
         opacity: 0.8;
       }
 

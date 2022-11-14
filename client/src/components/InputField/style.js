@@ -3,6 +3,9 @@ import styled from "styled-components";
 export const StyledInput = styled.div`
   width: inherit;
   position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 
   .input-btn {
     font-family: "Montserrat", sans-serif;
@@ -33,6 +36,8 @@ export const StyledInput = styled.div`
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
+    display: inline-block;
+
     .input-btn {
       padding: 1.25em 2em;
       margin-top: 2em;
