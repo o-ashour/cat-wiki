@@ -4,6 +4,10 @@ export const StyledInput = styled.div`
   width: inherit;
   position: relative;
 
+  #main-input{
+    display: ${(props) => props.isModalOpen ? 'none' : 'block'}
+  }
+
   .input-btn {
     font-family: "Montserrat", sans-serif;
     padding: 0.65em 1em;

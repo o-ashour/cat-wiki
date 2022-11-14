@@ -1,10 +1,10 @@
 import { FaSearch } from "react-icons/fa";
 import { StyledInput } from "./style";
-import { React, useContext, useState, useEffect } from "react";
+import { React, useContext, useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../App";
 import { InputResults } from "./InputResults/component";
-
+// { id }
 function Input({ id }) {
   // hooks
   const {
@@ -18,7 +18,7 @@ function Input({ id }) {
     windowDimenion,
     isLoading,
     reqError,
-    env
+    env,
   } = useContext(UserContext);
   const [breedListFiltered, setBreedListFiltered] = useState({
     breedObjects: breedList,
@@ -28,6 +28,7 @@ function Input({ id }) {
   const [isError, setIsError] = useState(false);
   const [inputStr, setInputStr] = useState("");
   const navigate = useNavigate();
+  const modalSearchInput = useRef(null);
 
   // will vary depending on 'development' or 'production' environment
   const apiUrl = env === "production" ? "/api/breeds" : "http://localhost:5000";
@@ -35,6 +36,13 @@ function Input({ id }) {
   useEffect(() => {
     setInputStr("");
   }, [isModalOpen]);
+
+  // useEffect(() => {
+  //   if (isModalOpen) {
+  //     modalSearchInput.current.focus();
+  //   }
+
+  // }, []);
 
   const updateBreedScore = async (breedId) => {
     try {
@@ -202,10 +210,10 @@ function Input({ id }) {
       </p>
     );
   }
-
+  // id === "modal-input" &&
+  // d === "main-input" &&
   if (
-    ((id === "modal-input" && isInResultsOpen && isModalOpen) ||
-      (id === "main-input" && isInResultsOpen && !isModalOpen)) &&
+    ((isInResultsOpen && isModalOpen) || (isInResultsOpen && !isModalOpen)) &&
     breedList.length > 0
   ) {
     content = (
@@ -228,25 +236,40 @@ function Input({ id }) {
       </p>
     );
   }
+  // {((id === "main-input" && isModalOpen) ||
+  // (id === "modal-input" && !isModalOpen)) &&
+
+  // when window is less wide than small-screen breakpoint
+  // windowDimenion < 601 ? (
+  //   <input
+  //     id="input-btn"
+  //     className="input-btn"
+  //     placeholder="Search"
+  //     value={inputStr}
+  //     disabled
+  //   />
+  // ) : (
+
+    // id="input-btn"
 
   return (
     <div className="input-search">
-      <StyledInput id="input">
+      <StyledInput id="input" isModalOpen={isModalOpen}>
         <label htmlFor="input-btn"></label>
-        {((id === "main-input" && isModalOpen) ||
-          (id === "modal-input" && !isModalOpen)) &&
-        // when window is less wide than small-screen breakpoint
-        windowDimenion < 601 ? (
+
+        {id === "modal-input" ? (
           <input
-            id="input-btn"
+            id="modal-input"
             className="input-btn"
             placeholder="Search"
             value={inputStr}
-            disabled
+            onChange={handleChange}
+            onKeyDown={handleKeyDown}
+            onBlur={handleBlur}
           />
         ) : (
           <input
-            id="input-btn"
+            id="main-input"
             className="input-btn"
             placeholder="Search"
             value={inputStr}

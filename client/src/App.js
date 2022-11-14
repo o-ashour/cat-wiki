@@ -25,7 +25,7 @@ function App() {
 
   // sets current environment to determine endpoints for server calls
   // intialize to 'development' or 'production' based on current environment
-  const [env] = useState("production");
+  const [env] = useState("development");
 
   // will vary depending on 'development' or 'production' environment
   const apiUrl = env === "production" ? "/api/breeds" : "http://localhost:5000";

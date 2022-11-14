@@ -9,6 +9,7 @@ import persianImg from "../../assets/images/image 2.png";
 import roadImg from "../../assets/images/image 3.png";
 
 function Home({ topBreedList }) {
+  // id="main-input"
   const articleUrl =
     "https://www.singlecare.com/blog/benefits-of-having-a-cat/";
 
@@ -21,7 +22,7 @@ function Home({ topBreedList }) {
             <div className="logo-cover" />
           </div>
           <p>Get to know more about your cat breed</p>
-          <Input id="main-input" />
+          <Input />
         </section>
         <Discover topBreedList={topBreedList} />
       </div>
