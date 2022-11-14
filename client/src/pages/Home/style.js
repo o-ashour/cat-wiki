@@ -24,8 +24,6 @@ export const StyledHome = styled.div`
       font-size: 0.75em;
       color: #291507;
       position: absolute;
-      // top: 10px;
-      // right: 13px;
       margin-right: 0.75em;
     }
 
@@ -125,7 +123,6 @@ export const StyledHome = styled.div`
       svg {
         font-size: 0.8em;
         margin-right: 1em;
-        // top: 12px;
       }
 
       img {

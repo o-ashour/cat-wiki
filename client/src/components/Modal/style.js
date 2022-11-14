@@ -54,7 +54,7 @@ export const StyledModal = styled.div`
     position: absolute;
     top: 15px;
     right: 15px;
-    z-index: 1;
+    // z-index: 1;
     opacity: 0.87;
   }
 
