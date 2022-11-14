@@ -9,7 +9,6 @@ import persianImg from "../../assets/images/image 2.png";
 import roadImg from "../../assets/images/image 3.png";
 
 function Home({ topBreedList }) {
-  // id="main-input"
   const articleUrl =
     "https://www.singlecare.com/blog/benefits-of-having-a-cat/";
 

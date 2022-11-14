@@ -12,7 +12,7 @@ function Modal() {
     setIsModalOpen(false);
     setIsInResultsOpen(false);
   }
-  // id="modal-input" 
+
   return (
     <StyledModal isModalOpen={isModalOpen}>
       <div className="modal-background"></div>
@@ -21,7 +21,7 @@ function Modal() {
           <FaTimes onClick={handleClick} />
         </header>
         <div className="clearfix"></div>
-        <Input id='modal-input' />
+        <Input id="modal-input" />
       </div>
     </StyledModal>
   );

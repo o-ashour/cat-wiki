@@ -4,10 +4,6 @@ export const StyledInput = styled.div`
   width: inherit;
   position: relative;
 
-  #main-input{
-    display: ${(props) => props.isModalOpen ? 'none' : 'block'}
-  }
-
   .input-btn {
     font-family: "Montserrat", sans-serif;
     padding: 0.65em 1em;
@@ -24,6 +20,10 @@ export const StyledInput = styled.div`
       color: #291507;
       opacity: 1;
     }
+  }
+
+  #main-input {
+    display: ${(props) => (props.isModalOpen ? "none" : "block")};
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.small}) {

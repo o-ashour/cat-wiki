@@ -18,7 +18,7 @@ function App() {
   const [topBreedList, setTopBreedList] = useState([]);
   const [isInResultsOpen, setIsInResultsOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [windowDimension, detectW] = useState(window.innerWidth);
+  const [windowDimension, setWindowDimension] = useState(window.innerWidth);
   const [isLoading, setIsLoading] = useState(false);
   const [reqError, setReqError] = useState(null);
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -30,20 +30,20 @@ function App() {
   // will vary depending on 'development' or 'production' environment
   const apiUrl = env === "production" ? "/api/breeds" : "http://localhost:5000";
 
-  const detectSize = () => {
-    detectW(window.innerWidth);
+  const detectWindowSize = () => {
+    setWindowDimension(window.innerWidth);
   };
 
   // closes search modal for medium-sized screens and larger
   useEffect(() => {
-    window.addEventListener("resize", detectSize);
+    window.addEventListener("resize", detectWindowSize);
     // when the window is wider than the small-screen breakpoint..
     if (windowDimension > 601) {
       setIsModalOpen(false);
     }
 
     return () => {
-      window.removeEventListener("resize", detectSize);
+      window.removeEventListener("resize", detectWindowSize);
     };
   }, [windowDimension]);
 
@@ -176,7 +176,6 @@ function App() {
           setBreedList,
           isModalOpen,
           setIsModalOpen,
-          windowDimension,
           isLoading,
           reqError,
           isNavOpen,

@@ -1,10 +1,10 @@
 import { FaSearch } from "react-icons/fa";
 import { StyledInput } from "./style";
-import { React, useContext, useState, useEffect, useRef } from "react";
+import { React, useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../App";
 import { InputResults } from "./InputResults/component";
-// { id }
+
 function Input({ id }) {
   // hooks
   const {
@@ -15,7 +15,6 @@ function Input({ id }) {
     setBreedList,
     isModalOpen,
     setIsModalOpen,
-    windowDimenion,
     isLoading,
     reqError,
     env,
@@ -28,7 +27,6 @@ function Input({ id }) {
   const [isError, setIsError] = useState(false);
   const [inputStr, setInputStr] = useState("");
   const navigate = useNavigate();
-  const modalSearchInput = useRef(null);
 
   // will vary depending on 'development' or 'production' environment
   const apiUrl = env === "production" ? "/api/breeds" : "http://localhost:5000";
@@ -36,13 +34,6 @@ function Input({ id }) {
   useEffect(() => {
     setInputStr("");
   }, [isModalOpen]);
-
-  // useEffect(() => {
-  //   if (isModalOpen) {
-  //     modalSearchInput.current.focus();
-  //   }
-
-  // }, []);
 
   const updateBreedScore = async (breedId) => {
     try {
@@ -210,8 +201,7 @@ function Input({ id }) {
       </p>
     );
   }
-  // id === "modal-input" &&
-  // d === "main-input" &&
+
   if (
     ((isInResultsOpen && isModalOpen) || (isInResultsOpen && !isModalOpen)) &&
     breedList.length > 0
@@ -236,21 +226,6 @@ function Input({ id }) {
       </p>
     );
   }
-  // {((id === "main-input" && isModalOpen) ||
-  // (id === "modal-input" && !isModalOpen)) &&
-
-  // when window is less wide than small-screen breakpoint
-  // windowDimenion < 601 ? (
-  //   <input
-  //     id="input-btn"
-  //     className="input-btn"
-  //     placeholder="Search"
-  //     value={inputStr}
-  //     disabled
-  //   />
-  // ) : (
-
-    // id="input-btn"
 
   return (
     <div className="input-search">
